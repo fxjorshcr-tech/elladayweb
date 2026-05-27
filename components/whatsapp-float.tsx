@@ -8,8 +8,15 @@ export function WhatsAppFloat() {
   const message = pick({
     es: `Hola, vi su sitio ${SITE.name} y me gustaría más información.`,
     en: `Hi, I saw your site ${SITE.name} and would like more information.`,
+    fr: `Bonjour, j'ai vu votre site ${SITE.name} et j'aimerais plus d'informations.`,
+    de: `Hallo, ich habe Ihre Seite ${SITE.name} gesehen und hätte gern mehr Informationen.`,
   })
-  const label = pick({ es: "Escribir por WhatsApp", en: "Message on WhatsApp" })
+  const label = pick({
+    es: "Escribir por WhatsApp",
+    en: "Message on WhatsApp",
+    fr: "Écrire sur WhatsApp",
+    de: "Auf WhatsApp schreiben",
+  })
 
   return (
     <a

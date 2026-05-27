@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 type Filter = "all" | PropertyType
 
 export default function PropertiesPage() {
-  const { t } = useLanguage()
+  const { t, pick } = useLanguage()
   const [filter, setFilter] = React.useState<Filter>("all")
 
   const filtered = React.useMemo(
@@ -73,8 +73,12 @@ export default function PropertiesPage() {
 
         {filtered.length === 0 && (
           <p className="py-20 text-center text-muted-foreground">
-            {t("properties.filterAll")} —{" "}
-            {filter !== "all" ? `0 ${filter}` : ""}
+            {pick({
+              es: "Pronto agregaremos más propiedades en esta categoría.",
+              en: "We'll add more properties in this category soon.",
+              fr: "D'autres propriétés arriveront bientôt dans cette catégorie.",
+              de: "Wir fügen bald weitere Immobilien in dieser Kategorie hinzu.",
+            })}
           </p>
         )}
       </section>

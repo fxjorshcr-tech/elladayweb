@@ -3,27 +3,36 @@
 import * as React from "react"
 import { dictionary, translate, type DictKey, type Language } from "./dictionary"
 
+type LangValues<T> = { es: T; en: T; fr?: T; de?: T }
+
 type LanguageContextValue = {
   lang: Language
   setLang: (lang: Language) => void
   t: (key: DictKey) => string
-  pick: <T>(values: { es: T; en: T }) => T
+  pick: <T>(values: LangValues<T>) => T
 }
 
 const LanguageContext = React.createContext<LanguageContextValue | null>(null)
 
 const STORAGE_KEY = "elladay-lang"
+const VALID_LANGS: Language[] = ["es", "en", "fr", "de"]
+
+function detectBrowserLang(): Language {
+  if (typeof navigator === "undefined") return "es"
+  const code = navigator.language.toLowerCase().slice(0, 2)
+  return (VALID_LANGS as string[]).includes(code) ? (code as Language) : "es"
+}
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = React.useState<Language>("es")
 
   React.useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY) as Language | null
-    if (stored === "es" || stored === "en") {
+    if (stored && (VALID_LANGS as string[]).includes(stored)) {
       setLangState(stored)
       document.documentElement.lang = stored
     } else {
-      const browser = navigator.language.toLowerCase().startsWith("en") ? "en" : "es"
+      const browser = detectBrowserLang()
       setLangState(browser)
       document.documentElement.lang = browser
     }
@@ -40,7 +49,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       lang,
       setLang,
       t: (key) => translate(key, lang),
-      pick: ({ es, en }) => (lang === "es" ? es : en),
+      pick: <T,>(values: LangValues<T>): T => {
+        const v = values[lang]
+        if (v !== undefined) return v
+        return values.en
+      },
     }),
     [lang, setLang]
   )

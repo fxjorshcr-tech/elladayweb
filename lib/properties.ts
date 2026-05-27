@@ -1,6 +1,9 @@
 export type PropertyType = "house" | "lot" | "farm"
 export type Agent = "dayana" | "ella"
 
+export type L = { es: string; en: string; fr?: string; de?: string }
+export type LArr = { es: string[]; en: string[]; fr?: string[]; de?: string[] }
+
 export type Property = {
   slug: string
   type: PropertyType
@@ -11,12 +14,12 @@ export type Property = {
   builtArea?: number
   lotSize: number
   lotUnit: "m2" | "ha"
-  location: { es: string; en: string }
+  location: L
   mapQuery: string
-  title: { es: string; en: string }
-  shortDescription: { es: string; en: string }
-  description: { es: string[]; en: string[] }
-  highlights: { es: string[]; en: string[] }
+  title: L
+  shortDescription: L
+  description: LArr
+  highlights: LArr
   images: { src: string; alt: string }[]
 }
 
@@ -34,26 +37,42 @@ export const properties: Property[] = [
     location: {
       es: "El Castillo, La Fortuna",
       en: "El Castillo, La Fortuna",
+      fr: "El Castillo, La Fortuna",
+      de: "El Castillo, La Fortuna",
     },
     mapQuery: "El Castillo, La Fortuna, Costa Rica",
     title: {
       es: "Villa moderna con vista al Volcán Arenal",
       en: "Modern villa with Arenal Volcano view",
+      fr: "Villa moderne avec vue sur le volcan Arenal",
+      de: "Moderne Villa mit Blick auf den Arenal-Vulkan",
     },
     shortDescription: {
-      es: "Casa contemporánea de 3 habitaciones con vista directa al volcán, piscina infinita y acabados premium.",
-      en: "Contemporary 3-bedroom home with direct volcano views, infinity pool, and premium finishes.",
+      es: "Casa contemporánea de 3 habitaciones con vista directa al volcán, piscina infinita y acabados de primera.",
+      en: "Contemporary 3-bedroom home with direct volcano views, infinity pool and premium finishes.",
+      fr: "Maison contemporaine de 3 chambres avec vue directe sur le volcan, piscine à débordement et finitions haut de gamme.",
+      de: "Modernes 3-Zimmer-Haus mit direktem Vulkanblick, Infinity-Pool und hochwertigen Materialien.",
     },
     description: {
       es: [
-        "Una propiedad que combina arquitectura contemporánea con la majestuosidad del paisaje. Ubicada en El Castillo, ofrece una vista panorámica e ininterrumpida del Volcán Arenal y el lago.",
-        "El diseño abierto integra interior y exterior. La sala principal se abre hacia una terraza con piscina infinita orientada al volcán. Acabados de madera de teca, pisos de porcelanato grande formato y carpintería italiana.",
-        "Ideal como residencia principal o alquiler vacacional premium. La zona ya cuenta con propiedades similares facturando entre 250 y 400 USD por noche en temporada alta.",
+        "Una casa que aprovecha la vista en cada metro. Ubicada en El Castillo, mira de frente al Arenal y al lago.",
+        "El diseño abierto conecta la sala con la terraza y la piscina infinita orientada al volcán. Acabados en madera de teca, porcelanato de gran formato y carpintería italiana.",
+        "Funciona como casa de habitación o como alquiler vacacional. Casas parecidas en la zona facturan entre 250 y 400 USD por noche en temporada alta.",
       ],
       en: [
-        "A property that combines contemporary architecture with the majesty of the landscape. Located in El Castillo, it offers panoramic, unobstructed views of the Arenal Volcano and the lake.",
-        "The open design integrates indoor and outdoor spaces. The main living area opens onto a terrace with an infinity pool facing the volcano. Teak wood finishes, large-format porcelain floors, and Italian cabinetry.",
-        "Ideal as a primary residence or premium vacation rental. The area already features similar properties earning between $250 and $400 per night in high season.",
+        "A house that uses the view in every square meter. Sitting in El Castillo, it faces the Arenal and the lake head-on.",
+        "The open layout links the living room to the terrace and the infinity pool aimed at the volcano. Teak wood finishes, large-format porcelain floors and Italian cabinetry.",
+        "Works as a home or a vacation rental. Similar houses in the area earn $250 to $400 per night in high season.",
+      ],
+      fr: [
+        "Une maison qui exploite la vue à chaque mètre. Située à El Castillo, elle fait face à l'Arenal et au lac.",
+        "Le plan ouvert relie le salon à la terrasse et à la piscine à débordement orientée vers le volcan. Finitions en teck, grès cérame grand format et menuiseries italiennes.",
+        "Elle convient à une résidence principale comme à la location saisonnière. Des maisons semblables dans la zone facturent entre 250 et 400 USD la nuit en haute saison.",
+      ],
+      de: [
+        "Ein Haus, das die Aussicht in jedem Quadratmeter nutzt. In El Castillo gelegen, blickt es direkt auf den Arenal und den See.",
+        "Der offene Grundriss verbindet Wohnbereich, Terrasse und Infinity-Pool mit Blick auf den Vulkan. Teakholz, großformatige Feinsteinzeugböden und italienische Einbauten.",
+        "Ideal als Wohnsitz oder Ferienvermietung. Vergleichbare Häuser erzielen in der Hauptsaison 250 bis 400 USD pro Nacht.",
       ],
     },
     highlights: {
@@ -61,17 +80,33 @@ export const properties: Property[] = [
         "Vista directa al Volcán Arenal",
         "Piscina infinita climatizada",
         "Paneles solares instalados",
-        "Cisterna de agua de 5,000L",
+        "Cisterna de 5,000 L",
         "Camino asfaltado todo el año",
         "15 minutos al centro de La Fortuna",
       ],
       en: [
         "Direct Arenal Volcano view",
         "Heated infinity pool",
-        "Installed solar panels",
-        "5,000L water cistern",
-        "Paved road year-round access",
+        "Solar panels installed",
+        "5,000 L water cistern",
+        "Paved road access year-round",
         "15 minutes to La Fortuna town",
+      ],
+      fr: [
+        "Vue directe sur le volcan Arenal",
+        "Piscine à débordement chauffée",
+        "Panneaux solaires installés",
+        "Citerne de 5 000 L",
+        "Route goudronnée toute l'année",
+        "15 minutes du centre de La Fortuna",
+      ],
+      de: [
+        "Direkter Blick auf den Arenal-Vulkan",
+        "Beheizter Infinity-Pool",
+        "Installierte Solarmodule",
+        "Wassertank 5.000 L",
+        "Ganzjährig asphaltierter Zugang",
+        "15 Minuten ins Zentrum von La Fortuna",
       ],
     },
     images: [
@@ -107,31 +142,47 @@ export const properties: Property[] = [
     location: {
       es: "Tronadora, Lago Arenal",
       en: "Tronadora, Arenal Lake",
+      fr: "Tronadora, lac Arenal",
+      de: "Tronadora, Arenal-See",
     },
     mapQuery: "Tronadora, Arenal, Costa Rica",
     title: {
       es: "Lote con vista al lago y al volcán",
       en: "Lot with lake and volcano views",
+      fr: "Terrain avec vue sur le lac et le volcan",
+      de: "Grundstück mit See- und Vulkanblick",
     },
     shortDescription: {
-      es: "2,100 m² de tierra con plano catastrado, agua, electricidad y vista doble: lago Arenal y volcán al fondo.",
-      en: "2,100 m² of land with surveyed plan, water, electricity, and a double view: Arenal Lake and volcano in the background.",
+      es: "2,100 m² con plano catastrado, servicios en lindero y vista doble: lago Arenal y volcán al fondo.",
+      en: "2,100 m² with surveyed plan, utilities at the property line and a double view: Arenal Lake and the volcano in the background.",
+      fr: "2 100 m² avec plan cadastré, services à la limite et double vue : le lac Arenal et le volcan en arrière-plan.",
+      de: "2.100 m² mit Katasterplan, Versorgungsanschlüssen an der Grenze und Doppelblick: Arenal-See und Vulkan im Hintergrund.",
     },
     description: {
       es: [
-        "Una oportunidad única para construir el proyecto de tus sueños. El terreno está plano en la zona de construcción y suavemente inclinado hacia el lago, lo que garantiza una vista despejada.",
-        "Servicios públicos llegan hasta el lindero: agua del acueducto rural, electricidad y fibra óptica disponible. Plano catastrado y estudios de suelo recientes incluidos en la documentación.",
-        "Tronadora es una de las zonas con mayor revalorización de los últimos cinco años, gracias a su clima fresco, vistas privilegiadas y cercanía a Nuevo Arenal.",
+        "Una oportunidad real para construir lo que tenés en mente. El terreno es plano en la zona de la casa y se inclina suave hacia el lago, lo que garantiza vista despejada.",
+        "Servicios públicos en el lindero: agua del acueducto rural, electricidad y fibra óptica disponible. Plano catastrado y estudio de suelo reciente en la documentación.",
+        "Tronadora es una de las zonas con mayor revalorización en los últimos cinco años. Clima fresco, vistas que cortan la respiración y cercanía a Nuevo Arenal.",
       ],
       en: [
-        "A unique opportunity to build your dream project. The land is flat in the building area and gently sloped toward the lake, ensuring an unobstructed view.",
-        "Utilities reach the property line: rural aqueduct water, electricity, and fiber internet available. Surveyed plan and recent soil studies included in the documentation.",
-        "Tronadora is one of the most appreciating areas of the last five years, thanks to its cool climate, privileged views, and proximity to Nuevo Arenal.",
+        "A real chance to build what you have in mind. The land is flat in the building area and slopes gently toward the lake, keeping the view clear.",
+        "Utilities at the property line: rural aqueduct water, electricity and fiber internet available. Surveyed plan and recent soil study included in the documentation.",
+        "Tronadora is one of the most appreciating areas of the last five years. Cool climate, breathtaking views and close to Nuevo Arenal.",
+      ],
+      fr: [
+        "Une vraie occasion de bâtir ce que vous imaginez. Le terrain est plat dans la zone de construction et s'incline doucement vers le lac, gardant la vue dégagée.",
+        "Services à la limite : eau de l'aqueduc rural, électricité et fibre optique disponibles. Plan cadastré et étude de sol récente inclus dans le dossier.",
+        "Tronadora est l'une des zones avec la plus forte plus-value de ces cinq dernières années. Climat frais, vues à couper le souffle et proximité de Nuevo Arenal.",
+      ],
+      de: [
+        "Eine echte Gelegenheit, das zu bauen, was Sie sich vorstellen. Das Grundstück ist im Baubereich eben und neigt sich sanft zum See, sodass die Aussicht frei bleibt.",
+        "Versorgung an der Grundstücksgrenze: Wasser aus dem ländlichen Aquädukt, Strom und Glasfaser verfügbar. Katasterplan und aktuelle Bodenuntersuchung in den Unterlagen.",
+        "Tronadora gehört zu den Regionen mit der stärksten Wertentwicklung der letzten fünf Jahre. Kühles Klima, atemberaubende Aussicht und Nähe zu Nuevo Arenal.",
       ],
     },
     highlights: {
       es: [
-        "Plano catastrado al día",
+        "Plano catastrado vigente",
         "Vista al lago y al volcán",
         "Servicios públicos en lindero",
         "Suelo apto para construcción",
@@ -141,10 +192,26 @@ export const properties: Property[] = [
       en: [
         "Current surveyed plan",
         "Lake and volcano view",
-        "Utilities at property line",
-        "Buildable soil verified",
+        "Utilities at the property line",
+        "Buildable soil confirmed",
         "Public road access",
         "Cool climate year-round",
+      ],
+      fr: [
+        "Plan cadastré à jour",
+        "Vue sur le lac et le volcan",
+        "Services à la limite de propriété",
+        "Sol constructible confirmé",
+        "Accès par route publique",
+        "Climat frais toute l'année",
+      ],
+      de: [
+        "Aktueller Katasterplan",
+        "See- und Vulkanblick",
+        "Versorgung an der Grundstücksgrenze",
+        "Bebaubarkeit bestätigt",
+        "Zufahrt über öffentliche Straße",
+        "Ganzjährig kühles Klima",
       ],
     },
     images: [
@@ -179,26 +246,42 @@ export const properties: Property[] = [
     location: {
       es: "Z-Trece, La Fortuna",
       en: "Z-Trece, La Fortuna",
+      fr: "Z-Trece, La Fortuna",
+      de: "Z-Trece, La Fortuna",
     },
     mapQuery: "Z-Trece, La Fortuna, San Carlos, Costa Rica",
     title: {
       es: "Finca de 12 hectáreas con río propio",
       en: "12-hectare farm with private river",
+      fr: "Finca de 12 hectares avec rivière privée",
+      de: "Hof mit 12 Hektar und eigenem Fluss",
     },
     shortDescription: {
-      es: "Finca productiva con casa principal, 12 hectáreas, río que cruza la propiedad y potencial eco-turístico.",
-      en: "Productive farm with main house, 12 hectares, river crossing the property, and eco-tourism potential.",
+      es: "Finca productiva con casa principal, 12 hectáreas, río que la cruza y potencial eco-turístico.",
+      en: "Productive farm with main house, 12 hectares, a river crossing the land and eco-tourism potential.",
+      fr: "Finca productive avec maison principale, 12 hectares, rivière traversant la propriété et fort potentiel éco-touristique.",
+      de: "Produktiver Hof mit Haupthaus, 12 Hektar, einem durchfließenden Fluss und Potenzial für Ökotourismus.",
     },
     description: {
       es: [
-        "Una finca con historia familiar y enorme potencial. 12 hectáreas en producción activa de café y plátano, con áreas de bosque secundario protegido y un río limpio que la cruza de norte a sur.",
-        "La casa principal de madera y concreto cuenta con 4 habitaciones, 3 baños y un amplio corredor que mira hacia el Arenal en días despejados. Incluye un beneficio de café y galera para equipo agrícola.",
-        "Múltiples vocaciones posibles: continuar la operación agrícola actual, desarrollar un eco-lodge boutique, segregar para venta de lotes, o residencia familiar con producción propia. Permisos municipales en regla.",
+        "Una finca con historia familiar y mucho potencial. 12 hectáreas en producción activa de café y plátano, áreas de bosque secundario protegido y un río limpio que la cruza de norte a sur.",
+        "La casa principal, de madera y concreto, tiene 4 habitaciones, 3 baños y un corredor amplio que mira al Arenal en días despejados. Incluye un beneficio de café y galera para equipo.",
+        "Varias vocaciones posibles: seguir la operación agrícola, levantar un eco-lodge boutique, segregar lotes o usarla como casa de habitación con producción propia. Permisos al día.",
       ],
       en: [
-        "A farm with family history and enormous potential. 12 hectares in active coffee and plantain production, with protected secondary forest areas and a clean river crossing it from north to south.",
-        "The main wood-and-concrete house has 4 bedrooms, 3 bathrooms, and a wide veranda facing the Arenal on clear days. Includes a coffee processing facility and shed for agricultural equipment.",
-        "Multiple possible uses: continue current agricultural operation, develop a boutique eco-lodge, subdivide for lot sales, or use as a family residence with self-production. Municipal permits in order.",
+        "A farm with family history and serious potential. 12 hectares in active coffee and plantain production, protected secondary forest, and a clean river crossing the land north to south.",
+        "The main wood-and-concrete house has 4 bedrooms, 3 bathrooms and a wide veranda facing the Arenal on clear days. Includes a coffee processing facility and equipment shed.",
+        "Several possible uses: keep the farm running, build a boutique eco-lodge, subdivide into lots or live there with your own production. Permits up to date.",
+      ],
+      fr: [
+        "Une finca avec une histoire familiale et un vrai potentiel. 12 hectares en production active de café et de bananes, des zones de forêt secondaire protégée et une rivière propre qui la traverse du nord au sud.",
+        "La maison principale, en bois et béton, compte 4 chambres, 3 salles de bain et une large véranda tournée vers l'Arenal par temps clair. Comprend une unité de traitement du café et un hangar à matériel.",
+        "Plusieurs vocations possibles : poursuivre l'exploitation, créer un éco-lodge boutique, diviser en terrains ou en faire une résidence avec production propre. Permis à jour.",
+      ],
+      de: [
+        "Ein Hof mit Familiengeschichte und großem Potenzial. 12 Hektar mit aktivem Kaffee- und Bananenanbau, geschützte Sekundärwaldflächen und ein sauberer Fluss, der das Grundstück von Nord nach Süd durchquert.",
+        "Das Haupthaus aus Holz und Beton hat 4 Schlafzimmer, 3 Bäder und eine weite Veranda mit Blick auf den Arenal an klaren Tagen. Inklusive Kaffeeverarbeitung und Geräteschuppen.",
+        "Mehrere Nutzungen möglich: landwirtschaftlicher Betrieb fortführen, ein Boutique-Öko-Lodge errichten, in Grundstücke aufteilen oder als Wohnsitz mit eigener Produktion nutzen. Genehmigungen aktuell.",
       ],
     },
     highlights: {
@@ -217,6 +300,22 @@ export const properties: Property[] = [
         "4-bedroom main house",
         "Protected secondary forest",
         "Municipal permits up to date",
+      ],
+      fr: [
+        "12 hectares titrés",
+        "Rivière propre sur la propriété",
+        "Production de café active",
+        "Maison principale 4 chambres",
+        "Forêt secondaire protégée",
+        "Permis municipaux à jour",
+      ],
+      de: [
+        "12 Hektar mit Titel",
+        "Sauberer Fluss auf dem Grundstück",
+        "Aktive Kaffeeproduktion",
+        "Haupthaus mit 4 Schlafzimmern",
+        "Geschützter Sekundärwald",
+        "Aktuelle kommunale Genehmigungen",
       ],
     },
     images: [
@@ -244,17 +343,24 @@ export const properties: Property[] = [
   },
 ]
 
-export const propertyAgents: Record<
-  Agent,
-  { name: string; role: { es: string; en: string }; whatsapp?: string }
-> = {
+export const propertyAgents: Record<Agent, { name: string; role: L }> = {
   dayana: {
     name: "Dayana Sibaja",
-    role: { es: "Agente · Cofundadora", en: "Agent · Co-founder" },
+    role: {
+      es: "Agente · Cofundadora",
+      en: "Agent · Co-founder",
+      fr: "Agent · Cofondatrice",
+      de: "Maklerin · Mitgründerin",
+    },
   },
   ella: {
     name: "Ella Calero",
-    role: { es: "Agente · Cofundadora", en: "Agent · Co-founder" },
+    role: {
+      es: "Agente · Cofundadora",
+      en: "Agent · Co-founder",
+      fr: "Agent · Cofondatrice",
+      de: "Maklerin · Mitgründerin",
+    },
   },
 }
 
@@ -262,8 +368,15 @@ export function getProperty(slug: string): Property | undefined {
   return properties.find((p) => p.slug === slug)
 }
 
-export function formatPrice(usd: number, lang: "es" | "en" = "es"): string {
-  const locale = lang === "es" ? "es-CR" : "en-US"
+export function formatPrice(usd: number, lang: "es" | "en" | "fr" | "de" = "es"): string {
+  const locale =
+    lang === "es"
+      ? "es-CR"
+      : lang === "fr"
+        ? "fr-FR"
+        : lang === "de"
+          ? "de-DE"
+          : "en-US"
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "USD",

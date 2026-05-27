@@ -35,10 +35,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 right-0 left-0 z-40 transition-all duration-300",
+        "fixed top-0 right-0 left-0 z-40 backdrop-blur-md transition-all duration-300",
         scrolled || open
-          ? "border-b border-border bg-background/95 backdrop-blur"
-          : "bg-transparent"
+          ? "border-b border-border bg-background/80 shadow-[0_1px_0_rgba(0,0,0,0.02)]"
+          : "border-b border-white/10 bg-background/40"
       )}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-20">
@@ -63,7 +63,7 @@ export function Navbar() {
                   "relative text-sm tracking-wide transition-colors",
                   active
                     ? "text-brand-green"
-                    : "text-muted-foreground hover:text-brand-green"
+                    : "text-brand-green/70 hover:text-brand-green"
                 )}
               >
                 {link.label}
@@ -104,7 +104,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="border-t border-border bg-background/95 backdrop-blur md:hidden">
           <nav className="container-page flex flex-col py-4">
             {links.map((link) => {
               const active =
@@ -115,7 +115,7 @@ export function Navbar() {
                   href={link.href}
                   className={cn(
                     "py-3 text-base tracking-wide",
-                    active ? "text-brand-green" : "text-muted-foreground"
+                    active ? "text-brand-green" : "text-brand-green/70"
                   )}
                 >
                   {link.label}

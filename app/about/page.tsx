@@ -5,11 +5,24 @@ import Link from "next/link"
 import { useLanguage } from "@/lib/i18n/provider"
 import { FadeIn } from "@/components/fade-in"
 
-const ARENAL_IMG =
-  "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/Arenal%20Volcano.webp"
+const HERO_IMG =
+  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=2400&q=80"
+const ANIMALS_IMG =
+  "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=2000&q=80"
+const STORY_IMG =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
 
 export default function AboutPage() {
   const { t, pick } = useLanguage()
+
+  const valueKeys = [
+    "trust",
+    "closeness",
+    "elegance",
+    "nature",
+    "commitment",
+    "growth",
+  ] as const
 
   return (
     <>
@@ -31,8 +44,8 @@ export default function AboutPage() {
         <FadeIn>
           <div className="relative aspect-[16/9] overflow-hidden rounded-sm bg-muted">
             <Image
-              src={ARENAL_IMG}
-              alt="Arenal landscape"
+              src={HERO_IMG}
+              alt="Home with lush surroundings"
               fill
               sizes="100vw"
               className="object-cover"
@@ -42,41 +55,159 @@ export default function AboutPage() {
         </FadeIn>
       </section>
 
-      <section className="container-narrow pb-24">
-        <FadeIn>
-          <h2 className="font-serif text-4xl text-brand-green md:text-5xl">
-            {t("about.storyTitle")}
-          </h2>
-          <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
-            <p>{t("about.story1")}</p>
-            <p>{t("about.story2")}</p>
-          </div>
-        </FadeIn>
+      <section className="container-page pb-24">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+          <FadeIn className="md:col-span-7">
+            <h2 className="font-serif text-4xl text-brand-green md:text-5xl">
+              {t("about.storyTitle")}
+            </h2>
+            <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
+              <p>{t("about.story1")}</p>
+              <p>{t("about.story2")}</p>
+              <p className="font-serif text-2xl text-brand-green italic md:text-3xl">
+                {t("about.story3")}
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={120} className="md:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+              <Image
+                src={STORY_IMG}
+                alt="Living space in La Fortuna"
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
-      <section className="bg-brand-cream py-24 md:py-32">
+      <section className="bg-brand-cream py-24 md:py-28">
         <div className="container-page">
           <FadeIn>
-            <h2 className="font-serif text-4xl text-brand-green md:text-5xl">
-              {t("about.valuesTitle")}
+            <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
+              {pick({ es: "Esencia", en: "Essence", fr: "Essence", de: "Essenz" })}
+            </p>
+            <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+              {t("about.essenceTitle")}
             </h2>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
+              {t("about.essenceIntro")}
+            </p>
           </FadeIn>
-          <div className="mt-14 grid gap-10 md:grid-cols-3">
-            {[
-              { title: t("about.value1Title"), body: t("about.value1") },
-              { title: t("about.value2Title"), body: t("about.value2") },
-              { title: t("about.value3Title"), body: t("about.value3") },
-            ].map((v, i) => (
-              <FadeIn key={v.title} delay={i * 120}>
-                <div className="border-t border-brand-gold pt-6">
-                  <h3 className="font-serif text-2xl text-brand-green">{v.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    {v.body}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+
+          <FadeIn delay={100}>
+            <div className="mt-12 flex flex-wrap gap-3">
+              {(
+                [
+                  "essenceItems.one",
+                  "essenceItems.two",
+                  "essenceItems.three",
+                  "essenceItems.four",
+                  "essenceItems.five",
+                ] as const
+              ).map((k) => (
+                <span
+                  key={k}
+                  className="inline-flex items-center rounded-full border border-brand-sage bg-background px-5 py-2 text-sm tracking-wide text-brand-green"
+                >
+                  {t(`about.${k}` as const)}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="container-page py-24 md:py-28">
+        <FadeIn>
+          <h2 className="font-serif text-4xl text-brand-green md:text-5xl">
+            {t("about.valuesTitle")}
+          </h2>
+        </FadeIn>
+        <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
+          {valueKeys.map((k, i) => (
+            <FadeIn key={k} delay={i * 80}>
+              <div className="border-t border-brand-gold pt-6">
+                <h3 className="font-serif text-2xl text-brand-green">
+                  {t(`about.values.${k}.title` as const)}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {t(`about.values.${k}.body` as const)}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      <section className="container-page pb-24">
+        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+          <FadeIn>
+            <div className="rounded-sm bg-brand-sage p-10 text-brand-cream md:p-14">
+              <p className="text-xs tracking-[0.22em] text-brand-cream/80 uppercase">
+                {t("about.missionTitle")}
+              </p>
+              <p className="mt-6 font-serif text-2xl leading-relaxed md:text-3xl">
+                {t("about.mission")}
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={120}>
+            <div className="rounded-sm bg-brand-green p-10 text-brand-cream md:p-14">
+              <p className="text-xs tracking-[0.22em] text-brand-cream/80 uppercase">
+                {t("about.visionTitle")}
+              </p>
+              <p className="mt-6 font-serif text-2xl leading-relaxed md:text-3xl">
+                {t("about.vision")}
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="container-page pb-24 md:pb-32">
+        <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
+          <FadeIn className="md:col-span-6">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+              <Image
+                src={ANIMALS_IMG}
+                alt="Dog in nature"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </FadeIn>
+          <FadeIn delay={120} className="md:col-span-6">
+            <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
+              {pick({
+                es: "Algo personal",
+                en: "Something personal",
+                fr: "Quelque chose de personnel",
+                de: "Etwas Persönliches",
+              })}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+              {t("about.animalsTitle")}
+            </h2>
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
+              <p>{t("about.animals1")}</p>
+              <p>{t("about.animals2")}</p>
+            </div>
+            <div className="mt-8 flex items-center gap-3 text-sm text-brand-green">
+              <PawIcon />
+              <span className="tracking-wide">
+                {pick({
+                  es: "Pet-friendly",
+                  en: "Pet-friendly",
+                  fr: "Acceptent les animaux",
+                  de: "Tierfreundlich",
+                })}
+              </span>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -102,8 +233,10 @@ export default function AboutPage() {
               role={t("agents.dayana.role")}
               bio={t("agents.dayana.bio")}
               extra={pick({
-                es: "Bilingüe español-inglés. Especializada en propiedades residenciales y fincas productivas. Apasionada por el desarrollo sostenible y la conservación del patrimonio local.",
-                en: "Bilingual Spanish-English. Specialized in residential properties and productive farms. Passionate about sustainable development and conservation of local heritage.",
+                es: "Bilingüe español-inglés. Se siente en casa con propiedades residenciales y fincas productivas. Le gusta cuidar y se nota: con sus clientes y con cada animal que se le acerca.",
+                en: "Bilingual Spanish-English. Right at home with residential properties and productive farms. She likes to take care — of her clients and of every animal that comes near.",
+                fr: "Bilingue espagnol-anglais. À l'aise avec les biens résidentiels et les fincas productives. Elle aime prendre soin : de ses clients et des animaux qui croisent son chemin.",
+                de: "Zweisprachig Spanisch-Englisch. Zu Hause bei Wohnimmobilien und produktiven Höfen. Sie kümmert sich — um ihre Kundinnen und Kunden und um jedes Tier, das auf sie zukommt.",
               })}
               image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
             />
@@ -114,8 +247,10 @@ export default function AboutPage() {
               role={t("agents.ella.role")}
               bio={t("agents.ella.bio")}
               extra={pick({
-                es: "Bilingüe español-inglés. Enfocada en inversiones turísticas, lotes de desarrollo y compradores internacionales. Acompaña a sus clientes desde la primera visita hasta la escritura.",
-                en: "Bilingual Spanish-English. Focused on tourism investments, development lots and international buyers. Accompanies clients from the first visit through closing.",
+                es: "Bilingüe español-inglés. Le mueve la inversión turística y los lotes con potencial. Acompaña a sus clientes desde la primera visita hasta el día de la mudanza.",
+                en: "Bilingual Spanish-English. Drawn to tourism investments and lots with potential. She walks with her clients from the first visit until moving day.",
+                fr: "Bilingue espagnol-anglais. Passionnée par l'investissement touristique et les terrains à potentiel. Elle accompagne ses clients de la première visite au jour du déménagement.",
+                de: "Zweisprachig Spanisch-Englisch. Begeistert für Tourismusinvestitionen und Grundstücke mit Potenzial. Sie begleitet ihre Kundinnen und Kunden von der ersten Besichtigung bis zum Einzugstag.",
               })}
               image="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80"
             />
@@ -130,12 +265,16 @@ export default function AboutPage() {
               {pick({
                 es: "¿Quieres conocernos?",
                 en: "Want to meet us?",
+                fr: "Envie de nous rencontrer ?",
+                de: "Möchten Sie uns kennenlernen?",
               })}
             </h2>
             <p className="mt-6 text-brand-cream/80">
               {pick({
-                es: "Tomemos un café en La Fortuna o conversemos por videollamada — lo que te quede mejor.",
-                en: "Let's grab a coffee in La Fortuna or chat on a video call — whatever works for you.",
+                es: "Un café en La Fortuna o una videollamada — lo que te quede mejor.",
+                en: "A coffee in La Fortuna or a video call — whatever works for you.",
+                fr: "Un café à La Fortuna ou un appel vidéo — comme vous préférez.",
+                de: "Ein Kaffee in La Fortuna oder ein Videoanruf — was Ihnen besser passt.",
               })}
             </p>
             <div className="mt-10">
@@ -184,5 +323,23 @@ function AgentLong({
         <p className="text-sm leading-relaxed text-muted-foreground">{extra}</p>
       </div>
     </article>
+  )
+}
+
+function PawIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-5 w-5 text-brand-gold"
+      aria-hidden="true"
+    >
+      <ellipse cx="6" cy="10" rx="1.8" ry="2.4" />
+      <ellipse cx="10" cy="6" rx="1.8" ry="2.4" />
+      <ellipse cx="14" cy="6" rx="1.8" ry="2.4" />
+      <ellipse cx="18" cy="10" rx="1.8" ry="2.4" />
+      <path d="M12 11c3 0 6 2.5 6 5.5 0 1.7-1.3 3-3 3-1 0-1.7-.4-2.3-.8-.4-.3-.7-.5-.7-.5s-.3.2-.7.5c-.6.4-1.3.8-2.3.8-1.7 0-3-1.3-3-3 0-3 3-5.5 6-5.5z" />
+    </svg>
   )
 }

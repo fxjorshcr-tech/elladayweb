@@ -7,10 +7,10 @@ import { formatPrice, type Property } from "@/lib/properties"
 import { cn } from "@/lib/utils"
 
 const typeLabels = {
-  house: { es: "Casa", en: "House" },
-  lot: { es: "Lote", en: "Lot" },
-  farm: { es: "Finca", en: "Farm" },
-}
+  house: { es: "Casa", en: "House", fr: "Maison", de: "Haus" },
+  lot: { es: "Lote", en: "Lot", fr: "Terrain", de: "Grundstück" },
+  farm: { es: "Finca", en: "Farm", fr: "Finca", de: "Hof" },
+} as const
 
 export function PropertyCard({
   property,
@@ -24,7 +24,7 @@ export function PropertyCard({
   const { lang, t, pick } = useLanguage()
   const sizeLabel =
     property.lotUnit === "ha"
-      ? `${property.lotSize} ${pick({ es: "ha", en: "ha" })}`
+      ? `${property.lotSize} ${pick({ es: "ha", en: "ha", fr: "ha", de: "ha" })}`
       : `${property.lotSize.toLocaleString()} m²`
 
   return (
@@ -61,12 +61,14 @@ export function PropertyCard({
         <div className="flex flex-wrap gap-x-5 gap-y-1 pt-1 text-sm text-muted-foreground">
           {property.bedrooms != null && (
             <span>
-              {property.bedrooms} {pick({ es: "hab", en: "bd" })}
+              {property.bedrooms}{" "}
+              {pick({ es: "hab", en: "bd", fr: "ch", de: "Zi" })}
             </span>
           )}
           {property.bathrooms != null && (
             <span>
-              {property.bathrooms} {pick({ es: "baños", en: "ba" })}
+              {property.bathrooms}{" "}
+              {pick({ es: "baños", en: "ba", fr: "sdb", de: "Bd" })}
             </span>
           )}
           <span>{sizeLabel}</span>

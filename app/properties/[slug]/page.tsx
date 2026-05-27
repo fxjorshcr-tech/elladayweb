@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import Link from "next/link"
 import { notFound, useParams } from "next/navigation"
 import { useLanguage } from "@/lib/i18n/provider"
@@ -16,10 +15,10 @@ import { FadeIn } from "@/components/fade-in"
 import { SITE, whatsappLink } from "@/lib/constants"
 
 const typeLabels = {
-  house: { es: "Casa", en: "House" },
-  lot: { es: "Lote", en: "Lot" },
-  farm: { es: "Finca", en: "Farm" },
-}
+  house: { es: "Casa", en: "House", fr: "Maison", de: "Haus" },
+  lot: { es: "Lote", en: "Lot", fr: "Terrain", de: "Grundstück" },
+  farm: { es: "Finca", en: "Farm", fr: "Finca", de: "Hof" },
+} as const
 
 export default function PropertyDetailPage() {
   const params = useParams<{ slug: string }>()
@@ -34,7 +33,12 @@ function PropertyDetail({ property }: { property: Property }) {
 
   const sizeLabel =
     property.lotUnit === "ha"
-      ? `${property.lotSize} ${pick({ es: "hectáreas", en: "hectares" })}`
+      ? `${property.lotSize} ${pick({
+          es: "hectáreas",
+          en: "hectares",
+          fr: "hectares",
+          de: "Hektar",
+        })}`
       : `${property.lotSize.toLocaleString()} m²`
 
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
@@ -43,8 +47,23 @@ function PropertyDetail({ property }: { property: Property }) {
 
   const propertyTitle = pick(property.title)
   const whatsappMsg = pick({
-    es: `Hola, me interesa la propiedad: "${propertyTitle}". ¿Podemos conversar?`,
-    en: `Hi, I'm interested in the property: "${propertyTitle}". Can we talk?`,
+    es: `Hola, me interesa la propiedad "${propertyTitle}". ¿Podemos conversar?`,
+    en: `Hi, I'm interested in the property "${propertyTitle}". Can we talk?`,
+    fr: `Bonjour, la propriété "${propertyTitle}" m'intéresse. Pouvons-nous en discuter ?`,
+    de: `Hallo, ich interessiere mich für die Immobilie "${propertyTitle}". Können wir sprechen?`,
+  })
+
+  const descriptionList = pick<readonly string[]>({
+    es: property.description.es,
+    en: property.description.en,
+    fr: property.description.fr,
+    de: property.description.de,
+  })
+  const highlightsList = pick<readonly string[]>({
+    es: property.highlights.es,
+    en: property.highlights.en,
+    fr: property.highlights.fr,
+    de: property.highlights.de,
   })
 
   return (
@@ -116,7 +135,7 @@ function PropertyDetail({ property }: { property: Property }) {
                   {t("properties.description")}
                 </h2>
                 <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
-                  {pick(property.description).map((p, i) => (
+                  {descriptionList.map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
                 </div>
@@ -129,7 +148,7 @@ function PropertyDetail({ property }: { property: Property }) {
                   {t("properties.highlights")}
                 </h2>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {pick(property.highlights).map((h) => (
+                  {highlightsList.map((h) => (
                     <li
                       key={h}
                       className="flex items-start gap-3 text-sm text-foreground"
@@ -193,7 +212,12 @@ function PropertyDetail({ property }: { property: Property }) {
                     </a>
                     <a
                       href={`mailto:${SITE.email}?subject=${encodeURIComponent(
-                        `${pick({ es: "Consulta", en: "Inquiry" })}: ${propertyTitle}`
+                        `${pick({
+                          es: "Consulta",
+                          en: "Inquiry",
+                          fr: "Demande",
+                          de: "Anfrage",
+                        })}: ${propertyTitle}`
                       )}`}
                       className="flex w-full items-center justify-center rounded-full border border-brand-green px-5 py-3 text-sm tracking-wide text-brand-green transition-colors hover:bg-brand-green hover:text-brand-cream"
                     >
@@ -211,7 +235,9 @@ function PropertyDetail({ property }: { property: Property }) {
                   <p className="mt-2 text-sm text-muted-foreground">
                     {pick({
                       es: "Cuéntanos sobre ti y te respondemos en menos de 24 horas.",
-                      en: "Tell us about yourself and we'll respond within 24 hours.",
+                      en: "Tell us a bit about you and we'll reply within 24 hours.",
+                      fr: "Parlez-nous un peu de vous, nous répondons sous 24 heures.",
+                      de: "Erzählen Sie uns etwas über sich — wir antworten innerhalb von 24 Stunden.",
                     })}
                   </p>
                   <div className="mt-6">

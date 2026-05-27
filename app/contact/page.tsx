@@ -34,6 +34,8 @@ export default function ContactPage() {
                 pick({
                   es: "Hola, vengo del sitio EllaDay Homes.",
                   en: "Hi, I'm coming from the EllaDay Homes site.",
+                  fr: "Bonjour, je viens du site EllaDay Homes.",
+                  de: "Hallo, ich komme von der EllaDay Homes Website.",
                 })
               )}
               external
@@ -44,14 +46,26 @@ export default function ContactPage() {
               href={`mailto:${SITE.email}`}
             />
             <ContactLine
-              label={pick({ es: "Ubicación", en: "Location" })}
+              label={pick({
+                es: "Ubicación",
+                en: "Location",
+                fr: "Emplacement",
+                de: "Standort",
+              })}
               value={SITE.location}
             />
             <ContactLine
-              label={pick({ es: "Horario", en: "Hours" })}
+              label={pick({
+                es: "Horario",
+                en: "Hours",
+                fr: "Horaires",
+                de: "Öffnungszeiten",
+              })}
               value={pick({
                 es: "Lunes a sábado · 8:00 — 18:00",
                 en: "Monday to Saturday · 8:00 AM — 6:00 PM",
+                fr: "Du lundi au samedi · 8 h — 18 h",
+                de: "Montag bis Samstag · 8:00 — 18:00 Uhr",
               })}
             />
           </div>
@@ -60,12 +74,19 @@ export default function ContactPage() {
         <FadeIn delay={120} className="md:col-span-3">
           <div className="rounded-sm border border-border bg-brand-cream p-8 md:p-12">
             <h2 className="font-serif text-3xl text-brand-green">
-              {pick({ es: "Envíanos un mensaje", en: "Send us a message" })}
+              {pick({
+                es: "Envíanos un mensaje",
+                en: "Send us a message",
+                fr: "Envoyez-nous un message",
+                de: "Senden Sie uns eine Nachricht",
+              })}
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               {pick({
                 es: "Completa el formulario y abriremos tu cliente de correo para enviarlo.",
                 en: "Fill in the form and we'll open your email client to send it.",
+                fr: "Remplissez le formulaire ; nous ouvrirons votre client e-mail pour l'envoyer.",
+                de: "Füllen Sie das Formular aus — wir öffnen Ihr E-Mail-Programm zum Senden.",
               })}
             </p>
             <div className="mt-8">

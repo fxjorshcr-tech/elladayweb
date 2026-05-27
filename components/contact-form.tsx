@@ -11,7 +11,7 @@ type Props = {
 }
 
 export function ContactForm({ prefillSubject, className }: Props) {
-  const { t, pick, lang } = useLanguage()
+  const { t, pick } = useLanguage()
   const [status, setStatus] = React.useState<"idle" | "sending" | "success" | "error">(
     "idle"
   )
@@ -27,12 +27,27 @@ export function ContactForm({ prefillSubject, className }: Props) {
       const subjectBase = pick({
         es: "Consulta desde EllaDay Homes",
         en: "Inquiry from EllaDay Homes",
+        fr: "Demande depuis EllaDay Homes",
+        de: "Anfrage von EllaDay Homes",
       })
       const subject = prefillSubject ? `${subjectBase} — ${prefillSubject}` : subjectBase
+      const labelName = pick({ es: "Nombre", en: "Name", fr: "Nom", de: "Name" })
+      const labelEmail = pick({
+        es: "Correo",
+        en: "Email",
+        fr: "E-mail",
+        de: "E-Mail",
+      })
+      const labelPhone = pick({
+        es: "Teléfono",
+        en: "Phone",
+        fr: "Téléphone",
+        de: "Telefon",
+      })
       const body = [
-        `${pick({ es: "Nombre", en: "Name" })}: ${name}`,
-        `${pick({ es: "Correo", en: "Email" })}: ${email}`,
-        phone ? `${pick({ es: "Teléfono", en: "Phone" })}: ${phone}` : null,
+        `${labelName}: ${name}`,
+        `${labelEmail}: ${email}`,
+        phone ? `${labelPhone}: ${phone}` : null,
         "",
         message,
       ]
@@ -51,10 +66,16 @@ export function ContactForm({ prefillSubject, className }: Props) {
 
   const whatsappMessage = pick({
     es: `Hola, soy ${name || "[nombre]"}.${
-      prefillSubject ? ` Estoy interesado/a en: ${prefillSubject}.` : ""
+      prefillSubject ? ` Me interesa: ${prefillSubject}.` : ""
     } ${message}`,
     en: `Hi, I'm ${name || "[name]"}.${
       prefillSubject ? ` I'm interested in: ${prefillSubject}.` : ""
+    } ${message}`,
+    fr: `Bonjour, je suis ${name || "[nom]"}.${
+      prefillSubject ? ` Je m'intéresse à : ${prefillSubject}.` : ""
+    } ${message}`,
+    de: `Hallo, ich bin ${name || "[Name]"}.${
+      prefillSubject ? ` Ich interessiere mich für: ${prefillSubject}.` : ""
     } ${message}`,
   })
 
@@ -97,6 +118,8 @@ export function ContactForm({ prefillSubject, className }: Props) {
           placeholder={pick({
             es: "Cuéntanos qué buscas...",
             en: "Tell us what you're looking for...",
+            fr: "Dites-nous ce que vous cherchez…",
+            de: "Erzählen Sie, was Sie suchen…",
           })}
         />
       </div>
@@ -108,7 +131,12 @@ export function ContactForm({ prefillSubject, className }: Props) {
           className="inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark disabled:opacity-60"
         >
           {status === "sending"
-            ? pick({ es: "Enviando…", en: "Sending…" })
+            ? pick({
+                es: "Enviando…",
+                en: "Sending…",
+                fr: "Envoi…",
+                de: "Senden…",
+              })
             : t("contact.formSubmit")}
         </button>
         <a
@@ -127,10 +155,12 @@ export function ContactForm({ prefillSubject, className }: Props) {
       {status === "error" && (
         <p className="pt-2 text-sm text-destructive">{t("contact.formError")}</p>
       )}
-      <p className="text-xs text-muted-foreground" aria-hidden={lang ? undefined : true}>
+      <p className="text-xs text-muted-foreground">
         {pick({
           es: "Al enviar abriremos tu cliente de correo. También puedes escribirnos directo por WhatsApp.",
           en: "Submitting will open your mail client. You can also message us directly on WhatsApp.",
+          fr: "L'envoi ouvre votre client e-mail. Vous pouvez aussi nous écrire directement sur WhatsApp.",
+          de: "Beim Senden öffnet sich Ihr E-Mail-Programm. Sie können uns auch direkt über WhatsApp schreiben.",
         })}
       </p>
     </form>

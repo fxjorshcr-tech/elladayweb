@@ -63,6 +63,8 @@ export function Footer() {
                   pick({
                     es: "Hola, me gustaría más información sobre sus propiedades.",
                     en: "Hi, I'd like more information about your properties.",
+                    fr: "Bonjour, j'aimerais plus d'informations sur vos propriétés.",
+                    de: "Hallo, ich hätte gern mehr Informationen zu Ihren Immobilien.",
                   })
                 )}
                 target="_blank"
@@ -92,8 +94,10 @@ export function Footer() {
           </p>
           <p>
             {pick({
-              es: "Diseñado con cariño en La Fortuna.",
-              en: "Designed with care in La Fortuna.",
+              es: "Hecho con cariño en La Fortuna.",
+              en: "Made with care in La Fortuna.",
+              fr: "Fait avec soin à La Fortuna.",
+              de: "Mit Liebe gemacht in La Fortuna.",
             })}
           </p>
         </div>
