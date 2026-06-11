@@ -286,18 +286,18 @@ export default function HomePage() {
           <FadeIn>
             <h2 className="font-serif text-4xl leading-tight text-balance md:text-5xl">
               {pick({
-                es: "¿Listo para encontrar tu lugar en La Fortuna?",
-                en: "Ready to find your place in La Fortuna?",
-                fr: "Prêt à trouver votre place à La Fortuna ?",
-                de: "Bereit, Ihren Platz in La Fortuna zu finden?",
+                es: "¿Buscas propiedad en La Fortuna?",
+                en: "Looking for property in La Fortuna?",
+                fr: "Vous cherchez une propriété à La Fortuna ?",
+                de: "Suchen Sie eine Immobilie in La Fortuna?",
               })}
             </h2>
             <p className="mt-6 text-brand-cream/80">
               {pick({
-                es: "Escríbenos. Sin presión, sin compromiso, solo conversamos.",
-                en: "Reach out. No pressure, no commitment, just a conversation.",
-                fr: "Écrivez-nous. Sans pression, sans engagement, juste une conversation.",
-                de: "Schreiben Sie uns. Ohne Druck, ohne Verpflichtung — einfach ein Gespräch.",
+                es: "Cuéntanos qué buscas y te mostramos lo que tenemos disponible. Sin compromiso.",
+                en: "Tell us what you're looking for and we'll show you what's available. No commitment.",
+                fr: "Dites-nous ce que vous cherchez et nous vous montrerons ce qui est disponible. Sans engagement.",
+                de: "Sagen Sie uns, was Sie suchen, und wir zeigen Ihnen, was verfügbar ist. Unverbindlich.",
               })}
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">

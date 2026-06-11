@@ -233,12 +233,12 @@ export default function AboutPage() {
               role={t("agents.dayana.role")}
               bio={t("agents.dayana.bio")}
               extra={pick({
-                es: "Bilingüe español-inglés. Se siente en casa con propiedades residenciales y fincas productivas. Le gusta cuidar y se nota: con sus clientes y con cada animal que se le acerca.",
-                en: "Bilingual Spanish-English. Right at home with residential properties and productive farms. She likes to take care — of her clients and of every animal that comes near.",
-                fr: "Bilingue espagnol-anglais. À l'aise avec les biens résidentiels et les fincas productives. Elle aime prendre soin : de ses clients et des animaux qui croisent son chemin.",
-                de: "Zweisprachig Spanisch-Englisch. Zu Hause bei Wohnimmobilien und produktiven Höfen. Sie kümmert sich — um ihre Kundinnen und Kunden und um jedes Tier, das auf sie zukommt.",
+                es: "Bilingüe español-inglés. Atiende sobre todo propiedades residenciales y fincas, y conoce bien los trámites de compra en la zona.",
+                en: "Bilingual Spanish-English. She mainly handles residential properties and farms, and knows the local buying process well.",
+                fr: "Bilingue espagnol-anglais. Elle s'occupe surtout des biens résidentiels et des fincas, et connaît bien les démarches d'achat dans la région.",
+                de: "Zweisprachig Spanisch-Englisch. Sie betreut vor allem Wohnimmobilien und Höfe und kennt die Kaufabläufe in der Region gut.",
               })}
-              image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+              image="https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/elladay/Day.png"
             />
           </FadeIn>
           <FadeIn delay={240}>
@@ -247,12 +247,12 @@ export default function AboutPage() {
               role={t("agents.ella.role")}
               bio={t("agents.ella.bio")}
               extra={pick({
-                es: "Bilingüe español-inglés. Le mueve la inversión turística y los lotes con potencial. Acompaña a sus clientes desde la primera visita hasta el día de la mudanza.",
-                en: "Bilingual Spanish-English. Drawn to tourism investments and lots with potential. She walks with her clients from the first visit until moving day.",
-                fr: "Bilingue espagnol-anglais. Passionnée par l'investissement touristique et les terrains à potentiel. Elle accompagne ses clients de la première visite au jour du déménagement.",
-                de: "Zweisprachig Spanisch-Englisch. Begeistert für Tourismusinvestitionen und Grundstücke mit Potenzial. Sie begleitet ihre Kundinnen und Kunden von der ersten Besichtigung bis zum Einzugstag.",
+                es: "Bilingüe español-inglés. Se enfoca en inversión turística y lotes, y acompaña a sus clientes desde la primera visita hasta el cierre.",
+                en: "Bilingual Spanish-English. She focuses on tourism investment and lots, and works with her clients from the first visit to closing.",
+                fr: "Bilingue espagnol-anglais. Elle se concentre sur l'investissement touristique et les terrains, et suit ses clients de la première visite à la signature.",
+                de: "Zweisprachig Spanisch-Englisch. Sie konzentriert sich auf Tourismusinvestitionen und Grundstücke und begleitet ihre Kunden von der ersten Besichtigung bis zum Abschluss.",
               })}
-              image="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80"
+              image="https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/elladay/Ella.png"
             />
           </FadeIn>
         </div>
@@ -271,10 +271,10 @@ export default function AboutPage() {
             </h2>
             <p className="mt-6 text-brand-cream/80">
               {pick({
-                es: "Un café en La Fortuna o una videollamada — lo que te quede mejor.",
-                en: "A coffee in La Fortuna or a video call — whatever works for you.",
-                fr: "Un café à La Fortuna ou un appel vidéo — comme vous préférez.",
-                de: "Ein Kaffee in La Fortuna oder ein Videoanruf — was Ihnen besser passt.",
+                es: "Podemos reunirnos en La Fortuna o hacer una videollamada, como te quede mejor.",
+                en: "We can meet in La Fortuna or do a video call, whatever works best for you.",
+                fr: "Nous pouvons nous voir à La Fortuna ou faire un appel vidéo, comme cela vous arrange.",
+                de: "Wir können uns in La Fortuna treffen oder einen Videoanruf machen, ganz wie es Ihnen passt.",
               })}
             </p>
             <div className="mt-10">

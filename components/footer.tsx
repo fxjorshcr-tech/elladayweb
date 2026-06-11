@@ -92,14 +92,14 @@ export function Footer() {
           <p>
             © {year} {SITE.name}. {t("footer.rights")}
           </p>
-          <p>
-            {pick({
-              es: "Hecho con cariño en La Fortuna.",
-              en: "Made with care in La Fortuna.",
-              fr: "Fait avec soin à La Fortuna.",
-              de: "Mit Liebe gemacht in La Fortuna.",
-            })}
-          </p>
+          <a
+            href={`https://instagram.com/${SITE.instagram}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-gold"
+          >
+            Instagram · @{SITE.instagram}
+          </a>
         </div>
       </div>
     </footer>

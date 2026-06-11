@@ -55,22 +55,22 @@ export const properties: Property[] = [
     },
     description: {
       es: [
-        "Una casa que aprovecha la vista en cada metro. Ubicada en El Castillo, mira de frente al Arenal y al lago.",
+        "Casa contemporánea en El Castillo, con vista directa al Volcán Arenal y al lago desde las áreas principales.",
         "El diseño abierto conecta la sala con la terraza y la piscina infinita orientada al volcán. Acabados en madera de teca, porcelanato de gran formato y carpintería italiana.",
         "Funciona como casa de habitación o como alquiler vacacional. Casas parecidas en la zona facturan entre 250 y 400 USD por noche en temporada alta.",
       ],
       en: [
-        "A house that uses the view in every square meter. Sitting in El Castillo, it faces the Arenal and the lake head-on.",
+        "Contemporary home in El Castillo, with direct views of the Arenal Volcano and the lake from the main living areas.",
         "The open layout links the living room to the terrace and the infinity pool aimed at the volcano. Teak wood finishes, large-format porcelain floors and Italian cabinetry.",
         "Works as a home or a vacation rental. Similar houses in the area earn $250 to $400 per night in high season.",
       ],
       fr: [
-        "Une maison qui exploite la vue à chaque mètre. Située à El Castillo, elle fait face à l'Arenal et au lac.",
+        "Maison contemporaine à El Castillo, avec vue directe sur le volcan Arenal et le lac depuis les pièces principales.",
         "Le plan ouvert relie le salon à la terrasse et à la piscine à débordement orientée vers le volcan. Finitions en teck, grès cérame grand format et menuiseries italiennes.",
         "Elle convient à une résidence principale comme à la location saisonnière. Des maisons semblables dans la zone facturent entre 250 et 400 USD la nuit en haute saison.",
       ],
       de: [
-        "Ein Haus, das die Aussicht in jedem Quadratmeter nutzt. In El Castillo gelegen, blickt es direkt auf den Arenal und den See.",
+        "Modernes Haus in El Castillo mit direktem Blick auf den Arenal-Vulkan und den See aus den Haupträumen.",
         "Der offene Grundriss verbindet Wohnbereich, Terrasse und Infinity-Pool mit Blick auf den Vulkan. Teakholz, großformatige Feinsteinzeugböden und italienische Einbauten.",
         "Ideal als Wohnsitz oder Ferienvermietung. Vergleichbare Häuser erzielen in der Hauptsaison 250 bis 400 USD pro Nacht.",
       ],
@@ -160,24 +160,24 @@ export const properties: Property[] = [
     },
     description: {
       es: [
-        "Una oportunidad real para construir lo que tenés en mente. El terreno es plano en la zona de la casa y se inclina suave hacia el lago, lo que garantiza vista despejada.",
+        "Terreno listo para construir. Es plano en la zona de la casa y se inclina suave hacia el lago, lo que garantiza una vista despejada.",
         "Servicios públicos en el lindero: agua del acueducto rural, electricidad y fibra óptica disponible. Plano catastrado y estudio de suelo reciente en la documentación.",
-        "Tronadora es una de las zonas con mayor revalorización en los últimos cinco años. Clima fresco, vistas que cortan la respiración y cercanía a Nuevo Arenal.",
+        "Tronadora es una de las zonas con mayor revalorización en los últimos cinco años. Clima fresco, buenas vistas y cercanía a Nuevo Arenal.",
       ],
       en: [
-        "A real chance to build what you have in mind. The land is flat in the building area and slopes gently toward the lake, keeping the view clear.",
+        "Land ready to build on. It's flat in the building area and slopes gently toward the lake, keeping the view clear.",
         "Utilities at the property line: rural aqueduct water, electricity and fiber internet available. Surveyed plan and recent soil study included in the documentation.",
-        "Tronadora is one of the most appreciating areas of the last five years. Cool climate, breathtaking views and close to Nuevo Arenal.",
+        "Tronadora is one of the most appreciating areas of the last five years. Cool climate, open views and close to Nuevo Arenal.",
       ],
       fr: [
-        "Une vraie occasion de bâtir ce que vous imaginez. Le terrain est plat dans la zone de construction et s'incline doucement vers le lac, gardant la vue dégagée.",
+        "Terrain prêt à construire. Il est plat dans la zone de construction et s'incline doucement vers le lac, gardant la vue dégagée.",
         "Services à la limite : eau de l'aqueduc rural, électricité et fibre optique disponibles. Plan cadastré et étude de sol récente inclus dans le dossier.",
-        "Tronadora est l'une des zones avec la plus forte plus-value de ces cinq dernières années. Climat frais, vues à couper le souffle et proximité de Nuevo Arenal.",
+        "Tronadora est l'une des zones avec la plus forte plus-value de ces cinq dernières années. Climat frais, belles vues dégagées et proximité de Nuevo Arenal.",
       ],
       de: [
-        "Eine echte Gelegenheit, das zu bauen, was Sie sich vorstellen. Das Grundstück ist im Baubereich eben und neigt sich sanft zum See, sodass die Aussicht frei bleibt.",
+        "Baureifes Grundstück. Im Baubereich eben, fällt es sanft zum See hin ab, sodass die Aussicht frei bleibt.",
         "Versorgung an der Grundstücksgrenze: Wasser aus dem ländlichen Aquädukt, Strom und Glasfaser verfügbar. Katasterplan und aktuelle Bodenuntersuchung in den Unterlagen.",
-        "Tronadora gehört zu den Regionen mit der stärksten Wertentwicklung der letzten fünf Jahre. Kühles Klima, atemberaubende Aussicht und Nähe zu Nuevo Arenal.",
+        "Tronadora gehört zu den Regionen mit der stärksten Wertentwicklung der letzten fünf Jahre. Kühles Klima, freie Aussicht und Nähe zu Nuevo Arenal.",
       ],
     },
     highlights: {
@@ -264,22 +264,22 @@ export const properties: Property[] = [
     },
     description: {
       es: [
-        "Una finca con historia familiar y mucho potencial. 12 hectáreas en producción activa de café y plátano, áreas de bosque secundario protegido y un río limpio que la cruza de norte a sur.",
+        "Finca de 12 hectáreas en producción activa de café y plátano, con áreas de bosque secundario protegido y un río limpio que la cruza de norte a sur.",
         "La casa principal, de madera y concreto, tiene 4 habitaciones, 3 baños y un corredor amplio que mira al Arenal en días despejados. Incluye un beneficio de café y galera para equipo.",
         "Varias vocaciones posibles: seguir la operación agrícola, levantar un eco-lodge boutique, segregar lotes o usarla como casa de habitación con producción propia. Permisos al día.",
       ],
       en: [
-        "A farm with family history and serious potential. 12 hectares in active coffee and plantain production, protected secondary forest, and a clean river crossing the land north to south.",
+        "A 12-hectare farm in active coffee and plantain production, with protected secondary forest and a clean river crossing the land north to south.",
         "The main wood-and-concrete house has 4 bedrooms, 3 bathrooms and a wide veranda facing the Arenal on clear days. Includes a coffee processing facility and equipment shed.",
         "Several possible uses: keep the farm running, build a boutique eco-lodge, subdivide into lots or live there with your own production. Permits up to date.",
       ],
       fr: [
-        "Une finca avec une histoire familiale et un vrai potentiel. 12 hectares en production active de café et de bananes, des zones de forêt secondaire protégée et une rivière propre qui la traverse du nord au sud.",
+        "Finca de 12 hectares en production active de café et de bananes plantain, avec des zones de forêt secondaire protégée et une rivière propre qui la traverse du nord au sud.",
         "La maison principale, en bois et béton, compte 4 chambres, 3 salles de bain et une large véranda tournée vers l'Arenal par temps clair. Comprend une unité de traitement du café et un hangar à matériel.",
         "Plusieurs vocations possibles : poursuivre l'exploitation, créer un éco-lodge boutique, diviser en terrains ou en faire une résidence avec production propre. Permis à jour.",
       ],
       de: [
-        "Ein Hof mit Familiengeschichte und großem Potenzial. 12 Hektar mit aktivem Kaffee- und Bananenanbau, geschützte Sekundärwaldflächen und ein sauberer Fluss, der das Grundstück von Nord nach Süd durchquert.",
+        "Hof mit 12 Hektar in aktivem Kaffee- und Bananenanbau, mit geschützten Sekundärwaldflächen und einem sauberen Fluss, der das Grundstück von Nord nach Süd durchquert.",
         "Das Haupthaus aus Holz und Beton hat 4 Schlafzimmer, 3 Bäder und eine weite Veranda mit Blick auf den Arenal an klaren Tagen. Inklusive Kaffeeverarbeitung und Geräteschuppen.",
         "Mehrere Nutzungen möglich: landwirtschaftlicher Betrieb fortführen, ein Boutique-Öko-Lodge errichten, in Grundstücke aufteilen oder als Wohnsitz mit eigener Produktion nutzen. Genehmigungen aktuell.",
       ],
