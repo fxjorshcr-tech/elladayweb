@@ -41,7 +41,7 @@ function PropertyDetail({ property }: { property: Property }) {
             fr: "hectares",
             de: "Hektar",
           })}`
-        : `${property.lotSize.toLocaleString()} m²`
+        : `${property.lotSize.toLocaleString("de-DE")} m²`
 
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
     property.mapQuery

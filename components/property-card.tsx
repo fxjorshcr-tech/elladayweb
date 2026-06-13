@@ -27,7 +27,7 @@ export function PropertyCard({
       ? null
       : property.lotUnit === "ha"
         ? `${property.lotSize} ${pick({ es: "ha", en: "ha", fr: "ha", de: "ha" })}`
-        : `${property.lotSize.toLocaleString()} m²`
+        : `${property.lotSize.toLocaleString("de-DE")} m²`
 
   return (
     <Link

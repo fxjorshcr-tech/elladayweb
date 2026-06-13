@@ -33,16 +33,19 @@ export type Property = {
 const PUBLIC_STORAGE =
   "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public"
 
+// Accepts the bucket plus any nested folders; each path segment is encoded
+// individually so "/" separators are preserved (e.g. "Lote1" + "Lote 2").
 const bucketImage =
-  (bucket: string) =>
+  (...prefix: string[]) =>
   (file: string, alt: string) => ({
-    src: `${PUBLIC_STORAGE}/${encodeURIComponent(bucket)}/${encodeURIComponent(file)}`,
+    src: `${PUBLIC_STORAGE}/${[...prefix, file].map(encodeURIComponent).join("/")}`,
     alt,
   })
 
 const casa1Image = bucketImage("Casa1 ELLADAY")
 const casa2Image = bucketImage("casa2")
 const lote1Image = bucketImage("Lote1")
+const lote2Image = bucketImage("Lote1", "Lote 2")
 
 export const properties: Property[] = [
   {
@@ -375,6 +378,99 @@ export const properties: Property[] = [
       lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (6).jpeg", "Lote en El Carmen de Peñas Blancas"),
       lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (7).jpeg", "Lote en El Carmen de Peñas Blancas"),
       lote1Image("WhatsApp Image 2026-06-13 at 2.16.07 PM.jpeg", "Lote en El Carmen de Peñas Blancas"),
+    ],
+  },
+  {
+    slug: "lote-centro-chachagua",
+    type: "lot",
+    agent: "ella",
+    price: 80000000,
+    currency: "CRC",
+    negotiable: true,
+    lotSize: 4735.47,
+    lotUnit: "m2",
+    location: {
+      es: "Chachagua Centro, San Ramón",
+      en: "Chachagua Centro, San Ramón",
+      fr: "Chachagua Centro, San Ramón",
+      de: "Chachagua Centro, San Ramón",
+    },
+    mapQuery: "Chachagua, San Ramón, Alajuela, Costa Rica",
+    title: {
+      es: "Lote plano en el centro de Chachagua con vista al volcán",
+      en: "Flat lot in the center of Chachagua with volcano view",
+      fr: "Terrain plat au centre de Chachagua avec vue sur le volcan",
+      de: "Ebenes Grundstück im Zentrum von Chachagua mit Vulkanblick",
+    },
+    shortDescription: {
+      es: "Lote de 4.735,47 m² en el puro centro de Chachagua, totalmente plano, con agua potable y electricidad instaladas y hermosa vista al volcán. Listo para construir.",
+      en: "4,735.47 m² lot right in the center of Chachagua, completely flat, with potable water and electricity installed and a beautiful volcano view. Ready to build.",
+      fr: "Terrain de 4 735,47 m² en plein centre de Chachagua, totalement plat, avec eau potable et électricité installées et une belle vue sur le volcan. Prêt à construire.",
+      de: "4.735,47 m² Grundstück mitten im Zentrum von Chachagua, völlig eben, mit installiertem Trinkwasser und Strom und herrlichem Vulkanblick. Baureif.",
+    },
+    description: {
+      es: [
+        "Se vende hermoso lote en el puro centro de Chachagua, en una ubicación estratégica y con fácil acceso a todos los servicios.",
+        "El terreno tiene un área de 4.735,47 m² y es totalmente plano. Cuenta con agua potable y electricidad ya instaladas (con medidor) y una hermosa vista al volcán.",
+        "Está listo para construir y es una excelente opción tanto para vivienda como para inversión, en una de las zonas con mayor proyección de la región.",
+      ],
+      en: [
+        "Beautiful lot for sale right in the center of Chachagua, in a strategic location with easy access to all services.",
+        "The land has an area of 4,735.47 m² and is completely flat. It has potable water and electricity already installed (with a meter) and a beautiful view of the volcano.",
+        "It is ready to build on and is an excellent option for both a home and an investment, in one of the most promising areas of the region.",
+      ],
+      fr: [
+        "Beau terrain à vendre en plein centre de Chachagua, dans un emplacement stratégique avec un accès facile à tous les services.",
+        "Le terrain a une superficie de 4 735,47 m² et est totalement plat. Il dispose de l'eau potable et de l'électricité déjà installées (avec compteur) et d'une belle vue sur le volcan.",
+        "Il est prêt à construire et constitue une excellente option aussi bien pour une résidence que pour un investissement, dans l'une des zones les plus prometteuses de la région.",
+      ],
+      de: [
+        "Schönes Grundstück zum Verkauf mitten im Zentrum von Chachagua, in strategischer Lage mit einfachem Zugang zu allen Dienstleistungen.",
+        "Das Grundstück hat eine Fläche von 4.735,47 m² und ist völlig eben. Es verfügt bereits über installiertes Trinkwasser und Strom (mit Zähler) sowie einen herrlichen Blick auf den Vulkan.",
+        "Es ist baureif und eine ausgezeichnete Option sowohl als Wohnsitz als auch als Investition, in einer der zukunftsträchtigsten Gegenden der Region.",
+      ],
+    },
+    highlights: {
+      es: [
+        "Área de 4.735,47 m²",
+        "Terreno totalmente plano",
+        "Agua potable y electricidad (con medidor)",
+        "Hermosa vista al volcán",
+        "Listo para construir",
+        "Ideal para vivienda o inversión",
+      ],
+      en: [
+        "4,735.47 m² area",
+        "Completely flat land",
+        "Potable water and electricity (metered)",
+        "Beautiful volcano view",
+        "Ready to build",
+        "Ideal for home or investment",
+      ],
+      fr: [
+        "Superficie de 4 735,47 m²",
+        "Terrain totalement plat",
+        "Eau potable et électricité (avec compteur)",
+        "Belle vue sur le volcan",
+        "Prêt à construire",
+        "Idéal pour résidence ou investissement",
+      ],
+      de: [
+        "Fläche von 4.735,47 m²",
+        "Völlig ebenes Grundstück",
+        "Trinkwasser und Strom (mit Zähler)",
+        "Herrlicher Vulkanblick",
+        "Baureif",
+        "Ideal für Wohnsitz oder Investition",
+      ],
+    },
+    images: [
+      lote2Image("WhatsApp Image 2026-06-13 at 2.16.06 PM.jpeg", "Lote en el centro de Chachagua"),
+      lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM.jpeg", "Lote en el centro de Chachagua"),
+      lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (1).jpeg", "Lote en el centro de Chachagua"),
+      lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (2).jpeg", "Lote en el centro de Chachagua"),
+      lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (3).jpeg", "Lote en el centro de Chachagua"),
+      lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (4).jpeg", "Lote en el centro de Chachagua"),
     ],
   },
 ]
