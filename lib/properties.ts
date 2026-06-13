@@ -42,6 +42,7 @@ const bucketImage =
 
 const casa1Image = bucketImage("Casa1 ELLADAY")
 const casa2Image = bucketImage("casa2")
+const lote1Image = bucketImage("Lote1")
 
 export const properties: Property[] = [
   {
@@ -279,6 +280,101 @@ export const properties: Property[] = [
       casa2Image("WhatsApp Image 2026-06-13 at 11.48.58 AM (2).jpeg", "Casa amueblada en Chachagua Centro"),
       casa2Image("WhatsApp Image 2026-06-13 at 11.48.58 AM (3).jpeg", "Casa amueblada en Chachagua Centro"),
       casa2Image("WhatsApp Image 2026-06-13 at 11.48.59 AM.jpeg", "Casa amueblada en Chachagua Centro"),
+    ],
+  },
+  {
+    slug: "lote-el-carmen-penas-blancas",
+    type: "lot",
+    agent: "ella",
+    price: 70000000,
+    currency: "CRC",
+    negotiable: true,
+    lotSize: 3116,
+    lotUnit: "m2",
+    location: {
+      es: "El Carmen de Peñas Blancas, San Ramón",
+      en: "El Carmen de Peñas Blancas, San Ramón",
+      fr: "El Carmen de Peñas Blancas, San Ramón",
+      de: "El Carmen de Peñas Blancas, San Ramón",
+    },
+    mapQuery: "El Carmen de Peñas Blancas, San Ramón, Alajuela, Costa Rica",
+    title: {
+      es: "Lote con acceso al río en El Carmen de Peñas Blancas",
+      en: "Lot with river access in El Carmen de Peñas Blancas",
+      fr: "Terrain avec accès à la rivière à El Carmen de Peñas Blancas",
+      de: "Grundstück mit Flusszugang in El Carmen de Peñas Blancas",
+    },
+    shortDescription: {
+      es: "Lote de 3.116 m² en El Carmen de Peñas Blancas, amplio y aprovechable, con acceso al río. Ideal para construir vivienda, cabañas o un proyecto turístico.",
+      en: "3,116 m² lot in El Carmen de Peñas Blancas, spacious and usable, with river access. Ideal for building a home, cabins or a tourism project.",
+      fr: "Terrain de 3 116 m² à El Carmen de Peñas Blancas, vaste et exploitable, avec accès à la rivière. Idéal pour construire une maison, des cabanes ou un projet touristique.",
+      de: "3.116 m² Grundstück in El Carmen de Peñas Blancas, weitläufig und nutzbar, mit Flusszugang. Ideal für ein Haus, Hütten oder ein Tourismusprojekt.",
+    },
+    description: {
+      es: [
+        "Se vende lote en El Carmen de Peñas Blancas, San Ramón, Alajuela, una zona tranquila y rodeada de naturaleza, con muy buen clima durante todo el año.",
+        "El terreno tiene un área de 3.116 m², es amplio y completamente aprovechable, y cuenta con acceso al río, lo que le da un atractivo especial al entorno.",
+        "Es ideal para construir una vivienda, cabañas o desarrollar un proyecto turístico, y representa una excelente oportunidad de inversión en una zona en crecimiento.",
+      ],
+      en: [
+        "Lot for sale in El Carmen de Peñas Blancas, San Ramón, Alajuela, a quiet area surrounded by nature and with a very pleasant climate all year round.",
+        "The land has an area of 3,116 m², it is spacious and fully usable, and it has access to the river, which gives the setting a special appeal.",
+        "It's ideal for building a home, cabins or developing a tourism project, and it represents an excellent investment opportunity in a growing area.",
+      ],
+      fr: [
+        "Terrain à vendre à El Carmen de Peñas Blancas, San Ramón, Alajuela, une zone paisible entourée de nature et au climat très agréable toute l'année.",
+        "Le terrain a une superficie de 3 116 m², il est vaste et entièrement exploitable, et dispose d'un accès à la rivière, ce qui donne un charme particulier au cadre.",
+        "Idéal pour construire une maison, des cabanes ou développer un projet touristique, il représente une excellente opportunité d'investissement dans une zone en plein essor.",
+      ],
+      de: [
+        "Grundstück zum Verkauf in El Carmen de Peñas Blancas, San Ramón, Alajuela, einer ruhigen, von Natur umgebenen Gegend mit sehr angenehmem Klima das ganze Jahr über.",
+        "Das Grundstück hat eine Fläche von 3.116 m², ist weitläufig und voll nutzbar und verfügt über einen Zugang zum Fluss, was der Umgebung einen besonderen Reiz verleiht.",
+        "Ideal, um ein Haus oder Hütten zu bauen oder ein Tourismusprojekt zu entwickeln, und eine ausgezeichnete Investitionsmöglichkeit in einer wachsenden Region.",
+      ],
+    },
+    highlights: {
+      es: [
+        "Área de 3.116 m²",
+        "Acceso al río",
+        "Terreno amplio y aprovechable",
+        "Ideal para vivienda, cabañas o proyecto turístico",
+        "Zona tranquila rodeada de naturaleza",
+        "Excelente oportunidad de inversión",
+      ],
+      en: [
+        "3,116 m² area",
+        "River access",
+        "Spacious, usable land",
+        "Ideal for a home, cabins or tourism project",
+        "Quiet area surrounded by nature",
+        "Excellent investment opportunity",
+      ],
+      fr: [
+        "Superficie de 3 116 m²",
+        "Accès à la rivière",
+        "Terrain vaste et exploitable",
+        "Idéal pour maison, cabanes ou projet touristique",
+        "Zone paisible entourée de nature",
+        "Excellente opportunité d'investissement",
+      ],
+      de: [
+        "Fläche von 3.116 m²",
+        "Flusszugang",
+        "Weitläufiges, nutzbares Grundstück",
+        "Ideal für Haus, Hütten oder Tourismusprojekt",
+        "Ruhige, von Natur umgebene Gegend",
+        "Ausgezeichnete Investitionsmöglichkeit",
+      ],
+    },
+    images: [
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (1).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (2).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (3).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (4).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (5).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (6).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.06 PM (7).jpeg", "Lote en El Carmen de Peñas Blancas"),
+      lote1Image("WhatsApp Image 2026-06-13 at 2.16.07 PM.jpeg", "Lote en El Carmen de Peñas Blancas"),
     ],
   },
 ]
