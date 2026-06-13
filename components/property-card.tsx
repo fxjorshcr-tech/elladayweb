@@ -46,7 +46,12 @@ export function PropertyCard({
         </div>
         <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/50 to-transparent p-5 text-white">
           <p className="font-serif text-xl leading-tight">
-            {formatPrice(property.priceUSD, lang)}
+            {formatPrice(property.price, lang, property.currency)}
+            {property.negotiable && (
+              <span className="ml-2 text-xs tracking-wide opacity-80">
+                · {t("common.negotiable")}
+              </span>
+            )}
           </p>
         </div>
       </div>

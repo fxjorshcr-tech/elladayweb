@@ -653,6 +653,12 @@ export const dictionary = {
       de: "Mehr erfahren",
     },
     fromPrice: { es: "Desde", en: "From", fr: "À partir de", de: "Ab" },
+    negotiable: {
+      es: "Negociable",
+      en: "Negotiable",
+      fr: "Négociable",
+      de: "Verhandelbar",
+    },
   },
 } as const
 

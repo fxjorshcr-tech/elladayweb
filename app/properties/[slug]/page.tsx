@@ -93,8 +93,13 @@ function PropertyDetail({ property }: { property: Property }) {
                 {t("common.fromPrice")}
               </p>
               <p className="mt-1 font-serif text-3xl text-brand-green md:text-4xl">
-                {formatPrice(property.priceUSD, lang)}
+                {formatPrice(property.price, lang, property.currency)}
               </p>
+              {property.negotiable && (
+                <p className="mt-1 text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                  {t("common.negotiable")}
+                </p>
+              )}
             </div>
           </div>
         </FadeIn>
