@@ -8,7 +8,7 @@ import { FadeIn } from "@/components/fade-in"
 const HERO_IMG =
   "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=2400&q=80"
 const ANIMALS_IMG =
-  "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=2000&q=80"
+  "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/WhatsApp%20Image%202026-06-13%20at%202.27.56%20PM.jpeg"
 const STORY_IMG =
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
 
@@ -173,7 +173,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
               <Image
                 src={ANIMALS_IMG}
-                alt="Dog in nature"
+                alt="Ella y Dayana, fundadoras de EllaDay Homes"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"

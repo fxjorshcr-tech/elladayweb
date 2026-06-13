@@ -568,10 +568,10 @@ export const dictionary = {
       de: "Sprechen wir",
     },
     subtitle: {
-      es: "Escríbenos por WhatsApp, correo o el formulario. Te respondemos en menos de 24 horas.",
-      en: "Reach out via WhatsApp, email or the form. We reply within 24 hours.",
-      fr: "Écrivez-nous par WhatsApp, e-mail ou le formulaire. Nous répondons en moins de 24 heures.",
-      de: "Schreiben Sie uns per WhatsApp, E-Mail oder Formular. Wir antworten innerhalb von 24 Stunden.",
+      es: "Escríbenos por WhatsApp o el formulario. Te respondemos en menos de 24 horas.",
+      en: "Reach out via WhatsApp or the form. We reply within 24 hours.",
+      fr: "Écrivez-nous par WhatsApp ou le formulaire. Nous répondons en moins de 24 heures.",
+      de: "Schreiben Sie uns per WhatsApp oder Formular. Wir antworten innerhalb von 24 Stunden.",
     },
     formName: { es: "Nombre", en: "Name", fr: "Nom", de: "Name" },
     formEmail: {

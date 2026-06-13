@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useLanguage } from "@/lib/i18n/provider"
-import { SITE, whatsappLink } from "@/lib/constants"
+import { whatsappLink } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 
 type Props = {
@@ -12,72 +12,36 @@ type Props = {
 
 export function ContactForm({ prefillSubject, className }: Props) {
   const { t, pick } = useLanguage()
-  const [status, setStatus] = React.useState<"idle" | "sending" | "success" | "error">(
-    "idle"
-  )
   const [name, setName] = React.useState("")
-  const [email, setEmail] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [message, setMessage] = React.useState("")
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus("sending")
-    try {
-      const subjectBase = pick({
-        es: "Consulta desde EllaDay Homes",
-        en: "Inquiry from EllaDay Homes",
-        fr: "Demande depuis EllaDay Homes",
-        de: "Anfrage von EllaDay Homes",
-      })
-      const subject = prefillSubject ? `${subjectBase} — ${prefillSubject}` : subjectBase
-      const labelName = pick({ es: "Nombre", en: "Name", fr: "Nom", de: "Name" })
-      const labelEmail = pick({
-        es: "Correo",
-        en: "Email",
-        fr: "E-mail",
-        de: "E-Mail",
-      })
-      const labelPhone = pick({
-        es: "Teléfono",
-        en: "Phone",
-        fr: "Téléphone",
-        de: "Telefon",
-      })
-      const body = [
-        `${labelName}: ${name}`,
-        `${labelEmail}: ${email}`,
-        phone ? `${labelPhone}: ${phone}` : null,
-        "",
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n")
-
-      const mailto = `mailto:${SITE.email}?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(body)}`
-      window.location.href = mailto
-      setStatus("success")
-    } catch {
-      setStatus("error")
-    }
-  }
+  const labelPhone = pick({
+    es: "Teléfono",
+    en: "Phone",
+    fr: "Téléphone",
+    de: "Telefon",
+  })
 
   const whatsappMessage = pick({
     es: `Hola, soy ${name || "[nombre]"}.${
       prefillSubject ? ` Me interesa: ${prefillSubject}.` : ""
-    } ${message}`,
+    }${phone ? ` ${labelPhone}: ${phone}.` : ""} ${message}`,
     en: `Hi, I'm ${name || "[name]"}.${
       prefillSubject ? ` I'm interested in: ${prefillSubject}.` : ""
-    } ${message}`,
+    }${phone ? ` ${labelPhone}: ${phone}.` : ""} ${message}`,
     fr: `Bonjour, je suis ${name || "[nom]"}.${
       prefillSubject ? ` Je m'intéresse à : ${prefillSubject}.` : ""
-    } ${message}`,
+    }${phone ? ` ${labelPhone}: ${phone}.` : ""} ${message}`,
     de: `Hallo, ich bin ${name || "[Name]"}.${
       prefillSubject ? ` Ich interessiere mich für: ${prefillSubject}.` : ""
-    } ${message}`,
+    }${phone ? ` ${labelPhone}: ${phone}.` : ""} ${message}`,
   })
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    window.open(whatsappLink(whatsappMessage), "_blank", "noopener,noreferrer")
+  }
 
   return (
     <form onSubmit={onSubmit} className={cn("space-y-5", className)}>
@@ -90,21 +54,13 @@ export function ContactForm({ prefillSubject, className }: Props) {
           autoComplete="name"
         />
         <Field
-          label={t("contact.formEmail")}
-          type="email"
-          value={email}
-          onChange={setEmail}
-          required
-          autoComplete="email"
+          label={t("contact.formPhone")}
+          type="tel"
+          value={phone}
+          onChange={setPhone}
+          autoComplete="tel"
         />
       </div>
-      <Field
-        label={t("contact.formPhone")}
-        type="tel"
-        value={phone}
-        onChange={setPhone}
-        autoComplete="tel"
-      />
       <div className="space-y-2">
         <label className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
           {t("contact.formMessage")}
@@ -124,43 +80,21 @@ export function ContactForm({ prefillSubject, className }: Props) {
         />
       </div>
 
-      <div className="flex flex-col gap-3 pt-4 sm:flex-row">
+      <div className="pt-4">
         <button
           type="submit"
-          disabled={status === "sending"}
-          className="inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark disabled:opacity-60"
-        >
-          {status === "sending"
-            ? pick({
-                es: "Enviando…",
-                en: "Sending…",
-                fr: "Envoi…",
-                de: "Senden…",
-              })
-            : t("contact.formSubmit")}
-        </button>
-        <a
-          href={whatsappLink(whatsappMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full border border-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:bg-brand-green hover:text-brand-cream"
+          className="inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark"
         >
           {t("contact.sendWhatsApp")}
-        </a>
+        </button>
       </div>
 
-      {status === "success" && (
-        <p className="pt-2 text-sm text-brand-green">{t("contact.formSuccess")}</p>
-      )}
-      {status === "error" && (
-        <p className="pt-2 text-sm text-destructive">{t("contact.formError")}</p>
-      )}
       <p className="text-xs text-muted-foreground">
         {pick({
-          es: "Al enviar abriremos tu cliente de correo. También puedes escribirnos directo por WhatsApp.",
-          en: "Submitting will open your mail client. You can also message us directly on WhatsApp.",
-          fr: "L'envoi ouvre votre client e-mail. Vous pouvez aussi nous écrire directement sur WhatsApp.",
-          de: "Beim Senden öffnet sich Ihr E-Mail-Programm. Sie können uns auch direkt über WhatsApp schreiben.",
+          es: "Al enviar se abrirá WhatsApp con tu mensaje listo para enviarnos.",
+          en: "Submitting will open WhatsApp with your message ready to send us.",
+          fr: "L'envoi ouvrira WhatsApp avec votre message prêt à nous être envoyé.",
+          de: "Beim Senden öffnet sich WhatsApp mit Ihrer fertigen Nachricht an uns.",
         })}
       </p>
     </form>

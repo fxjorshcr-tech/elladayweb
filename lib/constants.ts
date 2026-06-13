@@ -3,7 +3,6 @@ export const SITE = {
   tagline: "Real Estate in La Fortuna",
   whatsapp: "50664020005",
   whatsappDisplay: "+506 6402-0005",
-  email: "contacto@elladayhome.com",
   instagram: "elladayhomes",
   location: "La Fortuna, San Carlos, Costa Rica",
 } as const

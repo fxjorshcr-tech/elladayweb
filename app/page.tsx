@@ -8,14 +8,11 @@ import { PropertyCard } from "@/components/property-card"
 import { FadeIn } from "@/components/fade-in"
 import { SITE, whatsappLink } from "@/lib/constants"
 
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2400&q=80"
-const LIFESTYLE_IMG =
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
-const FORTUNA_PRIMARY =
-  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80"
-const FORTUNA_SECONDARY =
-  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80"
+const STORAGE = "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos"
+const HERO_IMG = `${STORAGE}/Arenal%20Volcano.webp`
+const LIFESTYLE_IMG = `${STORAGE}/WhatsApp%20Image%202026-06-13%20at%202.27.56%20PM.jpeg`
+const FORTUNA_PRIMARY = `${STORAGE}/arenal-volcano-mountains-sky-costa-rica.webp`
+const FORTUNA_SECONDARY = `${STORAGE}/arenal-volcano-tour-visit.webp`
 
 export default function HomePage() {
   const { t, pick } = useLanguage()
@@ -26,7 +23,7 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10">
           <Image
             src={HERO_IMG}
-            alt="Tropical home in La Fortuna"
+            alt="Volcán Arenal, La Fortuna"
             fill
             priority
             sizes="100vw"
@@ -104,7 +101,7 @@ export default function HomePage() {
               <div className="relative col-span-4 aspect-[4/5] overflow-hidden rounded-sm bg-muted">
                 <Image
                   src={FORTUNA_PRIMARY}
-                  alt="Modern tropical home"
+                  alt="Volcán Arenal y montañas de La Fortuna"
                   fill
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="object-cover"
@@ -114,7 +111,7 @@ export default function HomePage() {
                 <div className="relative aspect-square overflow-hidden rounded-sm bg-muted">
                   <Image
                     src={FORTUNA_SECONDARY}
-                    alt="La Fortuna nature"
+                    alt="Volcán Arenal, La Fortuna"
                     fill
                     sizes="(min-width: 768px) 20vw, 50vw"
                     className="object-cover"
@@ -234,7 +231,7 @@ export default function HomePage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
               <Image
                 src={LIFESTYLE_IMG}
-                alt="Interior of a tropical home"
+                alt="Ella y Dayana, fundadoras de EllaDay Homes"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"

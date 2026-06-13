@@ -41,11 +41,6 @@ export default function ContactPage() {
               external
             />
             <ContactLine
-              label="Email"
-              value={SITE.email}
-              href={`mailto:${SITE.email}`}
-            />
-            <ContactLine
               label={pick({
                 es: "Ubicación",
                 en: "Location",
@@ -83,10 +78,10 @@ export default function ContactPage() {
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               {pick({
-                es: "Completa el formulario y abriremos tu cliente de correo para enviarlo.",
-                en: "Fill in the form and we'll open your email client to send it.",
-                fr: "Remplissez le formulaire ; nous ouvrirons votre client e-mail pour l'envoyer.",
-                de: "Füllen Sie das Formular aus — wir öffnen Ihr E-Mail-Programm zum Senden.",
+                es: "Completa el formulario y lo enviaremos por WhatsApp para responderte cuanto antes.",
+                en: "Fill in the form and we'll send it via WhatsApp so we can reply as soon as possible.",
+                fr: "Remplissez le formulaire ; nous l'enverrons par WhatsApp pour vous répondre au plus vite.",
+                de: "Füllen Sie das Formular aus — wir senden es per WhatsApp, um Ihnen schnellstmöglich zu antworten.",
               })}
             </p>
             <div className="mt-8">
