@@ -16,8 +16,8 @@ export type Property = {
   bedrooms?: number
   bathrooms?: number
   builtArea?: number
-  lotSize: number
-  lotUnit: "m2" | "ha"
+  lotSize?: number
+  lotUnit?: "m2" | "ha"
   location: L
   mapQuery: string
   title: L
@@ -27,16 +27,21 @@ export type Property = {
   images: { src: string; alt: string }[]
 }
 
-// Real photos served from the public Supabase Storage bucket "Casa1 ELLADAY".
-const CASA1_BUCKET =
-  "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Casa1%20ELLADAY"
+// Real photos served from the project's public Supabase Storage buckets.
+// encodeURIComponent turns spaces into %20 while leaving "(" / ")" intact,
+// matching the bucket's public URL pattern (e.g. "exterior18 (2).jpeg").
+const PUBLIC_STORAGE =
+  "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public"
 
-const casa1Image = (file: string, alt: string) => ({
-  // encodeURIComponent turns spaces into %20 while leaving "(" / ")" intact,
-  // matching the bucket's public URL pattern (e.g. "exterior18 (2).jpeg").
-  src: `${CASA1_BUCKET}/${encodeURIComponent(file)}`,
-  alt,
-})
+const bucketImage =
+  (bucket: string) =>
+  (file: string, alt: string) => ({
+    src: `${PUBLIC_STORAGE}/${encodeURIComponent(bucket)}/${encodeURIComponent(file)}`,
+    alt,
+  })
+
+const casa1Image = bucketImage("Casa1 ELLADAY")
+const casa2Image = bucketImage("casa2")
 
 export const properties: Property[] = [
   {
@@ -159,6 +164,121 @@ export const properties: Property[] = [
       casa1Image("interior6.jpeg", "Interior de la casa"),
       casa1Image("interior7.jpeg", "Interior de la casa"),
       casa1Image("accesorio.jpeg", "Bodega y áreas complementarias"),
+    ],
+  },
+  {
+    slug: "casa-amueblada-chachagua",
+    type: "house",
+    agent: "ella",
+    price: 250000000,
+    currency: "CRC",
+    negotiable: true,
+    bedrooms: 3,
+    bathrooms: 2,
+    location: {
+      es: "Chachagua Centro, San Ramón",
+      en: "Chachagua Centro, San Ramón",
+      fr: "Chachagua Centro, San Ramón",
+      de: "Chachagua Centro, San Ramón",
+    },
+    mapQuery: "Chachagua, San Ramón, Alajuela, Costa Rica",
+    title: {
+      es: "Casa amueblada con piscina en Chachagua Centro",
+      en: "Furnished house with pool in Chachagua Centro",
+      fr: "Maison meublée avec piscine à Chachagua Centro",
+      de: "Möbliertes Haus mit Pool in Chachagua Centro",
+    },
+    shortDescription: {
+      es: "Hermosa propiedad amueblada en Chachagua Centro: casa súper amplia, totalmente cerrada y lista para habitar, con 3 habitaciones, 2 baños y piscina.",
+      en: "Beautiful furnished property in Chachagua Centro: a very spacious house, fully enclosed and move-in ready, with 3 bedrooms, 2 bathrooms and a pool.",
+      fr: "Belle propriété meublée à Chachagua Centro : maison très spacieuse, entièrement clôturée et prête à habiter, avec 3 chambres, 2 salles de bain et piscine.",
+      de: "Schöne möblierte Immobilie in Chachagua Centro: ein sehr geräumiges Haus, komplett umzäunt und bezugsfertig, mit 3 Schlafzimmern, 2 Bädern und Pool.",
+    },
+    description: {
+      es: [
+        "Se vende hermosa propiedad amueblada en Chachagua Centro, en una zona cómoda y bien ubicada, rodeada de la tranquilidad y el verde característicos de la región.",
+        "La casa es súper amplia, está totalmente cerrada y se entrega lista para habitar. Cuenta con 3 habitaciones, 2 baños y una piscina para disfrutar del clima durante todo el año.",
+        "Se vende completamente amueblada y totalmente cerrada, lo que brinda mayor privacidad y seguridad. Es ideal tanto para vivir como para una casa de descanso o inversión, ya que está lista para usar desde el primer día.",
+      ],
+      en: [
+        "Beautiful furnished property for sale in Chachagua Centro, in a convenient, well-located area surrounded by the calm and greenery typical of the region.",
+        "The house is very spacious, fully enclosed and delivered move-in ready. It has 3 bedrooms, 2 bathrooms and a pool to enjoy the climate all year round.",
+        "It is sold completely furnished and fully enclosed, offering greater privacy and security. It's ideal as a home, a weekend retreat or an investment, since it is ready to use from day one.",
+      ],
+      fr: [
+        "Belle propriété meublée à vendre à Chachagua Centro, dans un secteur pratique et bien situé, entouré du calme et de la verdure typiques de la région.",
+        "La maison est très spacieuse, entièrement clôturée et livrée prête à habiter. Elle compte 3 chambres, 2 salles de bain et une piscine pour profiter du climat toute l'année.",
+        "Elle est vendue entièrement meublée et totalement clôturée, ce qui offre davantage d'intimité et de sécurité. Idéale comme résidence, maison de repos ou investissement, car elle est prête à l'emploi dès le premier jour.",
+      ],
+      de: [
+        "Schöne möblierte Immobilie zum Verkauf in Chachagua Centro, in einer praktischen, gut gelegenen Gegend, umgeben von der für die Region typischen Ruhe und dem vielen Grün.",
+        "Das Haus ist sehr geräumig, komplett umzäunt und wird bezugsfertig übergeben. Es verfügt über 3 Schlafzimmer, 2 Bäder und einen Pool, um das Klima das ganze Jahr über zu genießen.",
+        "Es wird komplett möbliert und vollständig umzäunt verkauft, was mehr Privatsphäre und Sicherheit bietet. Ideal als Wohnsitz, Wochenenddomizil oder Investition, da es vom ersten Tag an nutzbar ist.",
+      ],
+    },
+    highlights: {
+      es: [
+        "3 habitaciones",
+        "2 baños",
+        "Piscina",
+        "Se vende amueblada",
+        "Propiedad totalmente cerrada",
+        "Lista para habitar",
+      ],
+      en: [
+        "3 bedrooms",
+        "2 bathrooms",
+        "Pool",
+        "Sold furnished",
+        "Fully enclosed property",
+        "Move-in ready",
+      ],
+      fr: [
+        "3 chambres",
+        "2 salles de bain",
+        "Piscine",
+        "Vendue meublée",
+        "Propriété entièrement clôturée",
+        "Prête à habiter",
+      ],
+      de: [
+        "3 Schlafzimmer",
+        "2 Bäder",
+        "Pool",
+        "Möbliert verkauft",
+        "Komplett umzäuntes Grundstück",
+        "Bezugsfertig",
+      ],
+    },
+    images: [
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.55 AM.jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.55 AM (1).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.55 AM (2).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.55 AM (3).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.55 AM (4).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM.jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (1).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (2).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (3).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (4).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (5).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (6).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (7).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.56 AM (8).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM.jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (1).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (2).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (3).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (4).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (5).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (6).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (7).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.57 AM (8).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.58 AM.jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.58 AM (1).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.58 AM (2).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.58 AM (3).jpeg", "Casa amueblada en Chachagua Centro"),
+      casa2Image("WhatsApp Image 2026-06-13 at 11.48.59 AM.jpeg", "Casa amueblada en Chachagua Centro"),
     ],
   },
 ]

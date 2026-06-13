@@ -32,14 +32,16 @@ function PropertyDetail({ property }: { property: Property }) {
   const agent = propertyAgents[property.agent]
 
   const sizeLabel =
-    property.lotUnit === "ha"
-      ? `${property.lotSize} ${pick({
-          es: "hectáreas",
-          en: "hectares",
-          fr: "hectares",
-          de: "Hektar",
-        })}`
-      : `${property.lotSize.toLocaleString()} m²`
+    property.lotSize == null
+      ? null
+      : property.lotUnit === "ha"
+        ? `${property.lotSize} ${pick({
+            es: "hectáreas",
+            en: "hectares",
+            fr: "hectares",
+            de: "Hektar",
+          })}`
+        : `${property.lotSize.toLocaleString()} m²`
 
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
     property.mapQuery
@@ -130,7 +132,9 @@ function PropertyDetail({ property }: { property: Property }) {
                     value={`${property.builtArea} m²`}
                   />
                 )}
-                <Spec label={t("properties.lotSize")} value={sizeLabel} />
+                {sizeLabel && (
+                  <Spec label={t("properties.lotSize")} value={sizeLabel} />
+                )}
               </div>
             </FadeIn>
 

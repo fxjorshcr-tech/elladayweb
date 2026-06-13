@@ -23,9 +23,11 @@ export function PropertyCard({
 }) {
   const { lang, t, pick } = useLanguage()
   const sizeLabel =
-    property.lotUnit === "ha"
-      ? `${property.lotSize} ${pick({ es: "ha", en: "ha", fr: "ha", de: "ha" })}`
-      : `${property.lotSize.toLocaleString()} m²`
+    property.lotSize == null
+      ? null
+      : property.lotUnit === "ha"
+        ? `${property.lotSize} ${pick({ es: "ha", en: "ha", fr: "ha", de: "ha" })}`
+        : `${property.lotSize.toLocaleString()} m²`
 
   return (
     <Link
@@ -76,7 +78,7 @@ export function PropertyCard({
               {pick({ es: "baños", en: "ba", fr: "sdb", de: "Bd" })}
             </span>
           )}
-          <span>{sizeLabel}</span>
+          {sizeLabel && <span>{sizeLabel}</span>}
         </div>
         <p className="pt-2 text-sm leading-relaxed text-muted-foreground">
           {pick(property.shortDescription)}
