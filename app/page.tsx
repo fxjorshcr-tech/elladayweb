@@ -12,7 +12,8 @@ const STORAGE = "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/publ
 const HERO_IMG = `${STORAGE}/Arenal%20Volcano.webp`
 const LIFESTYLE_IMG = `${STORAGE}/WhatsApp%20Image%202026-06-13%20at%202.27.56%20PM.jpeg`
 const FORTUNA_PRIMARY = `${STORAGE}/arenal-volcano-mountains-sky-costa-rica.webp`
-const FORTUNA_SECONDARY = `${STORAGE}/arenal-volcano-tour-visit.webp`
+const FORTUNA_SECONDARY =
+  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80"
 
 export default function HomePage() {
   const { t, pick } = useLanguage()
@@ -111,7 +112,7 @@ export default function HomePage() {
                 <div className="relative aspect-square overflow-hidden rounded-sm bg-muted">
                   <Image
                     src={FORTUNA_SECONDARY}
-                    alt="Volcán Arenal, La Fortuna"
+                    alt="La Fortuna nature"
                     fill
                     sizes="(min-width: 768px) 20vw, 50vw"
                     className="object-cover"
