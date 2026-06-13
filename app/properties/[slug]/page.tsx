@@ -3,12 +3,7 @@
 import Link from "next/link"
 import { notFound, useParams } from "next/navigation"
 import { useLanguage } from "@/lib/i18n/provider"
-import {
-  formatPrice,
-  getProperty,
-  propertyAgents,
-  type Property,
-} from "@/lib/properties"
+import { formatPrice, getProperty, type Property } from "@/lib/properties"
 import { PropertyGallery } from "@/components/property-gallery"
 import { ContactForm } from "@/components/contact-form"
 import { FadeIn } from "@/components/fade-in"
@@ -29,17 +24,18 @@ export default function PropertyDetailPage() {
 
 function PropertyDetail({ property }: { property: Property }) {
   const { t, pick, lang } = useLanguage()
-  const agent = propertyAgents[property.agent]
 
   const sizeLabel =
-    property.lotUnit === "ha"
-      ? `${property.lotSize} ${pick({
-          es: "hectáreas",
-          en: "hectares",
-          fr: "hectares",
-          de: "Hektar",
-        })}`
-      : `${property.lotSize.toLocaleString()} m²`
+    property.lotSize == null
+      ? null
+      : property.lotUnit === "ha"
+        ? `${property.lotSize} ${pick({
+            es: "hectáreas",
+            en: "hectares",
+            fr: "hectares",
+            de: "Hektar",
+          })}`
+        : `${property.lotSize.toLocaleString("de-DE")} m²`
 
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
     property.mapQuery
@@ -93,8 +89,13 @@ function PropertyDetail({ property }: { property: Property }) {
                 {t("common.fromPrice")}
               </p>
               <p className="mt-1 font-serif text-3xl text-brand-green md:text-4xl">
-                {formatPrice(property.priceUSD, lang)}
+                {formatPrice(property.price, lang, property.currency)}
               </p>
+              {property.negotiable && (
+                <p className="mt-1 text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                  {t("common.negotiable")}
+                </p>
+              )}
             </div>
           </div>
         </FadeIn>
@@ -125,7 +126,9 @@ function PropertyDetail({ property }: { property: Property }) {
                     value={`${property.builtArea} m²`}
                   />
                 )}
-                <Spec label={t("properties.lotSize")} value={sizeLabel} />
+                {sizeLabel && (
+                  <Spec label={t("properties.lotSize")} value={sizeLabel} />
+                )}
               </div>
             </FadeIn>
 
@@ -192,13 +195,23 @@ function PropertyDetail({ property }: { property: Property }) {
               <FadeIn>
                 <div className="rounded-sm border border-border bg-brand-cream p-6">
                   <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                    {t("properties.listedBy")}
+                    {pick({
+                      es: "Contacto",
+                      en: "Contact",
+                      fr: "Contact",
+                      de: "Kontakt",
+                    })}
                   </p>
                   <p className="mt-3 font-serif text-2xl text-brand-green">
-                    {agent.name}
+                    {SITE.whatsappDisplay}
                   </p>
-                  <p className="text-xs tracking-[0.16em] text-brand-gold uppercase">
-                    {pick(agent.role)}
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {pick({
+                      es: "Escríbenos por WhatsApp y con gusto te atendemos.",
+                      en: "Message us on WhatsApp and we'll be glad to help.",
+                      fr: "Écrivez-nous sur WhatsApp, nous serons ravis de vous aider.",
+                      de: "Schreiben Sie uns auf WhatsApp, wir helfen Ihnen gern.",
+                    })}
                   </p>
 
                   <div className="mt-6 space-y-3">
@@ -209,19 +222,6 @@ function PropertyDetail({ property }: { property: Property }) {
                       className="flex w-full items-center justify-center rounded-full bg-brand-green px-5 py-3 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark"
                     >
                       WhatsApp · {SITE.whatsappDisplay}
-                    </a>
-                    <a
-                      href={`mailto:${SITE.email}?subject=${encodeURIComponent(
-                        `${pick({
-                          es: "Consulta",
-                          en: "Inquiry",
-                          fr: "Demande",
-                          de: "Anfrage",
-                        })}: ${propertyTitle}`
-                      )}`}
-                      className="flex w-full items-center justify-center rounded-full border border-brand-green px-5 py-3 text-sm tracking-wide text-brand-green transition-colors hover:bg-brand-green hover:text-brand-cream"
-                    >
-                      {SITE.email}
                     </a>
                   </div>
                 </div>
