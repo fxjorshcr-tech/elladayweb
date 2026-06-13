@@ -70,24 +70,24 @@ export const properties: Property[] = [
     },
     description: {
       es: [
-        "Se vende propiedad en El Carmen de Peñas Blancas, San Ramón, Alajuela.",
-        "Lote de 2.997 m² y casa de 124 m² de construcción. Tiene terraza, bodega, amplias zonas verdes y un río dentro de la propiedad.",
-        "Ideal para quienes buscan tranquilidad, espacio y contacto con la naturaleza.",
+        "Se vende propiedad en El Carmen de Peñas Blancas, San Ramón, Alajuela, una zona tranquila de montaña rodeada de naturaleza y con un clima fresco y agradable durante todo el año.",
+        "El terreno es un lote de 2.997 m² e incluye una casa de 124 m² de construcción. Cuenta con una terraza para disfrutar del entorno, una bodega para almacenamiento, amplias zonas verdes y un río que corre dentro de la propiedad.",
+        "Es un lugar ideal para quienes buscan tranquilidad, espacio y un contacto real con la naturaleza, ya sea como casa de habitación, casa de descanso o como una inversión en una de las zonas más verdes de San Ramón.",
       ],
       en: [
-        "Property for sale in El Carmen de Peñas Blancas, San Ramón, Alajuela.",
-        "A 2,997 m² lot and a 124 m² house. It has a terrace, a storage room, large green areas and a river within the property.",
-        "Ideal for those seeking tranquility, space and contact with nature.",
+        "Property for sale in El Carmen de Peñas Blancas, San Ramón, Alajuela, a quiet mountain area surrounded by nature and with a cool, pleasant climate all year round.",
+        "The land is a 2,997 m² lot and includes a 124 m² house. It has a terrace to enjoy the surroundings, a storage room, large green areas and a river that runs through the property.",
+        "It's an ideal place for those seeking tranquility, space and a real connection with nature, whether as a home, a weekend retreat or an investment in one of the greenest areas of San Ramón.",
       ],
       fr: [
-        "Propriété à vendre à El Carmen de Peñas Blancas, San Ramón, Alajuela.",
-        "Terrain de 2 997 m² et maison de 124 m². Elle dispose d'une terrasse, d'un débarras, de vastes espaces verts et d'une rivière sur la propriété.",
-        "Idéale pour ceux qui recherchent tranquillité, espace et contact avec la nature.",
+        "Propriété à vendre à El Carmen de Peñas Blancas, San Ramón, Alajuela, une zone de montagne paisible, entourée de nature et au climat frais et agréable toute l'année.",
+        "Le terrain est un lot de 2 997 m² et comprend une maison de 124 m². Elle dispose d'une terrasse pour profiter du cadre, d'un débarras, de vastes espaces verts et d'une rivière qui traverse la propriété.",
+        "C'est un endroit idéal pour ceux qui recherchent tranquillité, espace et un vrai contact avec la nature, que ce soit comme résidence, comme maison de repos ou comme investissement dans l'une des zones les plus verdoyantes de San Ramón.",
       ],
       de: [
-        "Immobilie zum Verkauf in El Carmen de Peñas Blancas, San Ramón, Alajuela.",
-        "Grundstück mit 2.997 m² und ein Haus mit 124 m² Wohnfläche. Es verfügt über eine Terrasse, einen Lagerraum, weitläufige Grünflächen und einen Fluss auf dem Grundstück.",
-        "Ideal für alle, die Ruhe, Platz und Naturnähe suchen.",
+        "Immobilie zum Verkauf in El Carmen de Peñas Blancas, San Ramón, Alajuela, einer ruhigen Berggegend, umgeben von Natur und mit einem frischen, angenehmen Klima das ganze Jahr über.",
+        "Das Grundstück umfasst 2.997 m² und ein Haus mit 124 m² Wohnfläche. Es verfügt über eine Terrasse, um die Umgebung zu genießen, einen Lagerraum, weitläufige Grünflächen und einen Fluss, der über das Grundstück fließt.",
+        "Ein idealer Ort für alle, die Ruhe, Platz und echten Kontakt zur Natur suchen — ob als Wohnsitz, als Wochenenddomizil oder als Investition in einer der grünsten Gegenden von San Ramón.",
       ],
     },
     highlights: {
@@ -125,6 +125,7 @@ export const properties: Property[] = [
       ],
     },
     images: [
+      casa1Image("exetrior10.jpeg", "Vista exterior de la propiedad"),
       casa1Image("exteriorpnamoramico.jpeg", "Vista panorámica de la propiedad"),
       casa1Image("exterior.jpeg", "Vista exterior de la casa"),
       casa1Image("exterior1.jpeg", "Vista exterior de la propiedad"),
@@ -136,7 +137,6 @@ export const properties: Property[] = [
       casa1Image("exterior7.jpeg", "Vista exterior de la propiedad"),
       casa1Image("exterior8.jpeg", "Vista exterior de la propiedad"),
       casa1Image("exterior9.jpeg", "Vista exterior de la propiedad"),
-      casa1Image("exetrior10.jpeg", "Vista exterior de la propiedad"),
       casa1Image("exterior11.jpeg", "Vista exterior de la propiedad"),
       casa1Image("exterior12.jpeg", "Vista exterior de la propiedad"),
       casa1Image("exterior13.jpeg", "Vista exterior de la propiedad"),
