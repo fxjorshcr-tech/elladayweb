@@ -466,7 +466,6 @@ export const properties: Property[] = [
       ],
     },
     images: [
-      lote2Image("WhatsApp Image 2026-06-13 at 2.16.06 PM.jpeg", "Lote en el centro de Chachagua"),
       lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM.jpeg", "Lote en el centro de Chachagua"),
       lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (1).jpeg", "Lote en el centro de Chachagua"),
       lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (2).jpeg", "Lote en el centro de Chachagua"),
