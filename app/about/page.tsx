@@ -232,12 +232,6 @@ export default function AboutPage() {
               name="Dayana Sibaja"
               role={t("agents.dayana.role")}
               bio={t("agents.dayana.bio")}
-              extra={pick({
-                es: "Bilingüe español-inglés. Atiende sobre todo propiedades residenciales y fincas, y conoce bien los trámites de compra en la zona.",
-                en: "Bilingual Spanish-English. She mainly handles residential properties and farms, and knows the local buying process well.",
-                fr: "Bilingue espagnol-anglais. Elle s'occupe surtout des biens résidentiels et des fincas, et connaît bien les démarches d'achat dans la région.",
-                de: "Zweisprachig Spanisch-Englisch. Sie betreut vor allem Wohnimmobilien und Höfe und kennt die Kaufabläufe in der Region gut.",
-              })}
               image="https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/elladay/Day.png"
             />
           </FadeIn>
@@ -246,12 +240,6 @@ export default function AboutPage() {
               name="Ella Calero"
               role={t("agents.ella.role")}
               bio={t("agents.ella.bio")}
-              extra={pick({
-                es: "Bilingüe español-inglés. Se enfoca en inversión turística y lotes, y acompaña a sus clientes desde la primera visita hasta el cierre.",
-                en: "Bilingual Spanish-English. She focuses on tourism investment and lots, and works with her clients from the first visit to closing.",
-                fr: "Bilingue espagnol-anglais. Elle se concentre sur l'investissement touristique et les terrains, et suit ses clients de la première visite à la signature.",
-                de: "Zweisprachig Spanisch-Englisch. Sie konzentriert sich auf Tourismusinvestitionen und Grundstücke und begleitet ihre Kunden von der ersten Besichtigung bis zum Abschluss.",
-              })}
               image="https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/elladay/Ella.png"
             />
           </FadeIn>
@@ -296,13 +284,11 @@ function AgentLong({
   name,
   role,
   bio,
-  extra,
   image,
 }: {
   name: string
   role: string
   bio: string
-  extra: string
   image: string
 }) {
   return (
@@ -320,7 +306,6 @@ function AgentLong({
         <h3 className="font-serif text-3xl text-brand-green">{name}</h3>
         <p className="text-xs tracking-[0.16em] text-brand-gold uppercase">{role}</p>
         <p className="text-sm leading-relaxed text-muted-foreground">{bio}</p>
-        <p className="text-sm leading-relaxed text-muted-foreground">{extra}</p>
       </div>
     </article>
   )
