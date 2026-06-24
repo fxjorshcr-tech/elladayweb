@@ -46,6 +46,7 @@ const casa1Image = bucketImage("Casa1 ELLADAY")
 const casa2Image = bucketImage("casa2")
 const lote1Image = bucketImage("Lote1")
 const lote2Image = bucketImage("Lote1", "Lote 2")
+const lote500Image = bucketImage("elladay", "Lote 500")
 
 export const properties: Property[] = [
   {
@@ -471,6 +472,108 @@ export const properties: Property[] = [
       lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (2).jpeg", "Lote en el centro de Chachagua"),
       lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (3).jpeg", "Lote en el centro de Chachagua"),
       lote2Image("WhatsApp Image 2026-06-13 at 2.18.56 PM (4).jpeg", "Lote en el centro de Chachagua"),
+    ],
+  },
+  {
+    slug: "lote-sonafluca-san-carlos",
+    type: "lot",
+    agent: "ella",
+    price: 60000000,
+    currency: "CRC",
+    lotSize: 5000,
+    lotUnit: "m2",
+    location: {
+      es: "Sonafluca, San Carlos",
+      en: "Sonafluca, San Carlos",
+      fr: "Sonafluca, San Carlos",
+      de: "Sonafluca, San Carlos",
+    },
+    mapQuery: "Sonafluca, San Carlos, Alajuela, Costa Rica",
+    title: {
+      es: "Lote de 5.000 m² con vista al volcán en Sonafluca",
+      en: "5,000 m² lot with volcano view in Sonafluca",
+      fr: "Terrain de 5 000 m² avec vue sur le volcan à Sonafluca",
+      de: "5.000 m² Grundstück mit Vulkanblick in Sonafluca",
+    },
+    shortDescription: {
+      es: "Lote de 5.000 m² en Sonafluca, San Carlos, con agua, vista al volcán y opción de financiamiento. Perfecto para construir, invertir o desarrollar un proyecto.",
+      en: "5,000 m² lot in Sonafluca, San Carlos, with water, volcano view and financing available. Perfect to build, invest or develop a project.",
+      fr: "Terrain de 5 000 m² à Sonafluca, San Carlos, avec eau, vue sur le volcan et possibilité de financement. Parfait pour construire, investir ou développer un projet.",
+      de: "5.000 m² Grundstück in Sonafluca, San Carlos, mit Wasser, Vulkanblick und Finanzierungsmöglichkeit. Perfekt zum Bauen, Investieren oder Entwickeln eines Projekts.",
+    },
+    description: {
+      es: [
+        "Se vende lote de 5.000 metros cuadrados en Sonafluca, San Carlos, una de las zonas más atractivas para construir, invertir o desarrollar un proyecto.",
+        "Cuenta con agua y una hermosa vista al volcán, en una excelente ubicación. Además, ofrece opción de financiamiento y facilidades de pago.",
+        "Es una gran oportunidad tanto para quienes quieren construir su propia casa como para quienes buscan invertir en la Zona Norte.",
+      ],
+      en: [
+        "5,000-square-meter lot for sale in Sonafluca, San Carlos, one of the most attractive areas to build, invest or develop a project.",
+        "It has water and a beautiful view of the volcano, in an excellent location. It also offers a financing option and easy payment terms.",
+        "It's a great opportunity both for those who want to build their own home and for those looking to invest in the Northern Zone.",
+      ],
+      fr: [
+        "Terrain de 5 000 mètres carrés à vendre à Sonafluca, San Carlos, l'une des zones les plus attrayantes pour construire, investir ou développer un projet.",
+        "Il dispose de l'eau et d'une belle vue sur le volcan, dans un excellent emplacement. Il offre également une possibilité de financement et des facilités de paiement.",
+        "C'est une belle opportunité aussi bien pour ceux qui veulent construire leur maison que pour ceux qui cherchent à investir dans la Zone Nord.",
+      ],
+      de: [
+        "5.000 Quadratmeter großes Grundstück zum Verkauf in Sonafluca, San Carlos, einer der attraktivsten Gegenden zum Bauen, Investieren oder für ein Projekt.",
+        "Es verfügt über Wasser und einen herrlichen Blick auf den Vulkan, in ausgezeichneter Lage. Außerdem gibt es eine Finanzierungsmöglichkeit und flexible Zahlungsbedingungen.",
+        "Eine großartige Gelegenheit – sowohl für alle, die ihr eigenes Haus bauen möchten, als auch für alle, die in der Nördlichen Zone investieren wollen.",
+      ],
+    },
+    highlights: {
+      es: [
+        "Área de 5.000 m²",
+        "Cuenta con agua",
+        "Vista al volcán",
+        "Opción de financiamiento / facilidades de pago",
+        "Excelente ubicación",
+        "Ideal para construir, invertir o desarrollar",
+      ],
+      en: [
+        "5,000 m² area",
+        "Water available",
+        "Volcano view",
+        "Financing option / easy payment terms",
+        "Excellent location",
+        "Ideal to build, invest or develop",
+      ],
+      fr: [
+        "Superficie de 5 000 m²",
+        "Eau disponible",
+        "Vue sur le volcan",
+        "Possibilité de financement / facilités de paiement",
+        "Excellent emplacement",
+        "Idéal pour construire, investir ou développer",
+      ],
+      de: [
+        "Fläche von 5.000 m²",
+        "Wasser vorhanden",
+        "Vulkanblick",
+        "Finanzierungsmöglichkeit / flexible Zahlung",
+        "Ausgezeichnete Lage",
+        "Ideal zum Bauen, Investieren oder Entwickeln",
+      ],
+    },
+    images: [
+      lote500Image("foto2.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto3.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto4.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto5.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto7.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto8.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto9.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto10.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto11.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto12.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto13.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto14.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto15.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto16.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("foto17.jpeg", "Lote en Sonafluca, San Carlos"),
+      lote500Image("WhatsApp Image 2026-06-24 at 9.50.15 AM.jpeg", "Lote en Sonafluca, San Carlos"),
     ],
   },
 ]
