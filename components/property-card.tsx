@@ -51,8 +51,8 @@ export function PropertyCard({
         </div>
         {property.sold && (
           <>
-            <div className="absolute inset-0 bg-brand-green/35" />
-            <div className="absolute top-4 right-4 rounded-full bg-brand-green px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-cream uppercase shadow-sm">
+            <div className="absolute inset-0 bg-brand-green/25" />
+            <div className="absolute top-4 right-4 rotate-3 rounded-md bg-red-600 px-4 py-1.5 text-sm font-bold tracking-[0.2em] text-white uppercase shadow-lg ring-1 ring-white/25">
               {t("common.sold")}
             </div>
           </>
