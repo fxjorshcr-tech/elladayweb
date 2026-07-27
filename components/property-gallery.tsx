@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
+import { blurDataURL } from "@/lib/blur"
 import { cn } from "@/lib/utils"
 
 type GalleryImage = { src: string; alt: string }
@@ -23,6 +24,20 @@ export function PropertyGallery({ images }: { images: GalleryImage[] }) {
     () => setActive((i) => (i - 1 + images.length) % images.length),
     [images.length]
   )
+
+  const touchStartX = React.useRef<number | null>(null)
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current == null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) next()
+      else prev()
+    }
+    touchStartX.current = null
+  }
 
   React.useEffect(() => {
     if (!open) return
@@ -52,6 +67,8 @@ export function PropertyGallery({ images }: { images: GalleryImage[] }) {
             alt={images[0].alt}
             fill
             priority
+            placeholder="blur"
+            blurDataURL={blurDataURL}
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover transition-transform duration-700 hover:scale-105"
           />
@@ -70,6 +87,8 @@ export function PropertyGallery({ images }: { images: GalleryImage[] }) {
               src={img.src}
               alt={img.alt}
               fill
+              placeholder="blur"
+              blurDataURL={blurDataURL}
               sizes="(min-width: 768px) 25vw, 50vw"
               className="object-cover transition-transform duration-700 hover:scale-105"
             />
@@ -152,6 +171,8 @@ export function PropertyGallery({ images }: { images: GalleryImage[] }) {
           <div
             className="relative h-[80vh] w-full max-w-6xl"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           >
             <Image
               src={images[active].src}

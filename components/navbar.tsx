@@ -25,6 +25,13 @@ export function Navbar() {
     setOpen(false)
   }, [pathname])
 
+  React.useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [open])
+
   const links = [
     { href: "/", label: t("nav.home") },
     { href: "/properties", label: t("nav.properties") },
@@ -35,7 +42,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 right-0 left-0 z-40 border-b backdrop-blur-xl transition-all duration-300",
+        "fixed top-0 right-0 left-0 z-40 border-b pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-all duration-300",
         scrolled || open
           ? "border-border bg-brand-cream/95 shadow-[0_1px_0_rgba(0,0,0,0.04)]"
           : "border-brand-cream/40 bg-brand-cream/85"
@@ -104,8 +111,8 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background/95 backdrop-blur md:hidden">
-          <nav className="container-page flex flex-col py-4">
+        <div className="animate-in fade-in slide-in-from-top-1 border-t border-border bg-background/95 backdrop-blur duration-200 md:hidden">
+          <nav className="container-page flex flex-col py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
             {links.map((link) => {
               const active =
                 link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)

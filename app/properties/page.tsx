@@ -32,7 +32,7 @@ export default function PropertiesPage() {
           <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
             {t("properties.filterAll")} · La Fortuna
           </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-tight text-balance text-brand-green md:text-6xl">
+          <h1 className="mt-4 max-w-3xl font-display text-fluid-h1 leading-tight text-balance text-brand-green">
             {t("properties.title")}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">

@@ -15,7 +15,7 @@ export default function ContactPage() {
           <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
             {t("nav.contact")}
           </p>
-          <h1 className="mt-4 font-serif text-5xl leading-tight text-balance text-brand-green md:text-6xl">
+          <h1 className="mt-4 font-display text-fluid-h1 leading-tight text-balance text-brand-green">
             {t("contact.title")}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
