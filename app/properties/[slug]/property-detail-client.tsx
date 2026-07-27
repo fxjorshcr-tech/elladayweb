@@ -77,6 +77,11 @@ export function PropertyDetailClient({ property }: { property: Property }) {
               </h1>
             </div>
             <div className="text-right">
+              {property.sold && (
+                <span className="mb-2 inline-block rounded-full bg-brand-green px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-cream uppercase">
+                  {t("common.sold")}
+                </span>
+              )}
               {!property.priceOnRequest && (
                 <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
                   {t("common.fromPrice")}
