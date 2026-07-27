@@ -78,7 +78,7 @@ export function PropertyDetailClient({ property }: { property: Property }) {
             </div>
             <div className="text-right">
               {property.sold && (
-                <span className="mb-2 inline-block rounded-full bg-brand-green px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-cream uppercase">
+                <span className="mb-2 inline-block rounded-md bg-red-600 px-4 py-1.5 text-sm font-bold tracking-[0.2em] text-white uppercase shadow-md">
                   {t("common.sold")}
                 </span>
               )}
