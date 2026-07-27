@@ -48,8 +48,174 @@ const lote1Image = bucketImage("Lote1")
 const lote2Image = bucketImage("Lote1", "Lote 2")
 const lote500Image = bucketImage("elladay", "Lote 500")
 const casaRainForestImage = bucketImage("elladay", "Casa Rain Forest")
+const loteBosqueImage = bucketImage("elladay", "Lote1")
+const loteBosque2Image = bucketImage("elladay", "Lote2")
 
 export const properties: Property[] = [
+  {
+    slug: "lote-el-bosque-la-fortuna-2",
+    type: "lot",
+    agent: "ella",
+    price: 13000000,
+    currency: "CRC",
+    location: {
+      es: "El Bosque, La Fortuna, San Carlos",
+      en: "El Bosque, La Fortuna, San Carlos",
+      fr: "El Bosque, La Fortuna, San Carlos",
+      de: "El Bosque, La Fortuna, San Carlos",
+    },
+    mapQuery: "El Bosque, La Fortuna, San Carlos, Alajuela, Costa Rica",
+    title: {
+      es: "Lote en El Bosque de La Fortuna, San Carlos",
+      en: "Lot in El Bosque, La Fortuna, San Carlos",
+      fr: "Terrain à El Bosque, La Fortuna, San Carlos",
+      de: "Grundstück in El Bosque, La Fortuna, San Carlos",
+    },
+    shortDescription: {
+      es: "Lote en El Bosque de La Fortuna, San Carlos, con agua y luz disponibles y opción de financiamiento. Excelente oportunidad para construir o invertir.",
+      en: "Lot in El Bosque, La Fortuna, San Carlos, with water and electricity available and financing option. An excellent opportunity to build or invest.",
+      fr: "Terrain à El Bosque, La Fortuna, San Carlos, avec eau et électricité disponibles et possibilité de financement. Excellente occasion de construire ou d'investir.",
+      de: "Grundstück in El Bosque, La Fortuna, San Carlos, mit Wasser und Strom verfügbar und Finanzierungsmöglichkeit. Eine ausgezeichnete Gelegenheit zum Bauen oder Investieren.",
+    },
+    description: {
+      es: [
+        "Se vende lote en El Bosque de La Fortuna, San Carlos, en una zona tranquila y muy bien ubicada de la región del Arenal.",
+        "Cuenta con agua y luz disponibles, listo para desarrollar su proyecto, y se ofrece con opción de financiamiento para facilitar la compra.",
+        "Es una excelente oportunidad tanto para construir su casa como para invertir en una de las zonas con mayor proyección de La Fortuna.",
+      ],
+      en: [
+        "Lot for sale in El Bosque, La Fortuna, San Carlos, in a quiet and very well-located area of the Arenal region.",
+        "It has water and electricity available, ready to develop your project, and it is offered with a financing option to make the purchase easier.",
+        "It's an excellent opportunity both to build your home and to invest in one of the most promising areas of La Fortuna.",
+      ],
+      fr: [
+        "Terrain à vendre à El Bosque, La Fortuna, San Carlos, dans un secteur paisible et très bien situé de la région d'Arenal.",
+        "Il dispose de l'eau et de l'électricité, prêt à accueillir votre projet, et il est proposé avec une possibilité de financement pour faciliter l'achat.",
+        "C'est une excellente occasion aussi bien pour construire votre maison que pour investir dans l'une des zones les plus prometteuses de La Fortuna.",
+      ],
+      de: [
+        "Grundstück zum Verkauf in El Bosque, La Fortuna, San Carlos, in einer ruhigen und sehr gut gelegenen Gegend der Arenal-Region.",
+        "Es verfügt über Wasser und Strom, bereit für Ihr Projekt, und wird mit einer Finanzierungsmöglichkeit angeboten, um den Kauf zu erleichtern.",
+        "Eine ausgezeichnete Gelegenheit, sowohl um Ihr Haus zu bauen als auch um in einer der zukunftsträchtigsten Gegenden von La Fortuna zu investieren.",
+      ],
+    },
+    highlights: {
+      es: [
+        "Ubicado en El Bosque de La Fortuna",
+        "Agua disponible",
+        "Electricidad disponible",
+        "Opción de financiamiento",
+        "Ideal para construir o invertir",
+      ],
+      en: [
+        "Located in El Bosque, La Fortuna",
+        "Water available",
+        "Electricity available",
+        "Financing option",
+        "Ideal to build or invest",
+      ],
+      fr: [
+        "Situé à El Bosque, La Fortuna",
+        "Eau disponible",
+        "Électricité disponible",
+        "Possibilité de financement",
+        "Idéal pour construire ou investir",
+      ],
+      de: [
+        "Gelegen in El Bosque, La Fortuna",
+        "Wasser verfügbar",
+        "Strom verfügbar",
+        "Finanzierungsmöglichkeit",
+        "Ideal zum Bauen oder Investieren",
+      ],
+    },
+    images: [
+      loteBosque2Image("WhatsApp Image 2026-07-27 at 12.23.17 PM.jpeg", "Lote en El Bosque de La Fortuna"),
+      loteBosque2Image("WhatsApp Image 2026-07-27 at 12.23.17 PM (1).jpeg", "Lote en El Bosque de La Fortuna"),
+    ],
+  },
+  {
+    slug: "lote-el-bosque-la-fortuna",
+    type: "lot",
+    agent: "ella",
+    price: 40000000,
+    currency: "CRC",
+    location: {
+      es: "El Bosque, La Fortuna, San Carlos",
+      en: "El Bosque, La Fortuna, San Carlos",
+      fr: "El Bosque, La Fortuna, San Carlos",
+      de: "El Bosque, La Fortuna, San Carlos",
+    },
+    mapQuery: "El Bosque, La Fortuna, San Carlos, Alajuela, Costa Rica",
+    title: {
+      es: "Lote en El Bosque de La Fortuna, San Carlos",
+      en: "Lot in El Bosque, La Fortuna, San Carlos",
+      fr: "Terrain à El Bosque, La Fortuna, San Carlos",
+      de: "Grundstück in El Bosque, La Fortuna, San Carlos",
+    },
+    shortDescription: {
+      es: "Lote en El Bosque de La Fortuna, San Carlos, con agua y luz disponibles y opción de financiamiento. Excelente oportunidad para construir o invertir.",
+      en: "Lot in El Bosque, La Fortuna, San Carlos, with water and electricity available and financing option. An excellent opportunity to build or invest.",
+      fr: "Terrain à El Bosque, La Fortuna, San Carlos, avec eau et électricité disponibles et possibilité de financement. Excellente occasion de construire ou d'investir.",
+      de: "Grundstück in El Bosque, La Fortuna, San Carlos, mit Wasser und Strom verfügbar und Finanzierungsmöglichkeit. Eine ausgezeichnete Gelegenheit zum Bauen oder Investieren.",
+    },
+    description: {
+      es: [
+        "Se vende lote en El Bosque de La Fortuna, San Carlos, en una zona tranquila y muy bien ubicada de la región del Arenal.",
+        "Cuenta con agua y luz disponibles, listo para desarrollar su proyecto, y se ofrece con opción de financiamiento para facilitar la compra.",
+        "Es una excelente oportunidad tanto para construir su casa como para invertir en una de las zonas con mayor proyección de La Fortuna.",
+      ],
+      en: [
+        "Lot for sale in El Bosque, La Fortuna, San Carlos, in a quiet and very well-located area of the Arenal region.",
+        "It has water and electricity available, ready to develop your project, and it is offered with a financing option to make the purchase easier.",
+        "It's an excellent opportunity both to build your home and to invest in one of the most promising areas of La Fortuna.",
+      ],
+      fr: [
+        "Terrain à vendre à El Bosque, La Fortuna, San Carlos, dans un secteur paisible et très bien situé de la région d'Arenal.",
+        "Il dispose de l'eau et de l'électricité, prêt à accueillir votre projet, et il est proposé avec une possibilité de financement pour faciliter l'achat.",
+        "C'est une excellente occasion aussi bien pour construire votre maison que pour investir dans l'une des zones les plus prometteuses de La Fortuna.",
+      ],
+      de: [
+        "Grundstück zum Verkauf in El Bosque, La Fortuna, San Carlos, in einer ruhigen und sehr gut gelegenen Gegend der Arenal-Region.",
+        "Es verfügt über Wasser und Strom, bereit für Ihr Projekt, und wird mit einer Finanzierungsmöglichkeit angeboten, um den Kauf zu erleichtern.",
+        "Eine ausgezeichnete Gelegenheit, sowohl um Ihr Haus zu bauen als auch um in einer der zukunftsträchtigsten Gegenden von La Fortuna zu investieren.",
+      ],
+    },
+    highlights: {
+      es: [
+        "Ubicado en El Bosque de La Fortuna",
+        "Agua disponible",
+        "Electricidad disponible",
+        "Opción de financiamiento",
+        "Ideal para construir o invertir",
+      ],
+      en: [
+        "Located in El Bosque, La Fortuna",
+        "Water available",
+        "Electricity available",
+        "Financing option",
+        "Ideal to build or invest",
+      ],
+      fr: [
+        "Situé à El Bosque, La Fortuna",
+        "Eau disponible",
+        "Électricité disponible",
+        "Possibilité de financement",
+        "Idéal pour construire ou investir",
+      ],
+      de: [
+        "Gelegen in El Bosque, La Fortuna",
+        "Wasser verfügbar",
+        "Strom verfügbar",
+        "Finanzierungsmöglichkeit",
+        "Ideal zum Bauen oder Investieren",
+      ],
+    },
+    images: [
+      loteBosqueImage("WhatsApp Image 2026-07-27 at 12.22.44 PM.jpeg", "Lote en El Bosque de La Fortuna"),
+      loteBosqueImage("WhatsApp Image 2026-07-27 at 12.22.44 PM (1).jpeg", "Lote en El Bosque de La Fortuna"),
+    ],
+  },
   {
     slug: "casa-el-jauri-la-fortuna",
     type: "house",
