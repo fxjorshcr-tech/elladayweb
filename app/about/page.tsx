@@ -31,7 +31,7 @@ export default function AboutPage() {
           <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
             {t("nav.about")}
           </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-tight text-balance text-brand-green md:text-6xl">
+          <h1 className="mt-4 max-w-3xl font-display text-fluid-h1 leading-tight text-balance text-brand-green">
             {t("about.title")}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
@@ -58,7 +58,7 @@ export default function AboutPage() {
       <section className="container-page pb-24">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <FadeIn className="md:col-span-7">
-            <h2 className="font-serif text-4xl text-brand-green md:text-5xl">
+            <h2 className="font-display text-fluid-h2 text-brand-green">
               {t("about.storyTitle")}
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
               {pick({ es: "Esencia", en: "Essence", fr: "Essence", de: "Essenz" })}
             </p>
-            <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+            <h2 className="mt-4 max-w-3xl font-display text-fluid-h2 leading-tight text-balance text-brand-green">
               {t("about.essenceTitle")}
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
@@ -122,7 +122,7 @@ export default function AboutPage() {
 
       <section className="container-page py-24 md:py-28">
         <FadeIn>
-          <h2 className="font-serif text-4xl text-brand-green md:text-5xl">
+          <h2 className="font-display text-fluid-h2 text-brand-green">
             {t("about.valuesTitle")}
           </h2>
         </FadeIn>
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 de: "Etwas Persönliches",
               })}
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
               {t("about.animalsTitle")}
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -217,7 +217,7 @@ export default function AboutPage() {
             <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
               {t("agents.eyebrow")}
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
               {t("agents.title")}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -249,7 +249,7 @@ export default function AboutPage() {
       <section className="bg-brand-green py-24 text-brand-cream md:py-28">
         <div className="container-narrow text-center">
           <FadeIn>
-            <h2 className="font-serif text-4xl leading-tight text-balance md:text-5xl">
+            <h2 className="font-display text-fluid-h2 leading-tight text-balance">
               {pick({
                 es: "¿Quieres conocernos?",
                 en: "Want to meet us?",

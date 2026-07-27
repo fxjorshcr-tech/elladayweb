@@ -40,7 +40,7 @@ export default function HomePage() {
             </p>
           </FadeIn>
           <FadeIn delay={120}>
-            <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[1.05] text-balance text-white md:text-7xl">
+            <h1 className="mt-6 max-w-4xl font-display text-fluid-hero leading-[1.05] text-balance text-white">
               {t("hero.title")}
             </h1>
           </FadeIn>
@@ -50,16 +50,16 @@ export default function HomePage() {
             </p>
           </FadeIn>
           <FadeIn delay={360}>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/properties"
-                className="inline-flex items-center rounded-full bg-brand-cream px-7 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:bg-white"
+                className="inline-flex w-full items-center justify-center rounded-full bg-brand-cream px-7 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:bg-white sm:w-auto"
               >
                 {t("hero.ctaProperties")} →
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center rounded-full border border-white/60 px-7 py-3.5 text-sm tracking-wide text-white transition-colors hover:bg-white/10"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/60 px-7 py-3.5 text-sm tracking-wide text-white transition-colors hover:bg-white/10 sm:w-auto"
               >
                 {t("hero.ctaContact")}
               </Link>
@@ -132,7 +132,7 @@ export default function HomePage() {
             <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
               {t("fortuna.eyebrow")}
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
               {t("fortuna.title")}
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -203,7 +203,7 @@ export default function HomePage() {
                 <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
                   {t("featured.eyebrow")}
                 </p>
-                <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+                <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
                   {t("featured.title")}
                 </h2>
               </div>
@@ -243,7 +243,7 @@ export default function HomePage() {
             <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
               {t("agents.eyebrow")}
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-brand-green md:text-5xl">
+            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
               {t("agents.title")}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -282,7 +282,7 @@ export default function HomePage() {
       <section className="bg-brand-green py-24 text-brand-cream md:py-32">
         <div className="container-narrow text-center">
           <FadeIn>
-            <h2 className="font-serif text-4xl leading-tight text-balance md:text-5xl">
+            <h2 className="font-display text-fluid-h2 leading-tight text-balance">
               {pick({
                 es: "¿Buscas propiedad en La Fortuna?",
                 en: "Looking for property in La Fortuna?",

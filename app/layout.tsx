@@ -1,5 +1,5 @@
-import type { Metadata } from "next"
-import { Cormorant_Garamond, Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Fraunces, Inter } from "next/font/google"
 
 import "./globals.css"
 import { LanguageProvider } from "@/lib/i18n/provider"
@@ -9,16 +9,22 @@ import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { cn } from "@/lib/utils"
 import { SITE } from "@/lib/constants"
 
-const fontSerif = Cormorant_Garamond({
+const fontSerif = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
   weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 })
 
 const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 })
+
+export const viewport: Viewport = {
+  themeColor: "#eef1e7",
+  viewportFit: "cover",
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elladayhome.com"),

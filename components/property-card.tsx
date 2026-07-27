@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/lib/i18n/provider"
 import { formatPrice, type Property } from "@/lib/properties"
+import { blurDataURL } from "@/lib/blur"
 import { cn } from "@/lib/utils"
 
 const typeLabels = {
@@ -40,6 +41,8 @@ export function PropertyCard({
           alt={property.images[0].alt}
           fill
           priority={priority}
+          placeholder="blur"
+          blurDataURL={blurDataURL}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
@@ -48,8 +51,10 @@ export function PropertyCard({
         </div>
         <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/50 to-transparent p-5 text-white">
           <p className="font-serif text-xl leading-tight">
-            {formatPrice(property.price, lang, property.currency)}
-            {property.negotiable && (
+            {property.priceOnRequest
+              ? t("common.priceOnRequest")
+              : formatPrice(property.price, lang, property.currency)}
+            {!property.priceOnRequest && property.negotiable && (
               <span className="ml-2 text-xs tracking-wide opacity-80">
                 · {t("common.negotiable")}
               </span>
