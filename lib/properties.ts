@@ -13,6 +13,7 @@ export type Property = {
   price: number
   currency: Currency
   negotiable?: boolean
+  priceOnRequest?: boolean
   bedrooms?: number
   bathrooms?: number
   builtArea?: number
@@ -50,8 +51,108 @@ const lote500Image = bucketImage("elladay", "Lote 500")
 const casaRainForestImage = bucketImage("elladay", "Casa Rain Forest")
 const loteBosqueImage = bucketImage("elladay", "Lote1")
 const loteBosque2Image = bucketImage("elladay", "Lote2")
+const lote3Image = bucketImage("elladay", "lote3")
 
 export const properties: Property[] = [
+  {
+    slug: "lotes-el-bosque-la-fortuna-vista-volcan",
+    type: "lot",
+    agent: "ella",
+    price: 0,
+    currency: "CRC",
+    priceOnRequest: true,
+    location: {
+      es: "El Bosque, La Fortuna, San Carlos",
+      en: "El Bosque, La Fortuna, San Carlos",
+      fr: "El Bosque, La Fortuna, San Carlos",
+      de: "El Bosque, La Fortuna, San Carlos",
+    },
+    mapQuery: "El Bosque, La Fortuna, San Carlos, Alajuela, Costa Rica",
+    title: {
+      es: "Lotes en El Bosque de La Fortuna con vista al volcán",
+      en: "Lots in El Bosque, La Fortuna, with volcano view",
+      fr: "Terrains à El Bosque, La Fortuna, avec vue sur le volcan",
+      de: "Grundstücke in El Bosque, La Fortuna, mit Vulkanblick",
+    },
+    shortDescription: {
+      es: "Lotes en El Bosque de La Fortuna, San Carlos, con vista al volcán, agua y luz disponibles y opción de financiamiento. A 10 minutos de La Fortuna.",
+      en: "Lots in El Bosque, La Fortuna, San Carlos, with volcano view, water and electricity available and financing option. 10 minutes from La Fortuna.",
+      fr: "Terrains à El Bosque, La Fortuna, San Carlos, avec vue sur le volcan, eau et électricité disponibles et possibilité de financement. À 10 minutes de La Fortuna.",
+      de: "Grundstücke in El Bosque, La Fortuna, San Carlos, mit Vulkanblick, Wasser und Strom verfügbar und Finanzierungsmöglichkeit. 10 Minuten von La Fortuna.",
+    },
+    description: {
+      es: [
+        "Se venden lotes en El Bosque de La Fortuna, San Carlos, en una zona tranquila y privilegiada de la región del Arenal, con hermosa vista al volcán.",
+        "Cuentan con agua y luz disponibles y se ofrecen con opción de financiamiento. Están ubicados a tan solo 10 minutos de La Fortuna.",
+        "Son una excelente oportunidad tanto para construir su casa como para invertir. Para más información o coordinar una visita, escríbanos.",
+      ],
+      en: [
+        "Lots for sale in El Bosque, La Fortuna, San Carlos, in a quiet, privileged area of the Arenal region, with a beautiful view of the volcano.",
+        "They have water and electricity available and are offered with a financing option. They are located just 10 minutes from La Fortuna.",
+        "They are an excellent opportunity both to build your home and to invest. For more information or to arrange a visit, get in touch with us.",
+      ],
+      fr: [
+        "Terrains à vendre à El Bosque, La Fortuna, San Carlos, dans un secteur paisible et privilégié de la région d'Arenal, avec une belle vue sur le volcan.",
+        "Ils disposent de l'eau et de l'électricité et sont proposés avec une possibilité de financement. Ils sont situés à seulement 10 minutes de La Fortuna.",
+        "C'est une excellente occasion aussi bien pour construire votre maison que pour investir. Pour plus d'informations ou pour organiser une visite, écrivez-nous.",
+      ],
+      de: [
+        "Grundstücke zum Verkauf in El Bosque, La Fortuna, San Carlos, in einer ruhigen, privilegierten Gegend der Arenal-Region, mit herrlichem Blick auf den Vulkan.",
+        "Sie verfügen über Wasser und Strom und werden mit einer Finanzierungsmöglichkeit angeboten. Sie liegen nur 10 Minuten von La Fortuna entfernt.",
+        "Eine ausgezeichnete Gelegenheit, sowohl um Ihr Haus zu bauen als auch um zu investieren. Für weitere Informationen oder zur Vereinbarung eines Besuchs schreiben Sie uns.",
+      ],
+    },
+    highlights: {
+      es: [
+        "Ubicados en El Bosque de La Fortuna",
+        "Vista al volcán",
+        "Agua disponible",
+        "Electricidad disponible",
+        "Opción de financiamiento",
+        "A 10 minutos de La Fortuna",
+      ],
+      en: [
+        "Located in El Bosque, La Fortuna",
+        "Volcano view",
+        "Water available",
+        "Electricity available",
+        "Financing option",
+        "10 minutes from La Fortuna",
+      ],
+      fr: [
+        "Situés à El Bosque, La Fortuna",
+        "Vue sur le volcan",
+        "Eau disponible",
+        "Électricité disponible",
+        "Possibilité de financement",
+        "À 10 minutes de La Fortuna",
+      ],
+      de: [
+        "Gelegen in El Bosque, La Fortuna",
+        "Vulkanblick",
+        "Wasser verfügbar",
+        "Strom verfügbar",
+        "Finanzierungsmöglichkeit",
+        "10 Minuten von La Fortuna",
+      ],
+    },
+    images: [
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.23 PM (1).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.24 PM.jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.24 PM (1).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.25 PM.jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.25 PM (1).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.25 PM (2).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.26 PM.jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.26 PM (1).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.26 PM (2).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.27 PM.jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.27 PM (1).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.27 PM (2).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.28 PM.jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+      lote3Image("WhatsApp Image 2026-07-27 at 12.24.28 PM (1).jpeg", "Lote en El Bosque de La Fortuna con vista al volcán"),
+    ],
+  },
   {
     slug: "lote-el-bosque-la-fortuna-2",
     type: "lot",

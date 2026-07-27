@@ -85,13 +85,17 @@ function PropertyDetail({ property }: { property: Property }) {
               </h1>
             </div>
             <div className="text-right">
-              <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                {t("common.fromPrice")}
-              </p>
+              {!property.priceOnRequest && (
+                <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                  {t("common.fromPrice")}
+                </p>
+              )}
               <p className="mt-1 font-serif text-3xl text-brand-green md:text-4xl">
-                {formatPrice(property.price, lang, property.currency)}
+                {property.priceOnRequest
+                  ? t("common.priceOnRequest")
+                  : formatPrice(property.price, lang, property.currency)}
               </p>
-              {property.negotiable && (
+              {!property.priceOnRequest && property.negotiable && (
                 <p className="mt-1 text-xs tracking-[0.16em] text-muted-foreground uppercase">
                   {t("common.negotiable")}
                 </p>

@@ -659,6 +659,12 @@ export const dictionary = {
       fr: "Négociable",
       de: "Verhandelbar",
     },
+    priceOnRequest: {
+      es: "Cotizar",
+      en: "Request a quote",
+      fr: "Sur devis",
+      de: "Auf Anfrage",
+    },
   },
 } as const
 
