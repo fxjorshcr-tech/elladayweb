@@ -14,6 +14,7 @@ export type Property = {
   currency: Currency
   negotiable?: boolean
   priceOnRequest?: boolean
+  sold?: boolean
   bedrooms?: number
   bathrooms?: number
   builtArea?: number
@@ -699,6 +700,7 @@ export const properties: Property[] = [
     price: 70000000,
     currency: "CRC",
     negotiable: true,
+    sold: true,
     lotSize: 3116,
     lotUnit: "m2",
     location: {

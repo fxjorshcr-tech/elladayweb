@@ -49,6 +49,14 @@ export function PropertyCard({
         <div className="absolute top-4 left-4 rounded-full bg-background/90 px-3 py-1 text-[10px] tracking-[0.18em] text-brand-green uppercase backdrop-blur">
           {pick(typeLabels[property.type])}
         </div>
+        {property.sold && (
+          <>
+            <div className="absolute inset-0 bg-brand-green/35" />
+            <div className="absolute top-4 right-4 rounded-full bg-brand-green px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-cream uppercase shadow-sm">
+              {t("common.sold")}
+            </div>
+          </>
+        )}
         <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/50 to-transparent p-5 text-white">
           <p className="font-serif text-xl leading-tight">
             {property.priceOnRequest

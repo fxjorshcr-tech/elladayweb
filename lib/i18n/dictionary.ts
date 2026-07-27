@@ -665,6 +665,12 @@ export const dictionary = {
       fr: "Sur devis",
       de: "Auf Anfrage",
     },
+    sold: {
+      es: "Vendida",
+      en: "Sold",
+      fr: "Vendu",
+      de: "Verkauft",
+    },
   },
 } as const
 
