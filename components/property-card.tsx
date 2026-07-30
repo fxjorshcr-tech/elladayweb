@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/lib/i18n/provider"
-import { formatPrice, type Property } from "@/lib/properties"
+import { formatApproxUsd, formatPrice, type Property } from "@/lib/properties"
 import { blurDataURL } from "@/lib/blur"
 import { cn } from "@/lib/utils"
 
@@ -49,14 +49,22 @@ export function PropertyCard({
         <div className="absolute top-4 left-4 rounded-full bg-background/90 px-3 py-1 text-[10px] tracking-[0.18em] text-brand-green uppercase backdrop-blur">
           {pick(typeLabels[property.type])}
         </div>
-        {property.sold && (
+        {property.sold ? (
           <>
             <div className="absolute inset-0 bg-brand-green/25" />
             <div className="absolute top-4 right-4 rotate-3 rounded-md bg-red-600 px-4 py-1.5 text-sm font-bold tracking-[0.2em] text-white uppercase shadow-lg ring-1 ring-white/25">
               {t("common.sold")}
             </div>
           </>
-        )}
+        ) : property.previousPrice != null ? (
+          <div className="absolute top-4 right-4 rounded-full bg-brand-gold px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-white uppercase shadow-md">
+            {t("common.reducedBadge")}
+          </div>
+        ) : property.isNew ? (
+          <div className="absolute top-4 right-4 rounded-full bg-brand-green px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-brand-cream uppercase shadow-md">
+            {t("common.newBadge")}
+          </div>
+        ) : null}
         <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/50 to-transparent p-5 text-white">
           <p className="font-serif text-xl leading-tight">
             {property.priceOnRequest
@@ -68,6 +76,12 @@ export function PropertyCard({
               </span>
             )}
           </p>
+          {!property.priceOnRequest &&
+            formatApproxUsd(property.price, property.currency) && (
+              <p className="mt-0.5 text-xs tracking-wide opacity-85">
+                {formatApproxUsd(property.price, property.currency)} USD
+              </p>
+            )}
         </div>
       </div>
 

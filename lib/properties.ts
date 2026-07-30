@@ -15,6 +15,8 @@ export type Property = {
   negotiable?: boolean
   priceOnRequest?: boolean
   sold?: boolean
+  isNew?: boolean
+  previousPrice?: number
   bedrooms?: number
   bathrooms?: number
   builtArea?: number
@@ -62,6 +64,7 @@ export const properties: Property[] = [
     price: 0,
     currency: "CRC",
     priceOnRequest: true,
+    isNew: true,
     location: {
       es: "El Bosque, La Fortuna, San Carlos",
       en: "El Bosque, La Fortuna, San Carlos",
@@ -160,6 +163,7 @@ export const properties: Property[] = [
     agent: "ella",
     price: 13000000,
     currency: "CRC",
+    isNew: true,
     location: {
       es: "El Bosque, La Fortuna, San Carlos",
       en: "El Bosque, La Fortuna, San Carlos",
@@ -242,6 +246,7 @@ export const properties: Property[] = [
     agent: "ella",
     price: 40000000,
     currency: "CRC",
+    isNew: true,
     location: {
       es: "El Bosque, La Fortuna, San Carlos",
       en: "El Bosque, La Fortuna, San Carlos",
@@ -1008,6 +1013,29 @@ export const propertyAgents: Record<Agent, { name: string; role: L }> = {
 
 export function getProperty(slug: string): Property | undefined {
   return properties.find((p) => p.slug === slug)
+}
+
+// Approximate reference rate used only for the informative USD conversion
+// shown next to colón prices. Update from time to time.
+export const CRC_PER_USD = 500
+
+// Normalized price in colones, used for filtering and sorting.
+export function priceInCrc(property: Property): number {
+  return property.currency === "CRC"
+    ? property.price
+    : property.price * CRC_PER_USD
+}
+
+// "≈ $90,000" companion for CRC prices; null when the price is already USD.
+export function formatApproxUsd(
+  amount: number,
+  currency: Currency
+): string | null {
+  if (currency !== "CRC" || amount <= 0) return null
+  const usd = amount / CRC_PER_USD
+  const step = usd >= 100000 ? 5000 : 1000
+  const rounded = Math.round(usd / step) * step
+  return `≈ $${rounded.toLocaleString("en-US")}`
 }
 
 export function formatPrice(
