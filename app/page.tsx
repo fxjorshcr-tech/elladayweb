@@ -6,6 +6,9 @@ import { useLanguage } from "@/lib/i18n/provider"
 import { properties } from "@/lib/properties"
 import { PropertyCard } from "@/components/property-card"
 import { FadeIn } from "@/components/fade-in"
+import { HeroSearch } from "@/components/hero-search"
+import { CountUp } from "@/components/count-up"
+import { NewsletterCta } from "@/components/newsletter-cta"
 import { SITE, whatsappLink } from "@/lib/constants"
 
 const STORAGE = "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos"
@@ -50,7 +53,12 @@ export default function HomePage() {
             </p>
           </FadeIn>
           <FadeIn delay={360}>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-10 max-w-3xl">
+              <HeroSearch />
+            </div>
+          </FadeIn>
+          <FadeIn delay={460}>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/properties"
                 className="inline-flex w-full items-center justify-center rounded-full bg-brand-cream px-7 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:bg-white sm:w-auto"
@@ -279,6 +287,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <NewsletterCta />
+
       <section className="bg-brand-green py-24 text-brand-cream md:py-32">
         <div className="container-narrow text-center">
           <FadeIn>
@@ -369,7 +379,9 @@ function ReasonItem({
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <p className="font-serif text-3xl text-brand-green md:text-4xl">{value}</p>
+      <p className="font-serif text-3xl text-brand-green md:text-4xl">
+        <CountUp value={value} />
+      </p>
       <p className="mt-1 text-xs tracking-wide text-muted-foreground">{label}</p>
     </div>
   )

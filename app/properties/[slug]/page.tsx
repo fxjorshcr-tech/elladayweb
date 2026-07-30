@@ -54,22 +54,62 @@ export default async function PropertyDetailPage({
   const property = getProperty(slug)
   if (!property) notFound()
 
+  const url = `https://elladayhome.com/properties/${slug}`
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: property.title.es,
-    description: property.shortDescription.es,
-    image: property.images.map((img) => img.src),
-    ...(property.priceOnRequest
-      ? {}
-      : {
-          offers: {
-            "@type": "Offer",
-            price: property.price,
-            priceCurrency: property.currency,
-            availability: "https://schema.org/InStock",
+    "@graph": [
+      {
+        "@type": "Product",
+        name: property.title.es,
+        description: property.shortDescription.es,
+        image: property.images.map((img) => img.src),
+        url,
+        ...(property.priceOnRequest
+          ? {}
+          : {
+              offers: {
+                "@type": "Offer",
+                price: property.price,
+                priceCurrency: property.currency,
+                availability: property.sold
+                  ? "https://schema.org/SoldOut"
+                  : "https://schema.org/InStock",
+                url,
+              },
+            }),
+      },
+      {
+        "@type": "RealEstateListing",
+        name: property.title.es,
+        description: property.shortDescription.es,
+        url,
+        image: property.images[0]?.src,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: "https://elladayhome.com",
           },
-        }),
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Propiedades",
+            item: "https://elladayhome.com/properties",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: property.title.es,
+            item: url,
+          },
+        ],
+      },
+    ],
   }
 
   return (

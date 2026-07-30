@@ -48,6 +48,24 @@ export const metadata: Metadata = {
   },
 }
 
+const agencyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: SITE.name,
+  description:
+    "Boutique real estate agency selling lots, homes and farms in La Fortuna, Costa Rica.",
+  url: "https://elladayhome.com",
+  telephone: "+50662308356",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "La Fortuna",
+    addressRegion: "Alajuela",
+    addressCountry: "CR",
+  },
+  areaServed: "La Fortuna, San Carlos, Costa Rica",
+  sameAs: [`https://instagram.com/${SITE.instagram}`],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,6 +78,10 @@ export default function RootLayout({
       className={cn("antialiased", fontSerif.variable, fontSans.variable)}
     >
       <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(agencyJsonLd) }}
+        />
         <LanguageProvider>
           <Navbar />
           <main className="pt-16 md:pt-20">{children}</main>

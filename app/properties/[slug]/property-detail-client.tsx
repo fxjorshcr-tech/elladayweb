@@ -2,10 +2,12 @@
 
 import Link from "next/link"
 import { useLanguage } from "@/lib/i18n/provider"
-import { formatPrice, type Property } from "@/lib/properties"
+import { formatApproxUsd, formatPrice, type Property } from "@/lib/properties"
 import { PropertyGallery } from "@/components/property-gallery"
 import { ContactForm } from "@/components/contact-form"
 import { FadeIn } from "@/components/fade-in"
+import { ShareButtons } from "@/components/share-buttons"
+import { FinancingCalculator } from "@/components/financing-calculator"
 import { SITE, whatsappLink } from "@/lib/constants"
 
 const typeLabels = {
@@ -58,12 +60,25 @@ export function PropertyDetailClient({ property }: { property: Property }) {
     <>
       <section className="container-page py-12 md:py-16">
         <FadeIn>
-          <Link
-            href="/properties"
-            className="text-sm text-muted-foreground hover:text-brand-green"
-          >
-            ← {t("properties.backToProperties")}
-          </Link>
+          <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:text-brand-green">
+                  {t("nav.home")}
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/properties" className="hover:text-brand-green">
+                  {t("properties.title")}
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li className="max-w-[16rem] truncate text-brand-green sm:max-w-none">
+                {propertyTitle}
+              </li>
+            </ol>
+          </nav>
         </FadeIn>
 
         <FadeIn delay={80}>
@@ -82,9 +97,26 @@ export function PropertyDetailClient({ property }: { property: Property }) {
                   {t("common.sold")}
                 </span>
               )}
+              {!property.sold && property.previousPrice != null && (
+                <span className="mb-2 inline-block rounded-full bg-brand-gold px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-white uppercase shadow-md">
+                  {t("common.reducedBadge")}
+                </span>
+              )}
+              {!property.sold &&
+                property.previousPrice == null &&
+                property.isNew && (
+                  <span className="mb-2 inline-block rounded-full bg-brand-green px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-brand-cream uppercase shadow-md">
+                    {t("common.newBadge")}
+                  </span>
+                )}
               {!property.priceOnRequest && (
                 <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
                   {t("common.fromPrice")}
+                </p>
+              )}
+              {!property.priceOnRequest && property.previousPrice != null && (
+                <p className="mt-1 text-sm text-muted-foreground line-through">
+                  {formatPrice(property.previousPrice, lang, property.currency)}
                 </p>
               )}
               <p className="mt-1 font-serif text-3xl text-brand-green md:text-4xl">
@@ -92,12 +124,24 @@ export function PropertyDetailClient({ property }: { property: Property }) {
                   ? t("common.priceOnRequest")
                   : formatPrice(property.price, lang, property.currency)}
               </p>
+              {!property.priceOnRequest &&
+                formatApproxUsd(property.price, property.currency) && (
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {formatApproxUsd(property.price, property.currency)} USD
+                  </p>
+                )}
               {!property.priceOnRequest && property.negotiable && (
                 <p className="mt-1 text-xs tracking-[0.16em] text-muted-foreground uppercase">
                   {t("common.negotiable")}
                 </p>
               )}
             </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={120}>
+          <div className="mt-6">
+            <ShareButtons title={propertyTitle} />
           </div>
         </FadeIn>
 
@@ -189,6 +233,17 @@ export function PropertyDetailClient({ property }: { property: Property }) {
                 </div>
               </div>
             </FadeIn>
+
+            {!property.sold && !property.priceOnRequest && (
+              <FadeIn delay={200}>
+                <div className="mt-12">
+                  <FinancingCalculator
+                    price={property.price}
+                    currency={property.currency}
+                  />
+                </div>
+              </FadeIn>
+            )}
           </div>
 
           <aside className="md:col-span-1">
