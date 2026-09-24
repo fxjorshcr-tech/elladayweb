@@ -1,12 +1,18 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-import { getProperty, properties } from "@/lib/properties"
+import {
+  getPublishedProperties,
+  getPublishedProperty,
+} from "@/lib/properties-repo"
 import { PropertyDetailClient } from "./property-detail-client"
 
 type Params = { slug: string }
 
-export function generateStaticParams(): Params[] {
+// Pre-render the listings known at build time; anything published later is
+// rendered on first request and cached until the next admin change.
+export async function generateStaticParams(): Promise<Params[]> {
+  const properties = await getPublishedProperties()
   return properties.map((p) => ({ slug: p.slug }))
 }
 
@@ -16,7 +22,7 @@ export async function generateMetadata({
   params: Promise<Params>
 }): Promise<Metadata> {
   const { slug } = await params
-  const property = getProperty(slug)
+  const property = await getPublishedProperty(slug)
   if (!property) return {}
 
   const title = property.title.es
@@ -51,7 +57,7 @@ export default async function PropertyDetailPage({
   params: Promise<Params>
 }) {
   const { slug } = await params
-  const property = getProperty(slug)
+  const property = await getPublishedProperty(slug)
   if (!property) notFound()
 
   const url = `https://elladayhome.com/properties/${slug}`

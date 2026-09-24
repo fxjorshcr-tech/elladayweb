@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next"
-import { properties } from "@/lib/properties"
+import { getPublishedProperties } from "@/lib/properties-repo"
 
 const BASE = "https://elladayhome.com"
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/properties`, changeFrequency: "weekly", priority: 0.9 },
@@ -13,8 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/contact`, changeFrequency: "monthly", priority: 0.5 },
   ]
 
+  const properties = await getPublishedProperties()
   const propertyRoutes: MetadataRoute.Sitemap = properties.map((p) => ({
     url: `${BASE}/properties/${p.slug}`,
+    lastModified: p.updatedAt ? new Date(p.updatedAt) : undefined,
     changeFrequency: "weekly",
     priority: 0.8,
   }))
