@@ -3,9 +3,7 @@ import { Fraunces, Inter } from "next/font/google"
 
 import "./globals.css"
 import { LanguageProvider } from "@/lib/i18n/provider"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
+import { SiteChrome } from "@/components/site-chrome"
 import { cn } from "@/lib/utils"
 import { SITE } from "@/lib/constants"
 
@@ -83,10 +81,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(agencyJsonLd) }}
         />
         <LanguageProvider>
-          <Navbar />
-          <main className="pt-16 md:pt-20">{children}</main>
-          <Footer />
-          <WhatsAppFloat />
+          <SiteChrome>{children}</SiteChrome>
         </LanguageProvider>
       </body>
     </html>

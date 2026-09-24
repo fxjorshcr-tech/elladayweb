@@ -6,10 +6,25 @@ export type LArr = { es: string[]; en: string[]; fr?: string[]; de?: string[] }
 
 export type Currency = "USD" | "CRC"
 
+export type PropertyImage = {
+  src: string
+  alt: string
+  // Storage object path inside the "properties" bucket. Only set for photos
+  // uploaded from the admin panel; legacy photos are referenced by URL alone.
+  path?: string
+}
+
 export type Property = {
+  // Database id. Undefined for the static seed listings below.
+  id?: string
   slug: string
   type: PropertyType
   agent: Agent
+  // Drafts are only visible in the admin panel.
+  published?: boolean
+  createdAt?: string
+  updatedAt?: string
+  createdBy?: Agent
   price: number
   currency: Currency
   negotiable?: boolean
@@ -28,7 +43,7 @@ export type Property = {
   shortDescription: L
   description: LArr
   highlights: LArr
-  images: { src: string; alt: string }[]
+  images: PropertyImage[]
 }
 
 // Real photos served from the project's public Supabase Storage buckets.
@@ -56,7 +71,10 @@ const loteBosqueImage = bucketImage("elladay", "Lote1")
 const loteBosque2Image = bucketImage("elladay", "Lote2")
 const lote3Image = bucketImage("elladay", "lote3")
 
-export const properties: Property[] = [
+// Original hand-written listings. They are the seed for the Supabase
+// `properties` table (see supabase/migrations) and the fallback the public
+// site renders when Supabase is not configured.
+export const staticProperties: Property[] = [
   {
     slug: "lotes-el-bosque-la-fortuna-vista-volcan",
     type: "lot",
@@ -1011,9 +1029,8 @@ export const propertyAgents: Record<Agent, { name: string; role: L }> = {
   },
 }
 
-export function getProperty(slug: string): Property | undefined {
-  return properties.find((p) => p.slug === slug)
-}
+export const PROPERTY_TYPES: PropertyType[] = ["house", "lot", "farm"]
+export const AGENTS: Agent[] = ["dayana", "ella"]
 
 // Approximate reference rate used only for the informative USD conversion
 // shown next to colón prices. Update from time to time.

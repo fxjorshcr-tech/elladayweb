@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/lib/i18n/provider"
-import { properties, type PropertyType } from "@/lib/properties"
+import type { L, PropertyType } from "@/lib/properties"
 
 const typeOptions: { value: PropertyType; label: { es: string; en: string; fr: string; de: string } }[] = [
   { value: "house", label: { es: "Casas", en: "Houses", fr: "Maisons", de: "Häuser" } },
@@ -11,20 +11,12 @@ const typeOptions: { value: PropertyType; label: { es: string; en: string; fr: s
   { value: "farm", label: { es: "Fincas", en: "Farms", fr: "Fincas", de: "Höfe" } },
 ]
 
-export function HeroSearch() {
+// `zones`: unique locations from the published listings, keyed by Spanish name.
+export function HeroSearch({ zones }: { zones: [string, L][] }) {
   const router = useRouter()
   const { t, pick } = useLanguage()
   const [type, setType] = React.useState("")
   const [zone, setZone] = React.useState("")
-
-  // Unique zones from the current listings, keyed by their Spanish name.
-  const zones = React.useMemo(() => {
-    const map = new Map<string, (typeof properties)[number]["location"]>()
-    for (const p of properties) {
-      if (!map.has(p.location.es)) map.set(p.location.es, p.location)
-    }
-    return Array.from(map.entries())
-  }, [])
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
