@@ -22,7 +22,7 @@ export function LoginForm() {
           required
           autoFocus
           autoComplete="current-password"
-          className="mt-2 w-full rounded-md border border-border bg-white px-4 py-3 text-brand-green outline-none focus:border-brand-gold"
+          className="mt-2 w-full rounded-md border border-border bg-white px-4 py-3.5 text-base text-brand-green outline-none focus:border-brand-gold"
         />
       </label>
       {state.error && (

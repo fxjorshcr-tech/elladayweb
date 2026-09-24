@@ -28,10 +28,11 @@ export function PropertyRowActions({ property }: { property: Property }) {
 
   return (
     <div className="flex flex-none flex-col items-stretch gap-2 sm:items-end">
-      <div className="flex flex-wrap gap-2">
+      {/* Two-column grid on phones so every button is a comfortable thumb target. */}
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
         <Link
           href={`/admin/properties/${id}`}
-          className="rounded-full border border-border px-3 py-1.5 text-xs tracking-wide text-brand-green transition-colors hover:bg-muted"
+          className="rounded-full border border-border px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-brand-green transition-colors hover:bg-muted"
         >
           Editar
         </Link>
@@ -43,7 +44,7 @@ export function PropertyRowActions({ property }: { property: Property }) {
               setFlagsAction(id, { published: !property.published })
             )
           }
-          className="rounded-full border border-border px-3 py-1.5 text-xs tracking-wide text-brand-green transition-colors hover:bg-muted disabled:opacity-50"
+          className="rounded-full border border-border px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-brand-green transition-colors hover:bg-muted disabled:opacity-50"
         >
           {busy === "published"
             ? "…"
@@ -57,7 +58,7 @@ export function PropertyRowActions({ property }: { property: Property }) {
           onClick={() =>
             run("sold", () => setFlagsAction(id, { sold: !property.sold }))
           }
-          className={`rounded-full px-3 py-1.5 text-xs tracking-wide transition-colors disabled:opacity-50 ${
+          className={`rounded-full px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide transition-colors disabled:opacity-50 ${
             property.sold
               ? "border border-border text-brand-green hover:bg-muted"
               : "bg-red-600 text-white hover:bg-red-700"
@@ -81,7 +82,7 @@ export function PropertyRowActions({ property }: { property: Property }) {
               run("delete", () => deletePropertyAction(id))
             }
           }}
-          className="rounded-full px-3 py-1.5 text-xs tracking-wide text-red-700 transition-colors hover:bg-red-50 disabled:opacity-50"
+          className="rounded-full px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-red-700 transition-colors hover:bg-red-50 disabled:opacity-50"
         >
           {busy === "delete" ? "…" : "Eliminar"}
         </button>

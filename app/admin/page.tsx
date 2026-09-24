@@ -55,7 +55,7 @@ export default async function AdminHomePage() {
         </div>
         <Link
           href="/admin/properties/new"
-          className="rounded-full bg-brand-green px-6 py-3 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark"
+          className="w-full rounded-full bg-brand-green px-6 py-3.5 text-center text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark sm:w-auto"
         >
           + Nueva propiedad
         </Link>

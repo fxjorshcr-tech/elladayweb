@@ -7,6 +7,8 @@ import { logoutAction } from "./actions"
 export const metadata: Metadata = {
   title: "Panel de propiedades",
   robots: { index: false, follow: false },
+  // Lets the panel be added to the phone's home screen as a full-screen app.
+  appleWebApp: { capable: true, title: "EllaDay Panel", statusBarStyle: "default" },
 }
 
 export default async function AdminLayout({

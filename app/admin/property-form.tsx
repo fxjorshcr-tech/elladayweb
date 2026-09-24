@@ -327,7 +327,7 @@ export function PropertyForm({
               type="checkbox"
               checked={form.priceOnRequest}
               onChange={(e) => set("priceOnRequest", e.target.checked)}
-              className="h-4 w-4 accent-brand-green"
+              className="h-5 w-5 accent-brand-green"
             />
             Precio a consultar (no se muestra un monto)
           </label>
@@ -371,7 +371,7 @@ export function PropertyForm({
                   type="checkbox"
                   checked={form.negotiable}
                   onChange={(e) => set("negotiable", e.target.checked)}
-                  className="h-4 w-4 accent-brand-green"
+                  className="h-5 w-5 accent-brand-green"
                 />
                 Precio negociable
               </label>
@@ -547,19 +547,19 @@ export function PropertyForm({
           </p>
         )}
 
-        <div className="sticky bottom-0 -mx-4 flex flex-wrap items-center justify-end gap-3 border-t border-border bg-brand-bg/95 px-4 py-4 backdrop-blur sm:mx-0 sm:px-0">
+        <div className="sticky bottom-0 -mx-4 grid grid-cols-2 gap-3 border-t border-border bg-brand-bg/95 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur sm:mx-0 sm:flex sm:justify-end sm:px-0 sm:pb-4">
           <button
             type="button"
             disabled={saving !== null}
             onClick={() => void save(false)}
-            className="rounded-full border border-border px-5 py-3 text-sm tracking-wide text-brand-green transition-colors hover:bg-muted disabled:opacity-50"
+            className="rounded-full border border-border px-5 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:bg-muted disabled:opacity-50"
           >
             {saving === "draft" ? "Guardando…" : "Guardar borrador"}
           </button>
           <button
             type="submit"
             disabled={saving !== null}
-            className="rounded-full bg-brand-green px-7 py-3 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark disabled:opacity-50"
+            className="rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark disabled:opacity-50"
           >
             {saving === "publish"
               ? translationEnabled && !form.translations
@@ -575,8 +575,9 @@ export function PropertyForm({
   )
 }
 
+// 16px text: iOS Safari zooms the page on focus for anything smaller.
 const inputClass =
-  "mt-2 w-full rounded-md border border-border bg-white px-3.5 py-2.5 text-sm text-brand-green outline-none transition-colors focus:border-brand-gold"
+  "mt-2 w-full rounded-md border border-border bg-white px-3.5 py-3 text-base text-brand-green outline-none transition-colors focus:border-brand-gold"
 
 function Section({
   title,

@@ -10,7 +10,7 @@ import { createUploadUrl, deleteUploadedPhoto } from "./actions"
 type UploadItem = {
   key: string
   name: string
-  status: "compressing" | "uploading" | "error"
+  status: "queued" | "compressing" | "uploading" | "error"
   error?: string
 }
 
@@ -42,13 +42,28 @@ export function PhotoUploader({
     const list = Array.from(files).filter((f) => f.type.startsWith("image/"))
     if (list.length === 0) return
 
-    await Promise.all(
-      list.map(async (file) => {
-        const key = `${file.name}-${Date.now()}-${Math.random()}`
-        setUploads((u) => [
-          ...u,
-          { key, name: file.name, status: "compressing" },
-        ])
+    const queue = list.map((file) => ({
+      file,
+      key: `${file.name}-${Date.now()}-${Math.random()}`,
+    }))
+    setUploads((u) => [
+      ...u,
+      ...queue.map(({ key, file }) => ({
+        key,
+        name: file.name,
+        status: "queued" as const,
+      })),
+    ])
+
+    // Phones run out of memory if 20 photos are decoded at once, so process
+    // a couple at a time.
+    const CONCURRENCY = 2
+    const worker = async () => {
+      for (;;) {
+        const item = queue.shift()
+        if (!item) return
+        const { file, key } = item
+        patchUpload(key, { status: "compressing" })
         try {
           const blob = await compressImage(file)
           patchUpload(key, { status: "uploading" })
@@ -79,8 +94,9 @@ export function PhotoUploader({
             error: e instanceof Error ? e.message : "Error al subir",
           })
         }
-      })
-    )
+      }
+    }
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker))
   }
 
   const remove = async (index: number) => {
@@ -138,11 +154,12 @@ export function PhotoUploader({
         }`}
       >
         <p className="font-serif text-lg text-brand-green">
-          Arrastra las fotos aquí o haz clic para elegirlas
+          Toca aquí para elegir fotos
         </p>
         <p className="mt-1 text-xs text-muted-foreground">
-          JPG, PNG o WebP. Se comprimen automáticamente antes de subirse. La
-          primera foto es la portada.
+          Puedes elegir varias a la vez desde la galería o la cámara (o
+          arrastrarlas desde la computadora). Se comprimen solas antes de
+          subirse. La primera es la portada.
         </p>
         <input
           ref={inputRef}
@@ -168,6 +185,7 @@ export function PhotoUploader({
             >
               <span className="truncate">{u.name}</span>
               <span className="ml-3 flex-none">
+                {u.status === "queued" && "En espera…"}
                 {u.status === "compressing" && "Comprimiendo…"}
                 {u.status === "uploading" && "Subiendo…"}
                 {u.status === "error" && (
