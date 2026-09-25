@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elladayhome.com"),
+  metadataBase: new URL("https://elladayhomes.com"),
   title: {
     default: `${SITE.name} · ${SITE.tagline}`,
     template: `%s · ${SITE.name}`,
@@ -52,7 +52,7 @@ const agencyJsonLd = {
   name: SITE.name,
   description:
     "Boutique real estate agency selling lots, homes and farms in La Fortuna, Costa Rica.",
-  url: "https://elladayhome.com",
+  url: "https://elladayhomes.com",
   telephone: "+50662308356",
   address: {
     "@type": "PostalAddress",

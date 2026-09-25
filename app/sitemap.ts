@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 import { getPublishedProperties } from "@/lib/properties-repo"
 
-const BASE = "https://elladayhome.com"
+const BASE = "https://elladayhomes.com"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [

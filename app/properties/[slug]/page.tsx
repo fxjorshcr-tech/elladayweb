@@ -60,7 +60,7 @@ export default async function PropertyDetailPage({
   const property = await getPublishedProperty(slug)
   if (!property) notFound()
 
-  const url = `https://elladayhome.com/properties/${slug}`
+  const url = `https://elladayhomes.com/properties/${slug}`
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -99,13 +99,13 @@ export default async function PropertyDetailPage({
             "@type": "ListItem",
             position: 1,
             name: "Inicio",
-            item: "https://elladayhome.com",
+            item: "https://elladayhomes.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Propiedades",
-            item: "https://elladayhome.com/properties",
+            item: "https://elladayhomes.com/properties",
           },
           {
             "@type": "ListItem",
