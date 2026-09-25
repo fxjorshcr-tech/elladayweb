@@ -34,7 +34,7 @@ propiedades sin tocar código.
 4. **Vercel → Project → Settings → Environment Variables**: agrega las
    variables de `.env.example` (URL y claves de Supabase, las dos claves del
    panel y `ANTHROPIC_API_KEY`). Guarda y haz **Redeploy**.
-5. Entra a `https://elladayhome.com/admin` con tu clave.
+5. Entra a `https://elladayhomes.com/admin` con tu clave.
 
 ## Uso del panel
 
