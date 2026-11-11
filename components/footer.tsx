@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { SITE, whatsappLink } from "@/lib/constants"
 import { useLanguage } from "@/lib/i18n/provider"
+import PoweredByMaxDigital from "@/components/powered-by-maxdigital"
 
 export function Footer() {
   const { t, pick } = useLanguage()
@@ -104,6 +105,7 @@ export function Footer() {
           </a>
         </div>
       </div>
+      <PoweredByMaxDigital className="container-page pt-2 pb-8" />
     </footer>
   )
 }
