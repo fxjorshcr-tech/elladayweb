@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useLanguage } from "@/lib/i18n/provider"
 import { FadeIn } from "@/components/fade-in"
+import { PageHeader } from "@/components/page-header"
 import { FaqAccordion, type FaqItem } from "@/components/faq-accordion"
 import { SITE, whatsappLink } from "@/lib/constants"
 
@@ -171,32 +172,35 @@ export function GuideClient() {
 
   return (
     <>
+      <PageHeader
+        crumb={t("nav.guide")}
+        eyebrow={t("nav.guide")}
+        title={pick({
+          es: "Cómo comprar propiedad en Costa Rica",
+          en: "How to buy property in Costa Rica",
+          fr: "Comment acheter une propriété au Costa Rica",
+          de: "So kaufen Sie eine Immobilie in Costa Rica",
+        })}
+        subtitle={pick({
+          es: "Comprar aquí es más sencillo de lo que parece — extranjeros incluidos. Esta guía resume el proceso, los trámites y los costos, para que compres con seguridad y sin sorpresas.",
+          en: "Buying here is simpler than it looks — foreigners included. This guide covers the process, the paperwork and the costs, so you can buy safely and without surprises.",
+          fr: "Acheter ici est plus simple qu'il n'y paraît — étrangers inclus. Ce guide résume le processus, les démarches et les coûts, pour acheter en toute sécurité et sans surprises.",
+          de: "Hier zu kaufen ist einfacher, als es aussieht — auch für Ausländer. Dieser Ratgeber fasst den Ablauf, die Formalitäten und die Kosten zusammen, damit Sie sicher und ohne Überraschungen kaufen.",
+        })}
+      />
+
       <section className="container-page py-20 md:py-28">
         <FadeIn>
-          <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
-            {t("nav.guide")}
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-fluid-h1 leading-tight text-balance text-brand-green">
-            {pick({
-              es: "Cómo comprar propiedad en Costa Rica",
-              en: "How to buy property in Costa Rica",
-              fr: "Comment acheter une propriété au Costa Rica",
-              de: "So kaufen Sie eine Immobilie in Costa Rica",
-            })}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {pick({
-              es: "Comprar aquí es más sencillo de lo que parece — extranjeros incluidos. Esta guía resume el proceso, los trámites y los costos, para que compres con seguridad y sin sorpresas.",
-              en: "Buying here is simpler than it looks — foreigners included. This guide covers the process, the paperwork and the costs, so you can buy safely and without surprises.",
-              fr: "Acheter ici est plus simple qu'il n'y paraît — étrangers inclus. Ce guide résume le processus, les démarches et les coûts, pour acheter en toute sécurité et sans surprises.",
-              de: "Hier zu kaufen ist einfacher, als es aussieht — auch für Ausländer. Dieser Ratgeber fasst den Ablauf, die Formalitäten und die Kosten zusammen, damit Sie sicher und ohne Überraschungen kaufen.",
-            })}
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={120}>
-          <div className="mt-16 border-t border-border pt-12">
-            <h2 className="font-serif text-3xl text-brand-green md:text-4xl">
+          <div>
+            <p className="eyebrow">
+              {pick({
+                es: "El proceso",
+                en: "The process",
+                fr: "Le processus",
+                de: "Der Ablauf",
+              })}
+            </p>
+            <h2 className="font-display text-fluid-h2 mt-5 text-brand-green">
               {pick({
                 es: "El proceso, paso a paso",
                 en: "The process, step by step",
@@ -204,13 +208,20 @@ export function GuideClient() {
                 de: "Der Ablauf, Schritt für Schritt",
               })}
             </h2>
-            <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {steps.map((step, i) => (
-                <div key={step.title}>
-                  <p className="font-serif text-2xl text-brand-gold">
+                <div
+                  key={step.title}
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]"
+                >
+                  <span
+                    className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-brand-gold transition-transform duration-700 ease-out group-hover:scale-x-100"
+                    aria-hidden="true"
+                  />
+                  <p className="font-serif text-4xl text-brand-gold/70 transition-colors duration-500 group-hover:text-brand-gold">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-3 font-serif text-xl text-brand-green">
+                  <h3 className="mt-5 font-serif text-xl text-brand-green">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -226,10 +237,8 @@ export function GuideClient() {
       <section className="bg-brand-cream py-20 md:py-24">
         <div className="container-narrow">
           <FadeIn>
-            <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
-              FAQ
-            </p>
-            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
+            <p className="eyebrow">FAQ</p>
+            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-green">
               {pick({
                 es: "Preguntas frecuentes",
                 en: "Frequently asked questions",
@@ -274,14 +283,11 @@ export function GuideClient() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark"
+              className="btn btn-green"
             >
               WhatsApp · {SITE.whatsappDisplay}
             </a>
-            <Link
-              href="/properties"
-              className="inline-flex items-center rounded-full border border-border px-7 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:border-brand-gold"
-            >
+            <Link href="/properties" className="btn btn-outline-dark">
               {t("hero.ctaProperties")} →
             </Link>
           </div>

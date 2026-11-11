@@ -60,6 +60,15 @@ export default async function PropertyDetailPage({
   const property = await getPublishedProperty(slug)
   if (!property) notFound()
 
+  // Suggest up to three other available listings, same type first.
+  const others = (await getPublishedProperties()).filter(
+    (p) => p.slug !== slug && !p.sold
+  )
+  const related = [
+    ...others.filter((p) => p.type === property.type),
+    ...others.filter((p) => p.type !== property.type),
+  ].slice(0, 3)
+
   const url = `https://elladayhomes.com/properties/${slug}`
 
   const jsonLd = {
@@ -124,7 +133,7 @@ export default async function PropertyDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PropertyDetailClient property={property} />
+      <PropertyDetailClient property={property} related={related} />
     </>
   )
 }

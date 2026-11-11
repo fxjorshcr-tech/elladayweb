@@ -3,14 +3,28 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
+export type RevealVariant = "up" | "left" | "right" | "scale" | "clip" | "fade"
+
 type FadeInProps = {
   children: React.ReactNode
   className?: string
   delay?: number
+  variant?: RevealVariant
   as?: keyof React.JSX.IntrinsicElements
 }
 
-export function FadeIn({ children, className, delay = 0, as: Tag = "div" }: FadeInProps) {
+/**
+ * Reveals its children the first time they scroll into view. `variant`
+ * picks the entrance (see the `.reveal` rules in globals.css); "clip" is
+ * meant for image frames and wipes the picture in from the top.
+ */
+export function FadeIn({
+  children,
+  className,
+  delay = 0,
+  variant = "up",
+  as: Tag = "div",
+}: FadeInProps) {
   const ref = React.useRef<HTMLElement | null>(null)
   const [visible, setVisible] = React.useState(false)
 
@@ -26,7 +40,7 @@ export function FadeIn({ children, className, delay = 0, as: Tag = "div" }: Fade
           }
         })
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" }
     )
     obs.observe(node)
     return () => obs.disconnect()
@@ -36,8 +50,10 @@ export function FadeIn({ children, className, delay = 0, as: Tag = "div" }: Fade
   return (
     <Component
       ref={ref}
-      className={cn(visible ? "fade-in-up-visible" : "fade-in-up-hidden", className)}
-      style={{ transitionDelay: `${delay}ms` }}
+      data-variant={variant}
+      data-visible={visible}
+      className={cn("reveal", className)}
+      style={{ transitionDelay: visible ? `${delay}ms` : undefined }}
     >
       {children}
     </Component>
