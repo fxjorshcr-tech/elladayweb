@@ -2,11 +2,7 @@
 
 import * as React from "react"
 import { useLanguage } from "@/lib/i18n/provider"
-import {
-  formatApproxUsd,
-  formatPrice,
-  type Currency,
-} from "@/lib/properties"
+import { formatApproxUsd, formatPrice, type Currency } from "@/lib/properties"
 
 export function FinancingCalculator({
   price,
@@ -31,7 +27,7 @@ export function FinancingCalculator({
   const downPayment = price * (downPct / 100)
 
   return (
-    <div className="rounded-sm border border-border bg-brand-cream p-6 md:p-8">
+    <div className="rounded-3xl border border-border bg-brand-cream p-7 md:p-9">
       <h2 className="font-serif text-3xl text-brand-green">
         {pick({
           es: "Calculadora de financiamiento",

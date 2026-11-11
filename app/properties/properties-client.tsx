@@ -1,16 +1,13 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { useLanguage } from "@/lib/i18n/provider"
-import {
-  priceInCrc,
-  type Property,
-  type PropertyType,
-} from "@/lib/properties"
+import { priceInCrc, type Property, type PropertyType } from "@/lib/properties"
 import { PropertyCard } from "@/components/property-card"
 import { FadeIn } from "@/components/fade-in"
+import { PageHeader } from "@/components/page-header"
+import { whatsappLink } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 
 type TypeFilter = "all" | PropertyType
@@ -28,37 +25,29 @@ const PRICE_BUCKETS: Record<
 }
 
 export function PropertiesClient({ properties }: { properties: Property[] }) {
-  const { t } = useLanguage()
+  const { t, pick } = useLanguage()
 
   return (
-    <section className="container-page py-20 md:py-28">
-      <FadeIn>
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground">
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <Link href="/" className="hover:text-brand-green">
-                {t("nav.home")}
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li className="text-brand-green">{t("properties.title")}</li>
-          </ol>
-        </nav>
-        <h1 className="mt-6 max-w-3xl font-display text-fluid-h1 leading-tight text-balance text-brand-green">
-          {t("properties.title")}
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          {t("properties.subtitle")}
-        </p>
-      </FadeIn>
-
-      {/* useSearchParams (hero search deep links) forces this subtree to
-          render on the client, so keep the static header above out of it. */}
-      <React.Suspense fallback={null}>
-        <PropertyExplorer properties={properties} />
-      </React.Suspense>
-    </section>
+    <>
+      <PageHeader
+        crumb={t("properties.title")}
+        eyebrow={pick({
+          es: "Nuestra cartera",
+          en: "Our portfolio",
+          fr: "Notre portefeuille",
+          de: "Unser Portfolio",
+        })}
+        title={t("properties.title")}
+        subtitle={t("properties.subtitle")}
+      />
+      <section className="container-page pt-10 pb-24 md:pt-14 md:pb-32">
+        {/* useSearchParams (hero search deep links) forces this subtree to
+            render on the client, so keep the static header above out of it. */}
+        <React.Suspense fallback={null}>
+          <PropertyExplorer properties={properties} />
+        </React.Suspense>
+      </section>
+    </>
   )
 }
 
@@ -175,144 +164,193 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
   })
 
   const selectClass =
-    "w-full appearance-none rounded-full border border-border bg-transparent px-4 py-2.5 pr-9 text-sm text-brand-green outline-none transition-colors focus:border-brand-gold sm:w-auto"
+    "w-full cursor-pointer appearance-none rounded-full border border-border bg-brand-cream/60 px-5 py-2.5 pr-10 text-sm text-brand-green outline-none transition-colors duration-300 hover:border-brand-green/50 hover:bg-brand-cream focus:border-brand-gold sm:w-auto"
 
   return (
     <>
-        <FadeIn delay={120}>
-          <div className="mt-12 flex flex-wrap gap-2 border-b border-border pb-1">
-            {typeFilters.map((f) => (
+      <FadeIn>
+        <div className="-mx-6 no-scrollbar flex gap-2 overflow-x-auto px-6 md:mx-0 md:flex-wrap md:px-0">
+          {typeFilters.map((f) => {
+            const count =
+              f.value === "all"
+                ? properties.length
+                : properties.filter((p) => p.type === f.value).length
+            const active = type === f.value
+            // Don't offer a category with nothing in it.
+            if (count === 0 && !active) return null
+            return (
               <button
                 key={f.value}
                 type="button"
                 onClick={() => setType(f.value)}
+                aria-pressed={active}
                 className={cn(
-                  "relative px-4 py-3 text-sm tracking-wide transition-colors",
-                  type === f.value
-                    ? "text-brand-green"
-                    : "text-muted-foreground hover:text-brand-green"
+                  "inline-flex flex-none items-center gap-2.5 rounded-full border px-5 py-2.5 text-sm tracking-wide transition-all duration-300",
+                  active
+                    ? "border-brand-green bg-brand-green text-brand-cream shadow-[0_12px_24px_-14px_rgba(28,41,33,0.7)]"
+                    : "border-border bg-brand-cream/60 text-brand-green hover:border-brand-green/50 hover:bg-brand-cream"
                 )}
               >
                 {f.label}
-                {type === f.value && (
-                  <span className="absolute -bottom-px left-0 h-px w-full bg-brand-gold" />
-                )}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <SelectWrap>
-              <select
-                value={zone}
-                onChange={(e) => setZone(e.target.value)}
-                className={selectClass}
-                aria-label={t("properties.location")}
-              >
-                <option value="">{t("search.allZones")}</option>
-                {zones.map(([key, loc]) => (
-                  <option key={key} value={key}>
-                    {pick(loc)}
-                  </option>
-                ))}
-              </select>
-            </SelectWrap>
-            <SelectWrap>
-              <select
-                value={price}
-                onChange={(e) => setPrice(e.target.value as PriceFilter)}
-                className={selectClass}
-                aria-label={t("properties.price")}
-              >
-                <option value="any">{t("search.anyPrice")}</option>
-                <option value="lt50">{priceLabels.lt50}</option>
-                <option value="b50to100">{priceLabels.b50to100}</option>
-                <option value="gt100">{priceLabels.gt100}</option>
-              </select>
-            </SelectWrap>
-            <SelectWrap>
-              <select
-                value={beds}
-                onChange={(e) => setBeds(Number(e.target.value) as BedsFilter)}
-                className={selectClass}
-                aria-label={t("properties.bedrooms")}
-              >
-                <option value={0}>{t("properties.bedrooms")}</option>
-                {[1, 2, 3, 4].map((n) => (
-                  <option key={n} value={n}>
-                    {bedsLabel(n)}
-                  </option>
-                ))}
-              </select>
-            </SelectWrap>
-            <div className="sm:ml-auto">
-              <SelectWrap>
-                <select
-                  value={sort}
-                  onChange={(e) => setSort(e.target.value as Sort)}
-                  className={selectClass}
-                  aria-label="Sort"
+                <span
+                  className={cn(
+                    "rounded-full px-2 py-0.5 text-[11px] tabular-nums transition-colors duration-300",
+                    active
+                      ? "bg-brand-cream/20 text-brand-cream"
+                      : "bg-brand-green/10 text-brand-green/80"
+                  )}
                 >
-                  <option value="recent">{t("search.sortRecent")}</option>
-                  <option value="priceAsc">{t("search.sortPriceAsc")}</option>
-                  <option value="priceDesc">{t("search.sortPriceDesc")}</option>
-                </select>
-              </SelectWrap>
-            </div>
-          </div>
-
-          <div className="mt-6 flex flex-wrap items-center gap-2">
-            <p className="mr-2 text-sm text-muted-foreground">{counterText}</p>
-            {chips.map((chip) => (
-              <button
-                key={chip.label}
-                type="button"
-                onClick={chip.onRemove}
-                className="inline-flex items-center gap-1.5 rounded-full bg-brand-green/10 px-3 py-1 text-xs tracking-wide text-brand-green transition-colors hover:bg-brand-green/20"
-              >
-                {chip.label}
-                <span aria-hidden="true">×</span>
+                  {count}
+                </span>
               </button>
-            ))}
-            {hasActiveFilters && (
-              <button
-                type="button"
-                onClick={clearAll}
-                className="text-xs tracking-wide text-muted-foreground underline underline-offset-4 hover:text-brand-green"
-              >
-                {t("search.clearFilters")}
-              </button>
-            )}
-          </div>
-        </FadeIn>
-
-        <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
-          {filtered.map((p, i) => (
-            <FadeIn key={p.slug} delay={Math.min(i, 5) * 100}>
-              <PropertyCard property={p} priority={i === 0} />
-            </FadeIn>
-          ))}
+            )
+          })}
         </div>
 
-        {filtered.length === 0 && (
-          <div className="py-20 text-center">
-            <p className="text-muted-foreground">
-              {pick({
-                es: "No encontramos propiedades con esos filtros.",
-                en: "We couldn't find properties with those filters.",
-                fr: "Aucune propriété ne correspond à ces filtres.",
-                de: "Keine Immobilien mit diesen Filtern gefunden.",
-              })}
-            </p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <SelectWrap>
+            <select
+              value={zone}
+              onChange={(e) => setZone(e.target.value)}
+              className={selectClass}
+              aria-label={t("properties.location")}
+            >
+              <option value="">{t("search.allZones")}</option>
+              {zones.map(([key, loc]) => (
+                <option key={key} value={key}>
+                  {pick(loc)}
+                </option>
+              ))}
+            </select>
+          </SelectWrap>
+          <SelectWrap>
+            <select
+              value={price}
+              onChange={(e) => setPrice(e.target.value as PriceFilter)}
+              className={selectClass}
+              aria-label={t("properties.price")}
+            >
+              <option value="any">{t("search.anyPrice")}</option>
+              <option value="lt50">{priceLabels.lt50}</option>
+              <option value="b50to100">{priceLabels.b50to100}</option>
+              <option value="gt100">{priceLabels.gt100}</option>
+            </select>
+          </SelectWrap>
+          <SelectWrap>
+            <select
+              value={beds}
+              onChange={(e) => setBeds(Number(e.target.value) as BedsFilter)}
+              className={selectClass}
+              aria-label={t("properties.bedrooms")}
+            >
+              <option value={0}>{t("properties.bedrooms")}</option>
+              {[1, 2, 3, 4].map((n) => (
+                <option key={n} value={n}>
+                  {bedsLabel(n)}
+                </option>
+              ))}
+            </select>
+          </SelectWrap>
+          <div className="sm:ml-auto">
+            <SelectWrap>
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value as Sort)}
+                className={selectClass}
+                aria-label="Sort"
+              >
+                <option value="recent">{t("search.sortRecent")}</option>
+                <option value="priceAsc">{t("search.sortPriceAsc")}</option>
+                <option value="priceDesc">{t("search.sortPriceDesc")}</option>
+              </select>
+            </SelectWrap>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-border pt-6">
+          <p className="mr-2 text-sm text-muted-foreground">{counterText}</p>
+          {chips.map((chip) => (
+            <button
+              key={chip.label}
+              type="button"
+              onClick={chip.onRemove}
+              className="inline-flex items-center gap-1.5 rounded-full bg-brand-green/10 px-3 py-1 text-xs tracking-wide text-brand-green transition-colors hover:bg-brand-green/20"
+            >
+              {chip.label}
+              <span aria-hidden="true">×</span>
+            </button>
+          ))}
+          {hasActiveFilters && (
             <button
               type="button"
               onClick={clearAll}
-              className="mt-4 text-sm tracking-wide text-brand-green underline underline-offset-4"
+              className="text-xs tracking-wide text-muted-foreground underline underline-offset-4 hover:text-brand-green"
             >
               {t("search.clearFilters")}
             </button>
+          )}
+        </div>
+      </FadeIn>
+
+      {/* Re-keyed on every filter change so the new result set animates in. */}
+      <div
+        key={`${type}|${zone}|${price}|${beds}|${sort}`}
+        className="grid-enter mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {filtered.map((p, i) => (
+          <div
+            key={p.slug}
+            style={{ animationDelay: `${Math.min(i, 8) * 70}ms` }}
+          >
+            <PropertyCard property={p} priority={i < 3} />
           </div>
-        )}
+        ))}
+      </div>
+
+      {filtered.length === 0 && (
+        <div className="mx-auto max-w-md rounded-3xl border border-dashed border-brand-green/30 px-8 py-16 text-center">
+          <p className="font-serif text-2xl text-brand-green">
+            {pick({
+              es: "No encontramos propiedades con esos filtros.",
+              en: "We couldn't find properties with those filters.",
+              fr: "Aucune propriété ne correspond à ces filtres.",
+              de: "Keine Immobilien mit diesen Filtern gefunden.",
+            })}
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            {pick({
+              es: "Escríbenos: muchas propiedades aún no están publicadas.",
+              en: "Write to us: many properties aren't listed yet.",
+              fr: "Écrivez-nous : de nombreuses propriétés ne sont pas encore publiées.",
+              de: "Schreiben Sie uns: Viele Immobilien sind noch nicht veröffentlicht.",
+            })}
+          </p>
+          <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={clearAll}
+              className="btn btn-outline-dark"
+            >
+              {t("search.clearFilters")}
+            </button>
+            <a
+              href={whatsappLink(
+                pick({
+                  es: "Hola, busco una propiedad en La Fortuna y no la encontré en el sitio.",
+                  en: "Hi, I'm looking for a property in La Fortuna and couldn't find it on the site.",
+                  fr: "Bonjour, je cherche une propriété à La Fortuna et je ne l'ai pas trouvée sur le site.",
+                  de: "Hallo, ich suche eine Immobilie in La Fortuna und habe sie auf der Website nicht gefunden.",
+                })
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-green"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      )}
     </>
   )
 }

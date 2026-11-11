@@ -70,7 +70,7 @@ export function ContactForm({ prefillSubject, className }: Props) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
-          className="w-full resize-none border-b border-border bg-transparent py-3 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-gold"
+          className="w-full resize-none border-b border-border bg-transparent py-3 text-base transition-colors outline-none placeholder:text-muted-foreground focus:border-brand-gold"
           placeholder={pick({
             es: "Cuéntanos qué buscas...",
             en: "Tell us what you're looking for...",
@@ -81,10 +81,7 @@ export function ContactForm({ prefillSubject, className }: Props) {
       </div>
 
       <div className="pt-4">
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark"
-        >
+        <button type="submit" className="btn btn-green w-full sm:w-auto">
           {t("contact.sendWhatsApp")}
         </button>
       </div>
@@ -127,7 +124,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border-b border-border bg-transparent py-3 text-base outline-none transition-colors focus:border-brand-gold"
+        className="w-full border-b border-border bg-transparent py-3 text-base transition-colors outline-none focus:border-brand-gold"
       />
     </div>
   )

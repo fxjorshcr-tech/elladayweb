@@ -4,9 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/lib/i18n/provider"
 import { FadeIn } from "@/components/fade-in"
+import { PageHeader } from "@/components/page-header"
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=2400&q=80"
+  "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/Arenal%20Volcano.webp"
 const ANIMALS_IMG =
   "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/WhatsApp%20Image%202026-06-13%20at%202.27.56%20PM.jpeg"
 const STORY_IMG =
@@ -26,36 +27,15 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="container-page py-20 md:py-28">
-        <FadeIn>
-          <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
-            {t("nav.about")}
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-fluid-h1 leading-tight text-balance text-brand-green">
-            {t("about.title")}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {t("about.subtitle")}
-          </p>
-        </FadeIn>
-      </section>
+      <PageHeader
+        crumb={t("nav.about")}
+        eyebrow={t("nav.about")}
+        title={t("about.title")}
+        subtitle={t("about.subtitle")}
+        image={HERO_IMG}
+      />
 
-      <section className="container-page pb-24">
-        <FadeIn>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-sm bg-muted">
-            <Image
-              src={HERO_IMG}
-              alt="Home with lush surroundings"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </FadeIn>
-      </section>
-
-      <section className="container-page pb-24">
+      <section className="container-page py-24 md:py-32">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <FadeIn className="md:col-span-7">
             <h2 className="font-display text-fluid-h2 text-brand-green">
@@ -69,8 +49,8 @@ export default function AboutPage() {
               </p>
             </div>
           </FadeIn>
-          <FadeIn delay={120} className="md:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+          <FadeIn variant="clip" delay={120} className="md:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
               <Image
                 src={STORY_IMG}
                 alt="Living space in La Fortuna"
@@ -86,10 +66,15 @@ export default function AboutPage() {
       <section className="bg-brand-cream py-24 md:py-28">
         <div className="container-page">
           <FadeIn>
-            <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
-              {pick({ es: "Esencia", en: "Essence", fr: "Essence", de: "Essenz" })}
+            <p className="eyebrow">
+              {pick({
+                es: "Esencia",
+                en: "Essence",
+                fr: "Essence",
+                de: "Essenz",
+              })}
             </p>
-            <h2 className="mt-4 max-w-3xl font-display text-fluid-h2 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-4 max-w-3xl leading-tight text-balance text-brand-green">
               {t("about.essenceTitle")}
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
@@ -126,10 +111,14 @@ export default function AboutPage() {
             {t("about.valuesTitle")}
           </h2>
         </FadeIn>
-        <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {valueKeys.map((k, i) => (
             <FadeIn key={k} delay={i * 80}>
-              <div className="border-t border-brand-gold pt-6">
+              <div className="group h-full rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]">
+                <span
+                  className="mb-5 block h-px w-10 bg-brand-gold transition-all duration-500 group-hover:w-16"
+                  aria-hidden="true"
+                />
                 <h3 className="font-serif text-2xl text-brand-green">
                   {t(`about.values.${k}.title` as const)}
                 </h3>
@@ -143,9 +132,9 @@ export default function AboutPage() {
       </section>
 
       <section className="container-page pb-24">
-        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+        <div className="grid gap-5 md:grid-cols-2">
           <FadeIn>
-            <div className="rounded-sm bg-brand-sage p-10 text-brand-cream md:p-14">
+            <div className="grain relative h-full rounded-3xl bg-brand-sage p-10 text-brand-cream md:p-14">
               <p className="text-xs tracking-[0.22em] text-brand-cream/80 uppercase">
                 {t("about.missionTitle")}
               </p>
@@ -155,7 +144,7 @@ export default function AboutPage() {
             </div>
           </FadeIn>
           <FadeIn delay={120}>
-            <div className="rounded-sm bg-brand-green p-10 text-brand-cream md:p-14">
+            <div className="grain relative h-full rounded-3xl bg-brand-green-dark p-10 text-brand-cream md:p-14">
               <p className="text-xs tracking-[0.22em] text-brand-cream/80 uppercase">
                 {t("about.visionTitle")}
               </p>
@@ -169,8 +158,8 @@ export default function AboutPage() {
 
       <section className="container-page pb-24 md:pb-32">
         <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
-          <FadeIn className="md:col-span-6">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+          <FadeIn variant="clip" className="md:col-span-6">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
               <Image
                 src={ANIMALS_IMG}
                 alt="Ella y Dayana, fundadoras de EllaDay Homes"
@@ -181,7 +170,7 @@ export default function AboutPage() {
             </div>
           </FadeIn>
           <FadeIn delay={120} className="md:col-span-6">
-            <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
+            <p className="eyebrow">
               {pick({
                 es: "Algo personal",
                 en: "Something personal",
@@ -189,7 +178,7 @@ export default function AboutPage() {
                 de: "Etwas Persönliches",
               })}
             </p>
-            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-green">
               {t("about.animalsTitle")}
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -214,10 +203,8 @@ export default function AboutPage() {
       <section className="container-page py-24 md:py-32">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
-              {t("agents.eyebrow")}
-            </p>
-            <h2 className="mt-4 font-display text-fluid-h2 leading-tight text-balance text-brand-green">
+            <p className="eyebrow eyebrow-center">{t("agents.eyebrow")}</p>
+            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-green">
               {t("agents.title")}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -266,10 +253,7 @@ export default function AboutPage() {
               })}
             </p>
             <div className="mt-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-full bg-brand-gold px-7 py-3.5 text-sm tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
-              >
+              <Link href="/contact" className="btn btn-gold">
                 {t("contact.title")} →
               </Link>
             </div>
@@ -293,7 +277,7 @@ function AgentLong({
 }) {
   return (
     <article className="group">
-      <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-muted">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-muted">
         <Image
           src={image}
           alt={name}
@@ -304,7 +288,9 @@ function AgentLong({
       </div>
       <div className="mt-6 space-y-3">
         <h3 className="font-serif text-3xl text-brand-green">{name}</h3>
-        <p className="text-xs tracking-[0.16em] text-brand-gold uppercase">{role}</p>
+        <p className="text-xs tracking-[0.16em] text-brand-gold uppercase">
+          {role}
+        </p>
         <p className="text-sm leading-relaxed text-muted-foreground">{bio}</p>
       </div>
     </article>

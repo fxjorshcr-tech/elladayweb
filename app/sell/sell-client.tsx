@@ -3,8 +3,12 @@
 import * as React from "react"
 import { useLanguage } from "@/lib/i18n/provider"
 import { FadeIn } from "@/components/fade-in"
+import { PageHeader } from "@/components/page-header"
 import { whatsappLink } from "@/lib/constants"
 import { cn } from "@/lib/utils"
+
+const HEADER_IMG =
+  "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/Arenal%20Volcano.webp"
 
 export function SellClient() {
   const { pick, t } = useLanguage()
@@ -56,37 +60,40 @@ export function SellClient() {
 
   return (
     <>
+      <PageHeader
+        crumb={t("nav.sell")}
+        eyebrow={t("nav.sell")}
+        title={pick({
+          es: "Vende tu propiedad con nosotras",
+          en: "Sell your property with us",
+          fr: "Vendez votre propriété avec nous",
+          de: "Verkaufen Sie Ihre Immobilie mit uns",
+        })}
+        subtitle={pick({
+          es: "¿Tienes un lote, casa o finca en La Fortuna o la Zona Norte? Cuéntanos sobre tu propiedad y te contactamos para valorarla y publicarla.",
+          en: "Do you own a lot, home or farm in La Fortuna or the Northern Zone? Tell us about your property and we'll get in touch to appraise and list it.",
+          fr: "Vous possédez un terrain, une maison ou une finca à La Fortuna ou dans la Zone Nord ? Parlez-nous de votre propriété et nous vous contacterons pour l'évaluer et la publier.",
+          de: "Sie besitzen ein Grundstück, ein Haus oder eine Finca in La Fortuna oder der Nordzone? Erzählen Sie uns von Ihrer Immobilie und wir melden uns zur Bewertung und Veröffentlichung.",
+        })}
+        image={HEADER_IMG}
+      />
+
       <section className="container-page py-20 md:py-28">
         <FadeIn>
-          <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
-            {t("nav.sell")}
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-fluid-h1 leading-tight text-balance text-brand-green">
-            {pick({
-              es: "Vende tu propiedad con nosotras",
-              en: "Sell your property with us",
-              fr: "Vendez votre propriété avec nous",
-              de: "Verkaufen Sie Ihre Immobilie mit uns",
-            })}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {pick({
-              es: "¿Tienes un lote, casa o finca en La Fortuna o la Zona Norte? Cuéntanos sobre tu propiedad y te contactamos para valorarla y publicarla.",
-              en: "Do you own a lot, home or farm in La Fortuna or the Northern Zone? Tell us about your property and we'll get in touch to appraise and list it.",
-              fr: "Vous possédez un terrain, une maison ou une finca à La Fortuna ou dans la Zone Nord ? Parlez-nous de votre propriété et nous vous contacterons pour l'évaluer et la publier.",
-              de: "Sie besitzen ein Grundstück, ein Haus oder eine Finca in La Fortuna oder der Nordzone? Erzählen Sie uns von Ihrer Immobilie und wir melden uns zur Bewertung und Veröffentlichung.",
-            })}
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={120}>
-          <div className="mt-14 grid gap-8 border-t border-border pt-12 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {benefits.map((b, i) => (
-              <div key={b.title}>
-                <p className="font-serif text-2xl text-brand-gold">
+              <div
+                key={b.title}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]"
+              >
+                <span
+                  className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-brand-gold transition-transform duration-700 ease-out group-hover:scale-x-100"
+                  aria-hidden="true"
+                />
+                <p className="font-serif text-4xl text-brand-gold/70 transition-colors duration-500 group-hover:text-brand-gold">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-3 font-serif text-xl text-brand-green">
+                <h3 className="mt-5 font-serif text-xl text-brand-green">
                   {b.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -97,7 +104,7 @@ export function SellClient() {
           </div>
         </FadeIn>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16">
+        <div className="mt-20 grid gap-12 md:grid-cols-2 md:gap-16">
           <FadeIn>
             <h2 className="font-serif text-3xl text-brand-green">
               {pick({
@@ -121,7 +128,7 @@ export function SellClient() {
           </FadeIn>
 
           <FadeIn delay={120}>
-            <div className="rounded-sm border border-border bg-brand-cream p-6 md:p-8">
+            <div className="rounded-3xl border border-border bg-brand-cream p-7 md:p-9">
               <h3 className="font-serif text-2xl text-brand-green">
                 {pick({
                   es: "Lo que nos ayuda a vender más rápido",
@@ -184,10 +191,22 @@ function SellForm() {
   const [details, setDetails] = React.useState("")
 
   const typeOptions = [
-    { value: "lot", label: pick({ es: "Lote", en: "Lot", fr: "Terrain", de: "Grundstück" }) },
-    { value: "house", label: pick({ es: "Casa", en: "House", fr: "Maison", de: "Haus" }) },
-    { value: "farm", label: pick({ es: "Finca", en: "Farm", fr: "Finca", de: "Finca" }) },
-    { value: "other", label: pick({ es: "Otro", en: "Other", fr: "Autre", de: "Sonstiges" }) },
+    {
+      value: "lot",
+      label: pick({ es: "Lote", en: "Lot", fr: "Terrain", de: "Grundstück" }),
+    },
+    {
+      value: "house",
+      label: pick({ es: "Casa", en: "House", fr: "Maison", de: "Haus" }),
+    },
+    {
+      value: "farm",
+      label: pick({ es: "Finca", en: "Farm", fr: "Finca", de: "Finca" }),
+    },
+    {
+      value: "other",
+      label: pick({ es: "Otro", en: "Other", fr: "Autre", de: "Sonstiges" }),
+    },
   ]
 
   const onSubmit = (e: React.FormEvent) => {
@@ -204,8 +223,7 @@ function SellForm() {
 
   const inputClass =
     "w-full border-b border-border bg-transparent py-3 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-gold"
-  const labelClass =
-    "text-xs tracking-[0.16em] text-muted-foreground uppercase"
+  const labelClass = "text-xs tracking-[0.16em] text-muted-foreground uppercase"
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">
@@ -222,7 +240,12 @@ function SellForm() {
         </div>
         <div className="space-y-2">
           <label className={labelClass}>
-            {pick({ es: "Teléfono", en: "Phone", fr: "Téléphone", de: "Telefon" })}
+            {pick({
+              es: "Teléfono",
+              en: "Phone",
+              fr: "Téléphone",
+              de: "Telefon",
+            })}
           </label>
           <input
             required
@@ -244,7 +267,12 @@ function SellForm() {
             className={cn(inputClass, "appearance-none")}
           >
             <option value="" disabled>
-              {pick({ es: "Selecciona…", en: "Select…", fr: "Sélectionnez…", de: "Auswählen…" })}
+              {pick({
+                es: "Selecciona…",
+                en: "Select…",
+                fr: "Sélectionnez…",
+                de: "Auswählen…",
+              })}
             </option>
             {typeOptions.map((o) => (
               <option key={o.value} value={o.value}>
@@ -309,10 +337,7 @@ function SellForm() {
         />
       </div>
       <div className="pt-4">
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark"
-        >
+        <button type="submit" className="btn btn-green">
           {t("contact.sendWhatsApp")}
         </button>
       </div>
