@@ -23,7 +23,7 @@ export default async function AdminLayout({
       <header className="border-b border-border bg-brand-cream">
         <div className="container-page flex h-16 items-center justify-between">
           <Link href="/admin" className="flex items-baseline gap-2">
-            <span className="font-serif text-xl text-brand-green">
+            <span className="font-serif text-xl text-brand-brown">
               EllaDay Homes
             </span>
             <span className="text-xs tracking-[0.18em] text-brand-gold uppercase">
@@ -35,7 +35,7 @@ export default async function AdminLayout({
               <Link
                 href="/"
                 target="_blank"
-                className="hidden text-muted-foreground hover:text-brand-green sm:inline"
+                className="hidden text-muted-foreground hover:text-brand-brown sm:inline"
               >
                 Ver sitio ↗
               </Link>
@@ -45,7 +45,7 @@ export default async function AdminLayout({
               <form action={logoutAction}>
                 <button
                   type="submit"
-                  className="rounded-full border border-border px-3 py-1.5 text-xs tracking-wide text-brand-green transition-colors hover:bg-muted"
+                  className="rounded-full border border-border px-3 py-1.5 text-xs tracking-wide text-brand-brown transition-colors hover:bg-muted"
                 >
                   Salir
                 </button>

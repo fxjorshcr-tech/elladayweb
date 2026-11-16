@@ -63,8 +63,8 @@ export default function ContactPage() {
           </FadeIn>
 
           <FadeIn variant="right" delay={120} className="md:col-span-3">
-            <div className="rounded-3xl border border-border bg-brand-cream p-8 shadow-[0_30px_60px_-40px_rgba(28,41,33,0.5)] md:p-12">
-              <h2 className="font-serif text-3xl text-brand-green">
+            <div className="rounded-3xl border border-border bg-brand-cream p-8 shadow-[0_30px_60px_-40px_rgba(35,23,17,0.5)] md:p-12">
+              <h2 className="font-serif text-3xl text-brand-brown">
                 {pick({
                   es: "Envíanos un mensaje",
                   en: "Send us a message",
@@ -107,7 +107,7 @@ function ContactLine({
       <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
         {label}
       </p>
-      <p className="mt-1.5 font-serif text-xl text-brand-green">{value}</p>
+      <p className="mt-1.5 font-serif text-xl text-brand-brown">{value}</p>
     </>
   )
 

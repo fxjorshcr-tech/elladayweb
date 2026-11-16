@@ -164,7 +164,7 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
   })
 
   const selectClass =
-    "w-full cursor-pointer appearance-none rounded-full border border-border bg-brand-cream/60 px-5 py-2.5 pr-10 text-sm text-brand-green outline-none transition-colors duration-300 hover:border-brand-green/50 hover:bg-brand-cream focus:border-brand-gold sm:w-auto"
+    "w-full cursor-pointer appearance-none rounded-full border border-border bg-brand-cream/60 px-5 py-2.5 pr-10 text-sm text-brand-brown outline-none transition-colors duration-300 hover:border-brand-brown/50 hover:bg-brand-cream focus:border-brand-gold sm:w-auto"
 
   return (
     <>
@@ -187,8 +187,8 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
                 className={cn(
                   "inline-flex flex-none items-center gap-2.5 rounded-full border px-5 py-2.5 text-sm tracking-wide transition-all duration-300",
                   active
-                    ? "border-brand-green bg-brand-green text-brand-cream shadow-[0_12px_24px_-14px_rgba(28,41,33,0.7)]"
-                    : "border-border bg-brand-cream/60 text-brand-green hover:border-brand-green/50 hover:bg-brand-cream"
+                    ? "border-brand-brown bg-brand-brown text-brand-cream shadow-[0_12px_24px_-14px_rgba(35,23,17,0.7)]"
+                    : "border-border bg-brand-cream/60 text-brand-brown hover:border-brand-brown/50 hover:bg-brand-cream"
                 )}
               >
                 {f.label}
@@ -197,7 +197,7 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
                     "rounded-full px-2 py-0.5 text-[11px] tabular-nums transition-colors duration-300",
                     active
                       ? "bg-brand-cream/20 text-brand-cream"
-                      : "bg-brand-green/10 text-brand-green/80"
+                      : "bg-brand-brown/10 text-brand-brown/80"
                   )}
                 >
                   {count}
@@ -274,7 +274,7 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
               key={chip.label}
               type="button"
               onClick={chip.onRemove}
-              className="inline-flex items-center gap-1.5 rounded-full bg-brand-green/10 px-3 py-1 text-xs tracking-wide text-brand-green transition-colors hover:bg-brand-green/20"
+              className="inline-flex items-center gap-1.5 rounded-full bg-brand-brown/10 px-3 py-1 text-xs tracking-wide text-brand-brown transition-colors hover:bg-brand-brown/20"
             >
               {chip.label}
               <span aria-hidden="true">×</span>
@@ -284,7 +284,7 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
             <button
               type="button"
               onClick={clearAll}
-              className="text-xs tracking-wide text-muted-foreground underline underline-offset-4 hover:text-brand-green"
+              className="text-xs tracking-wide text-muted-foreground underline underline-offset-4 hover:text-brand-brown"
             >
               {t("search.clearFilters")}
             </button>
@@ -308,8 +308,8 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
       </div>
 
       {filtered.length === 0 && (
-        <div className="mx-auto max-w-md rounded-3xl border border-dashed border-brand-green/30 px-8 py-16 text-center">
-          <p className="font-serif text-2xl text-brand-green">
+        <div className="mx-auto max-w-md rounded-3xl border border-dashed border-brand-brown/30 px-8 py-16 text-center">
+          <p className="font-serif text-2xl text-brand-brown">
             {pick({
               es: "No encontramos propiedades con esos filtros.",
               en: "We couldn't find properties with those filters.",
@@ -344,7 +344,7 @@ function PropertyExplorer({ properties }: { properties: Property[] }) {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-green"
+              className="btn btn-brown"
             >
               WhatsApp
             </a>

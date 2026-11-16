@@ -39,7 +39,7 @@ export function ShareButtons({ title }: { title: string }) {
   }
 
   const btnClass =
-    "inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs tracking-wide text-brand-green transition-colors hover:border-brand-gold hover:text-brand-gold"
+    "inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs tracking-wide text-brand-brown transition-colors hover:border-brand-gold hover:text-brand-gold"
 
   return (
     <div className="flex flex-wrap items-center gap-2">

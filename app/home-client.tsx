@@ -144,7 +144,7 @@ export function HomeClient({
             {t("hero.eyebrow")}
             <span className="hidden sm:inline">· La Fortuna, Costa Rica</span>
           </p>
-          <h1 className="font-display text-fluid-hero mt-5 max-w-5xl leading-[1.02] text-white md:mt-7">
+          <h1 className="font-display text-fluid-hero mt-5 max-w-5xl leading-[1.02] text-balance text-white md:mt-7">
             {heroWords.map((word, i) => (
               <span key={i}>
                 <span className="word-mask">
@@ -246,7 +246,7 @@ export function HomeClient({
       {/* ---------------------------------------------------------- Ticker */}
       <Marquee
         items={tickerItems}
-        className="bg-brand-green-dark py-5 text-brand-cream/90"
+        className="bg-brand-brown-dark py-5 text-brand-cream/90"
       />
 
       {/* --------------------------------------------------------- Pillars */}
@@ -318,7 +318,7 @@ export function HomeClient({
                 <FadeIn
                   variant="scale"
                   delay={300}
-                  className="flex flex-1 flex-col justify-end rounded-2xl bg-brand-green p-5 text-brand-cream"
+                  className="flex flex-1 flex-col justify-end rounded-2xl bg-brand-brown p-5 text-brand-cream"
                 >
                   <p className="font-serif text-4xl leading-none md:text-5xl">
                     <CountUp value={t("fortuna.stats.visitorsValue")} />
@@ -333,7 +333,7 @@ export function HomeClient({
 
           <FadeIn variant="right" delay={120} className="md:col-span-5">
             <p className="eyebrow">{t("fortuna.eyebrow")}</p>
-            <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-brown">
               {t("fortuna.title")}
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -346,7 +346,7 @@ export function HomeClient({
 
         <div className="mt-24 md:mt-32">
           <FadeIn>
-            <h3 className="font-serif text-3xl text-brand-green md:text-4xl">
+            <h3 className="font-serif text-3xl text-brand-brown md:text-4xl">
               {t("fortuna.why.title")}
             </h3>
           </FadeIn>
@@ -365,7 +365,7 @@ export function HomeClient({
       </section>
 
       {/* ----------------------------------------------------------- Stats */}
-      <section className="grain relative overflow-hidden bg-brand-green-dark py-16 text-brand-cream md:py-20">
+      <section className="grain relative overflow-hidden bg-brand-brown-dark py-16 text-brand-cream md:py-20">
         <div className="container-page grid grid-cols-2 gap-y-10 md:grid-cols-4 md:divide-x md:divide-white/15">
           <Stat
             value={t("fortuna.stats.visitorsValue")}
@@ -395,7 +395,7 @@ export function HomeClient({
             header={
               <div className="max-w-xl">
                 <p className="eyebrow">{t("featured.eyebrow")}</p>
-                <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-green">
+                <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-brown">
                   {t("featured.title")}
                 </h2>
               </div>
@@ -417,7 +417,7 @@ export function HomeClient({
                   de: "Der Ablauf",
                 })}
               </p>
-              <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-green">
+              <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-brown">
                 {pick({
                   es: "Comprar aquí, paso a paso",
                   en: "Buying here, step by step",
@@ -455,7 +455,7 @@ export function HomeClient({
               <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold bg-background font-serif text-lg text-brand-gold-dark">
                 {i + 1}
               </span>
-              <h3 className="mt-6 font-serif text-2xl text-brand-green">
+              <h3 className="mt-6 font-serif text-2xl text-brand-brown">
                 {step.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -489,7 +489,7 @@ export function HomeClient({
           </div>
           <FadeIn variant="right" delay={120}>
             <p className="eyebrow">{t("agents.eyebrow")}</p>
-            <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-balance text-brand-brown">
               {t("agents.title")}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -613,13 +613,13 @@ function PillarItem({
   return (
     <div className="group flex h-full flex-col gap-8 p-8 transition-colors duration-500 hover:bg-white md:p-9">
       <div className="flex items-start justify-between">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-green/8 text-brand-green transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-brand-green group-hover:text-brand-cream">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-brown/8 text-brand-brown transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-brand-brown group-hover:text-brand-cream">
           {icon}
         </div>
         <span className="font-serif text-sm text-brand-gold">{num}</span>
       </div>
       <div>
-        <h3 className="font-serif text-xl text-brand-green">{title}</h3>
+        <h3 className="font-serif text-xl text-brand-brown">{title}</h3>
         <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
           {body}
         </p>
@@ -638,7 +638,7 @@ function ReasonItem({
   body: string
 }) {
   return (
-    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]">
+    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(35,23,17,0.45)]">
       <span
         className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-brand-gold transition-transform duration-700 ease-out group-hover:scale-x-100"
         aria-hidden="true"
@@ -646,7 +646,7 @@ function ReasonItem({
       <p className="font-serif text-4xl text-brand-gold/70 transition-colors duration-500 group-hover:text-brand-gold">
         {num}
       </p>
-      <h4 className="mt-5 font-serif text-xl text-brand-green">{title}</h4>
+      <h4 className="mt-5 font-serif text-xl text-brand-brown">{title}</h4>
       <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
         {body}
       </p>
@@ -678,7 +678,7 @@ function AgentMini({
 }) {
   return (
     <div className="border-l-2 border-brand-gold pl-5">
-      <h3 className="font-serif text-2xl text-brand-green">{name}</h3>
+      <h3 className="font-serif text-2xl text-brand-brown">{name}</h3>
       <p className="mt-0.5 text-xs tracking-[0.16em] text-brand-gold-dark uppercase">
         {role}
       </p>

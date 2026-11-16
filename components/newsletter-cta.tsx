@@ -18,7 +18,7 @@ export function NewsletterCta() {
   return (
     <section className="container-page py-20 md:py-28">
       <FadeIn variant="scale">
-        <div className="grain relative overflow-hidden rounded-[2rem] bg-brand-sage px-7 py-14 text-brand-cream md:px-16 md:py-20">
+        <div className="grain relative overflow-hidden rounded-[2rem] bg-brand-taupe px-7 py-14 text-brand-cream md:px-16 md:py-20">
           <div
             className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full border border-brand-cream/25"
             aria-hidden="true"
@@ -77,7 +77,7 @@ export function NewsletterCta() {
                 href={`https://instagram.com/${SITE.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn w-full border border-brand-cream/50 text-brand-cream hover:bg-brand-cream hover:text-brand-green-dark md:w-auto"
+                className="btn w-full border border-brand-cream/50 text-brand-cream hover:bg-brand-cream hover:text-brand-brown-dark md:w-auto"
               >
                 Instagram · @{SITE.instagram}
               </a>

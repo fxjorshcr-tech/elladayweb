@@ -94,7 +94,7 @@ export function Navbar() {
             ? "border-b border-white/10 bg-brand-ink"
             : overHero
               ? "border-b border-white/10 bg-transparent"
-              : "border-b border-border/70 bg-brand-cream/90 shadow-[0_8px_30px_-18px_rgba(28,41,33,0.35)] backdrop-blur-xl"
+              : "border-b border-border/70 bg-brand-cream/90 shadow-[0_8px_30px_-18px_rgba(35,23,17,0.35)] backdrop-blur-xl"
         )}
       >
         <div className="container-page flex h-16 items-center justify-between md:h-20">
@@ -102,7 +102,7 @@ export function Navbar() {
             <span
               className={cn(
                 "font-serif text-xl tracking-tight transition-colors duration-500 md:text-2xl",
-                light ? "text-white" : "text-brand-green"
+                light ? "text-white" : "text-brand-brown"
               )}
             >
               {SITE.name}
@@ -132,8 +132,8 @@ export function Navbar() {
                         ? "text-white"
                         : "text-white/75 hover:text-white"
                       : active
-                        ? "text-brand-green"
-                        : "text-brand-green/70 hover:text-brand-green"
+                        ? "text-brand-brown"
+                        : "text-brand-brown/70 hover:text-brand-brown"
                   )}
                 >
                   {link.label}
@@ -156,8 +156,8 @@ export function Navbar() {
               className={cn(
                 "hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm tracking-wide transition-all duration-300 xl:inline-flex",
                 light
-                  ? "bg-white text-brand-green-dark hover:bg-brand-gold hover:text-white"
-                  : "bg-brand-green text-brand-cream hover:bg-brand-green-dark"
+                  ? "bg-white text-brand-brown-dark hover:bg-brand-gold hover:text-white"
+                  : "bg-brand-brown text-brand-cream hover:bg-brand-brown-dark"
               )}
             >
               <WhatsAppIcon className="h-4 w-4" />
@@ -181,7 +181,7 @@ export function Navbar() {
                 "relative flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300",
                 light
                   ? "border-white/30 text-white"
-                  : "border-border text-brand-green"
+                  : "border-border text-brand-brown"
               )}
             >
               <span
