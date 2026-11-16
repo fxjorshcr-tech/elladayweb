@@ -38,13 +38,13 @@ export default function AboutPage() {
       <section className="container-page py-24 md:py-32">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <FadeIn className="md:col-span-7">
-            <h2 className="font-display text-fluid-h2 text-brand-green">
+            <h2 className="font-display text-fluid-h2 text-brand-brown">
               {t("about.storyTitle")}
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
               <p>{t("about.story1")}</p>
               <p>{t("about.story2")}</p>
-              <p className="font-serif text-2xl text-brand-green italic md:text-3xl">
+              <p className="font-serif text-2xl text-brand-brown italic md:text-3xl">
                 {t("about.story3")}
               </p>
             </div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 de: "Essenz",
               })}
             </p>
-            <h2 className="font-display text-fluid-h2 mt-4 max-w-3xl leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-4 max-w-3xl leading-tight text-balance text-brand-brown">
               {t("about.essenceTitle")}
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
@@ -95,7 +95,7 @@ export default function AboutPage() {
               ).map((k) => (
                 <span
                   key={k}
-                  className="inline-flex items-center rounded-full border border-brand-sage bg-background px-5 py-2 text-sm tracking-wide text-brand-green"
+                  className="inline-flex items-center rounded-full border border-brand-taupe bg-background px-5 py-2 text-sm tracking-wide text-brand-brown"
                 >
                   {t(`about.${k}` as const)}
                 </span>
@@ -107,19 +107,19 @@ export default function AboutPage() {
 
       <section className="container-page py-24 md:py-28">
         <FadeIn>
-          <h2 className="font-display text-fluid-h2 text-brand-green">
+          <h2 className="font-display text-fluid-h2 text-brand-brown">
             {t("about.valuesTitle")}
           </h2>
         </FadeIn>
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {valueKeys.map((k, i) => (
             <FadeIn key={k} delay={i * 80}>
-              <div className="group h-full rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]">
+              <div className="group h-full rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(35,23,17,0.45)]">
                 <span
                   className="mb-5 block h-px w-10 bg-brand-gold transition-all duration-500 group-hover:w-16"
                   aria-hidden="true"
                 />
-                <h3 className="font-serif text-2xl text-brand-green">
+                <h3 className="font-serif text-2xl text-brand-brown">
                   {t(`about.values.${k}.title` as const)}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -134,7 +134,7 @@ export default function AboutPage() {
       <section className="container-page pb-24">
         <div className="grid gap-5 md:grid-cols-2">
           <FadeIn>
-            <div className="grain relative h-full rounded-3xl bg-brand-sage p-10 text-brand-cream md:p-14">
+            <div className="grain relative h-full rounded-3xl bg-brand-taupe p-10 text-brand-cream md:p-14">
               <p className="text-xs tracking-[0.22em] text-brand-cream/80 uppercase">
                 {t("about.missionTitle")}
               </p>
@@ -144,7 +144,7 @@ export default function AboutPage() {
             </div>
           </FadeIn>
           <FadeIn delay={120}>
-            <div className="grain relative h-full rounded-3xl bg-brand-green-dark p-10 text-brand-cream md:p-14">
+            <div className="grain relative h-full rounded-3xl bg-brand-brown-dark p-10 text-brand-cream md:p-14">
               <p className="text-xs tracking-[0.22em] text-brand-cream/80 uppercase">
                 {t("about.visionTitle")}
               </p>
@@ -178,14 +178,14 @@ export default function AboutPage() {
                 de: "Etwas Persönliches",
               })}
             </p>
-            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-brown">
               {t("about.animalsTitle")}
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
               <p>{t("about.animals1")}</p>
               <p>{t("about.animals2")}</p>
             </div>
-            <div className="mt-8 flex items-center gap-3 text-sm text-brand-green">
+            <div className="mt-8 flex items-center gap-3 text-sm text-brand-brown">
               <PawIcon />
               <span className="tracking-wide">
                 {pick({
@@ -204,7 +204,7 @@ export default function AboutPage() {
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow eyebrow-center">{t("agents.eyebrow")}</p>
-            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-brown">
               {t("agents.title")}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -233,7 +233,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-brand-green py-24 text-brand-cream md:py-28">
+      <section className="bg-brand-brown py-24 text-brand-cream md:py-28">
         <div className="container-narrow text-center">
           <FadeIn>
             <h2 className="font-display text-fluid-h2 leading-tight text-balance">
@@ -287,7 +287,7 @@ function AgentLong({
         />
       </div>
       <div className="mt-6 space-y-3">
-        <h3 className="font-serif text-3xl text-brand-green">{name}</h3>
+        <h3 className="font-serif text-3xl text-brand-brown">{name}</h3>
         <p className="text-xs tracking-[0.16em] text-brand-gold uppercase">
           {role}
         </p>

@@ -40,7 +40,7 @@ export function HeroSearch({ zones }: { zones: [string, L][] }) {
   }
 
   const selectClass =
-    "w-full cursor-pointer appearance-none truncate bg-transparent pr-7 text-[15px] text-brand-green-dark outline-none"
+    "w-full cursor-pointer appearance-none truncate bg-transparent pr-7 text-[15px] text-brand-brown-dark outline-none"
 
   return (
     <form
@@ -94,7 +94,7 @@ export function HeroSearch({ zones }: { zones: [string, L][] }) {
         </span>
       </label>
 
-      <button type="submit" className="btn btn-green mt-2 md:mt-0 md:px-9">
+      <button type="submit" className="btn btn-brown mt-2 md:mt-0 md:px-9">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -121,7 +121,7 @@ function Chevron() {
       fill="none"
       stroke="currentColor"
       strokeWidth="1.6"
-      className="pointer-events-none absolute top-1/2 right-0 h-4 w-4 -translate-y-1/2 text-brand-green/60 transition-transform duration-300 group-hover:translate-y-[-35%]"
+      className="pointer-events-none absolute top-1/2 right-0 h-4 w-4 -translate-y-1/2 text-brand-brown/60 transition-transform duration-300 group-hover:translate-y-[-35%]"
       aria-hidden="true"
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />

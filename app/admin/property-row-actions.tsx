@@ -32,7 +32,7 @@ export function PropertyRowActions({ property }: { property: Property }) {
       <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
         <Link
           href={`/admin/properties/${id}`}
-          className="rounded-full border border-border px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-brand-green transition-colors hover:bg-muted"
+          className="rounded-full border border-border px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-brand-brown transition-colors hover:bg-muted"
         >
           Editar
         </Link>
@@ -44,7 +44,7 @@ export function PropertyRowActions({ property }: { property: Property }) {
               setFlagsAction(id, { published: !property.published })
             )
           }
-          className="rounded-full border border-border px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-brand-green transition-colors hover:bg-muted disabled:opacity-50"
+          className="rounded-full border border-border px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide text-brand-brown transition-colors hover:bg-muted disabled:opacity-50"
         >
           {busy === "published"
             ? "…"
@@ -60,7 +60,7 @@ export function PropertyRowActions({ property }: { property: Property }) {
           }
           className={`rounded-full px-3 py-2.5 text-center text-xs sm:py-1.5 tracking-wide transition-colors disabled:opacity-50 ${
             property.sold
-              ? "border border-border text-brand-green hover:bg-muted"
+              ? "border border-border text-brand-brown hover:bg-muted"
               : "bg-red-600 text-white hover:bg-red-700"
           }`}
         >

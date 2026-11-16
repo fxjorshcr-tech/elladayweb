@@ -112,7 +112,7 @@ export function PropertyDetailClient({
       {t("common.reducedBadge")}
     </span>
   ) : property.isNew ? (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-green px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-brand-cream uppercase shadow-md">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-brown px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-brand-cream uppercase shadow-md">
       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-gold" />
       {t("common.newBadge")}
     </span>
@@ -129,7 +129,7 @@ export function PropertyDetailClient({
             <li>
               <Link
                 href="/"
-                className="transition-colors hover:text-brand-green"
+                className="transition-colors hover:text-brand-brown"
               >
                 {t("nav.home")}
               </Link>
@@ -138,13 +138,13 @@ export function PropertyDetailClient({
             <li>
               <Link
                 href="/properties"
-                className="transition-colors hover:text-brand-green"
+                className="transition-colors hover:text-brand-brown"
               >
                 {t("properties.title")}
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li className="max-w-[16rem] truncate text-brand-green sm:max-w-none">
+            <li className="max-w-[16rem] truncate text-brand-brown sm:max-w-none">
               {propertyTitle}
             </li>
           </ol>
@@ -156,12 +156,12 @@ export function PropertyDetailClient({
         >
           <div className="max-w-3xl">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-brand-green/25 px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-green uppercase">
+              <span className="rounded-full border border-brand-brown/25 px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-brown uppercase">
                 {pick(typeLabels[property.type])}
               </span>
               {badge}
             </div>
-            <h1 className="font-display text-fluid-h1 mt-5 leading-[1.05] text-balance text-brand-green">
+            <h1 className="font-display text-fluid-h1 mt-5 leading-[1.05] text-balance text-brand-brown">
               {propertyTitle}
             </h1>
             <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
@@ -180,7 +180,7 @@ export function PropertyDetailClient({
                 {formatPrice(property.previousPrice, lang, property.currency)}
               </p>
             )}
-            <p className="mt-1 font-serif text-4xl leading-none text-brand-green md:text-5xl">
+            <p className="mt-1 font-serif text-4xl leading-none text-brand-brown md:text-5xl">
               {priceLabel}
             </p>
             {(approxUsd ||
@@ -221,7 +221,7 @@ export function PropertyDetailClient({
 
             <FadeIn delay={80}>
               <div className={specs.length > 0 ? "mt-14" : undefined}>
-                <h2 className="font-serif text-3xl text-brand-green">
+                <h2 className="font-serif text-3xl text-brand-brown">
                   {t("properties.description")}
                 </h2>
                 <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground md:text-[17px]">
@@ -234,7 +234,7 @@ export function PropertyDetailClient({
 
             <FadeIn delay={120}>
               <div className="mt-14">
-                <h2 className="font-serif text-3xl text-brand-green">
+                <h2 className="font-serif text-3xl text-brand-brown">
                   {t("properties.highlights")}
                 </h2>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -244,7 +244,7 @@ export function PropertyDetailClient({
                       className="flex items-center gap-3.5 rounded-xl border border-border bg-brand-cream/60 px-4 py-3.5 text-sm text-foreground transition-colors duration-300 hover:border-brand-gold/60 hover:bg-brand-cream"
                     >
                       <span
-                        className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-green text-brand-cream"
+                        className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-brown text-brand-cream"
                         aria-hidden="true"
                       >
                         <svg
@@ -271,7 +271,7 @@ export function PropertyDetailClient({
 
             <FadeIn delay={160}>
               <div className="mt-14">
-                <h2 className="font-serif text-3xl text-brand-green">
+                <h2 className="font-serif text-3xl text-brand-brown">
                   {t("properties.map")}
                 </h2>
                 <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
@@ -307,8 +307,8 @@ export function PropertyDetailClient({
           <aside className="lg:col-span-1">
             <div className="sticky top-28">
               <FadeIn variant="right">
-                <div className="overflow-hidden rounded-3xl border border-border bg-brand-cream shadow-[0_30px_60px_-40px_rgba(28,41,33,0.5)]">
-                  <div className="grain relative bg-brand-green-dark p-7 text-brand-cream">
+                <div className="overflow-hidden rounded-3xl border border-border bg-brand-cream shadow-[0_30px_60px_-40px_rgba(35,23,17,0.5)]">
+                  <div className="grain relative bg-brand-brown-dark p-7 text-brand-cream">
                     <p className="text-[11px] tracking-[0.18em] text-brand-cream/70 uppercase">
                       {property.priceOnRequest
                         ? pick(typeLabels[property.type])
@@ -342,7 +342,7 @@ export function PropertyDetailClient({
                   </div>
 
                   <div className="p-7">
-                    <h3 className="font-serif text-2xl text-brand-green">
+                    <h3 className="font-serif text-2xl text-brand-brown">
                       {t("properties.inquire")}
                     </h3>
                     <p className="mt-2 text-sm text-muted-foreground">
@@ -378,7 +378,7 @@ export function PropertyDetailClient({
                       de: "Weiter entdecken",
                     })}
                   </p>
-                  <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-brand-green">
+                  <h2 className="font-display text-fluid-h2 mt-5 leading-tight text-brand-brown">
                     {pick({
                       es: "También te puede interesar",
                       en: "You may also like",
@@ -405,10 +405,10 @@ export function PropertyDetailClient({
       )}
 
       {/* Phones: price and WhatsApp always one tap away */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-brand-cream/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_30px_-18px_rgba(28,41,33,0.45)] backdrop-blur-xl md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-brand-cream/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_30px_-18px_rgba(35,23,17,0.45)] backdrop-blur-xl md:hidden">
         <div className="flex items-center justify-between gap-4 px-5 py-3">
           <div className="min-w-0">
-            <p className="truncate font-serif text-xl leading-tight text-brand-green">
+            <p className="truncate font-serif text-xl leading-tight text-brand-brown">
               {priceLabel}
             </p>
             {approxUsd && (
@@ -442,7 +442,7 @@ function Spec({
   return (
     <div className="rounded-2xl border border-border bg-brand-cream/60 p-5 transition-colors duration-300 hover:border-brand-gold/60 hover:bg-brand-cream">
       <span className="text-brand-gold-dark">{icon}</span>
-      <p className="mt-4 font-serif text-2xl leading-none text-brand-green">
+      <p className="mt-4 font-serif text-2xl leading-none text-brand-brown">
         {value}
       </p>
       <p className="mt-2 text-[11px] tracking-[0.16em] text-muted-foreground uppercase">

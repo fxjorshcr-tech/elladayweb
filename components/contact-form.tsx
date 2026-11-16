@@ -81,7 +81,7 @@ export function ContactForm({ prefillSubject, className }: Props) {
       </div>
 
       <div className="pt-4">
-        <button type="submit" className="btn btn-green w-full sm:w-auto">
+        <button type="submit" className="btn btn-brown w-full sm:w-auto">
           {t("contact.sendWhatsApp")}
         </button>
       </div>

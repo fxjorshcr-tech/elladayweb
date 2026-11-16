@@ -182,7 +182,7 @@ export function PropertyGallery({ images }: { images: GalleryImage[] }) {
           <button
             type="button"
             onClick={() => openAt(0)}
-            className="absolute right-5 bottom-5 inline-flex items-center gap-2 rounded-full bg-brand-cream/95 px-5 py-2.5 text-sm tracking-wide text-brand-green-dark shadow-lg backdrop-blur transition-all duration-300 hover:bg-white hover:shadow-xl"
+            className="absolute right-5 bottom-5 inline-flex items-center gap-2 rounded-full bg-brand-cream/95 px-5 py-2.5 text-sm tracking-wide text-brand-brown-dark shadow-lg backdrop-blur transition-all duration-300 hover:bg-white hover:shadow-xl"
           >
             <CameraIcon />
             {allPhotosLabel}

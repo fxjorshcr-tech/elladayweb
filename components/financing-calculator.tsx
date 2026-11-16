@@ -28,7 +28,7 @@ export function FinancingCalculator({
 
   return (
     <div className="rounded-3xl border border-border bg-brand-cream p-7 md:p-9">
-      <h2 className="font-serif text-3xl text-brand-green">
+      <h2 className="font-serif text-3xl text-brand-brown">
         {pick({
           es: "Calculadora de financiamiento",
           en: "Financing calculator",
@@ -99,7 +99,7 @@ export function FinancingCalculator({
             de: "Geschätzte Monatsrate",
           })}
         </p>
-        <p className="mt-2 font-serif text-3xl text-brand-green md:text-4xl">
+        <p className="mt-2 font-serif text-3xl text-brand-brown md:text-4xl">
           {formatPrice(Math.round(monthly), lang, currency)}
           {formatApproxUsd(monthly, currency) && (
             <span className="ml-3 text-base text-muted-foreground">
@@ -143,7 +143,7 @@ function Slider({
         <label className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
           {label}
         </label>
-        <span className="text-sm text-brand-green">{valueLabel}</span>
+        <span className="text-sm text-brand-brown">{valueLabel}</span>
       </div>
       <input
         type="range"

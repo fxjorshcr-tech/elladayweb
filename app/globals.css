@@ -8,12 +8,12 @@
     --font-heading: var(--font-serif);
     --font-serif: var(--font-serif);
     --font-sans: var(--font-sans);
-    --color-brand-green: var(--brand-green);
-    --color-brand-green-dark: var(--brand-green-dark);
+    --color-brand-brown: var(--brand-brown);
+    --color-brand-brown-dark: var(--brand-brown-dark);
     --color-brand-gold: var(--brand-gold);
     --color-brand-gold-dark: var(--brand-gold-dark);
-    --color-brand-sage: var(--brand-sage);
-    --color-brand-sage-light: var(--brand-sage-light);
+    --color-brand-taupe: var(--brand-taupe);
+    --color-brand-taupe-light: var(--brand-taupe-light);
     --color-brand-cream: var(--brand-cream);
     --color-brand-bg: var(--brand-bg);
     --color-brand-ink: var(--brand-ink);
@@ -58,49 +58,50 @@
 }
 
 :root {
-    --brand-bg: #eef1e7;
-    --brand-cream: #f6f3ea;
-    --brand-sage: #9daa94;
-    --brand-sage-light: #c4cebb;
-    --brand-green: #4a6354;
-    --brand-green-dark: #364a3d;
-    --brand-gold: #b89e7c;
-    --brand-gold-dark: #957d5e;
-    --brand-ink: #1c2921;
+    /* Coffee palette: warm ivory surfaces, espresso text, antique-gold accent. */
+    --brand-bg: #f4eee5;
+    --brand-cream: #fbf7f0;
+    --brand-taupe: #9a7f65;
+    --brand-taupe-light: #d9cbb8;
+    --brand-brown: #6b4a36;
+    --brand-brown-dark: #4a3124;
+    --brand-gold: #b08a57;
+    --brand-gold-dark: #8a693c;
+    --brand-ink: #231711;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-    --background: #eef1e7;
-    --foreground: #364a3d;
-    --card: #f6f3ea;
-    --card-foreground: #364a3d;
-    --popover: #f6f3ea;
-    --popover-foreground: #364a3d;
-    --primary: #4a6354;
-    --primary-foreground: #f6f3ea;
-    --secondary: #f6f3ea;
-    --secondary-foreground: #4a6354;
-    --muted: #e3e7da;
-    --muted-foreground: #6b7a68;
-    --accent: #b89e7c;
+    --background: #f4eee5;
+    --foreground: #4a3124;
+    --card: #fbf7f0;
+    --card-foreground: #4a3124;
+    --popover: #fbf7f0;
+    --popover-foreground: #4a3124;
+    --primary: #6b4a36;
+    --primary-foreground: #fbf7f0;
+    --secondary: #fbf7f0;
+    --secondary-foreground: #6b4a36;
+    --muted: #ebe2d5;
+    --muted-foreground: #7a6858;
+    --accent: #b08a57;
     --accent-foreground: #ffffff;
     --destructive: oklch(0.577 0.245 27.325);
-    --border: #d3dac9;
-    --input: #d3dac9;
-    --ring: #b89e7c;
-    --chart-1: #4a6354;
-    --chart-2: #b89e7c;
-    --chart-3: #9daa94;
-    --chart-4: #957d5e;
-    --chart-5: #364a3d;
+    --border: #e0d4c3;
+    --input: #e0d4c3;
+    --ring: #b08a57;
+    --chart-1: #6b4a36;
+    --chart-2: #b08a57;
+    --chart-3: #9a7f65;
+    --chart-4: #8a693c;
+    --chart-5: #4a3124;
     --radius: 0.5rem;
-    --sidebar: #f6f3ea;
-    --sidebar-foreground: #4a6354;
-    --sidebar-primary: #4a6354;
-    --sidebar-primary-foreground: #f6f3ea;
-    --sidebar-accent: #e3e7da;
-    --sidebar-accent-foreground: #4a6354;
-    --sidebar-border: #d3dac9;
-    --sidebar-ring: #b89e7c;
+    --sidebar: #fbf7f0;
+    --sidebar-foreground: #6b4a36;
+    --sidebar-primary: #6b4a36;
+    --sidebar-primary-foreground: #fbf7f0;
+    --sidebar-accent: #ebe2d5;
+    --sidebar-accent-foreground: #6b4a36;
+    --sidebar-border: #e0d4c3;
+    --sidebar-ring: #b08a57;
 }
 
 @layer base {
@@ -116,10 +117,28 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+  /* Reveal animations park elements a few px off-canvas before they enter;
+     without this the page can be nudged sideways on phones. */
+  html, body {
+    overflow-x: clip;
+  }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
     font-weight: 500;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
+  }
+  /* Cormorant Garamond is drawn with a small x-height and old-style
+     figures. Normalise the x-height so serif text reads at the size its
+     text-* class asks for, and use lining figures so prices align. */
+  h1, h2, h3, h4, .font-serif, .font-display {
+    font-size-adjust: 0.43;
+    font-variant-numeric: lining-nums;
+  }
+  .font-sans {
+    font-size-adjust: none;
+  }
+  .font-serif {
+    font-weight: 500;
   }
 }
 
@@ -130,7 +149,7 @@
   .font-display {
     font-family: var(--font-serif);
     font-weight: 500;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.015em;
     line-height: 1.04;
   }
   /* Fluid display sizes: scale smoothly between mobile and desktop
@@ -171,19 +190,19 @@
     transform: translateX(4px);
   }
   .btn-gold {
-    @apply bg-brand-gold text-white shadow-[0_12px_30px_-14px_rgba(149,125,94,0.9)] hover:bg-brand-gold-dark;
+    @apply bg-brand-gold text-white shadow-[0_12px_30px_-14px_rgba(138,105,60,0.9)] hover:bg-brand-gold-dark;
   }
-  .btn-green {
-    @apply bg-brand-green text-brand-cream hover:bg-brand-green-dark;
+  .btn-brown {
+    @apply bg-brand-brown text-brand-cream hover:bg-brand-brown-dark;
   }
   .btn-cream {
-    @apply bg-brand-cream text-brand-green-dark hover:bg-white;
+    @apply bg-brand-cream text-brand-brown-dark hover:bg-white;
   }
   .btn-outline-light {
-    @apply border border-white/40 text-white hover:border-white hover:bg-white hover:text-brand-green-dark;
+    @apply border border-white/40 text-white hover:border-white hover:bg-white hover:text-brand-brown-dark;
   }
   .btn-outline-dark {
-    @apply border border-brand-green/30 text-brand-green hover:border-brand-green hover:bg-brand-green hover:text-brand-cream;
+    @apply border border-brand-brown/30 text-brand-brown hover:border-brand-brown hover:bg-brand-brown hover:text-brand-cream;
   }
   .eyebrow {
     @apply flex items-center gap-3 font-sans text-[11px] tracking-[0.26em] text-brand-gold uppercase;
@@ -262,8 +281,9 @@
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
-  padding-bottom: 0.12em;
-  margin-bottom: -0.12em;
+  /* Room for accents and descenders, which the mask would otherwise clip. */
+  padding: 0.1em 0 0.22em;
+  margin: -0.1em 0 -0.22em;
 }
 .word-mask > span {
   display: inline-block;

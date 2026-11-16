@@ -45,7 +45,7 @@ export default async function AdminHomePage() {
           <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
             Propiedades
           </p>
-          <h1 className="mt-3 font-serif text-3xl text-brand-green md:text-4xl">
+          <h1 className="mt-3 font-serif text-3xl text-brand-brown md:text-4xl">
             {list.length} {list.length === 1 ? "propiedad" : "propiedades"}
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -55,7 +55,7 @@ export default async function AdminHomePage() {
         </div>
         <Link
           href="/admin/properties/new"
-          className="w-full rounded-full bg-brand-green px-6 py-3.5 text-center text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark sm:w-auto"
+          className="w-full rounded-full bg-brand-brown px-6 py-3.5 text-center text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-brown-dark sm:w-auto"
         >
           + Nueva propiedad
         </Link>
@@ -85,7 +85,7 @@ export default async function AdminHomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone={p.published ? "green" : "muted"}>
+                  <Badge tone={p.published ? "primary" : "muted"}>
                     {p.published ? "Publicada" : "Borrador"}
                   </Badge>
                   {p.sold && <Badge tone="red">Vendida</Badge>}
@@ -96,7 +96,7 @@ export default async function AdminHomePage() {
                 </div>
                 <Link
                   href={`/admin/properties/${p.id}`}
-                  className="mt-2 block truncate font-serif text-xl text-brand-green hover:underline"
+                  className="mt-2 block truncate font-serif text-xl text-brand-brown hover:underline"
                 >
                   {p.title.es}
                 </Link>
@@ -122,11 +122,11 @@ function Badge({
   tone,
   children,
 }: {
-  tone: "green" | "red" | "gold" | "muted"
+  tone: "primary" | "red" | "gold" | "muted"
   children: React.ReactNode
 }) {
   const classes = {
-    green: "bg-brand-green text-brand-cream",
+    primary: "bg-brand-brown text-brand-cream",
     red: "bg-red-600 text-white",
     gold: "bg-brand-gold text-white",
     muted: "bg-muted text-muted-foreground",
@@ -143,7 +143,7 @@ function Badge({
 function SetupNotice() {
   return (
     <div className="max-w-2xl space-y-4 rounded-md border border-brand-gold/40 bg-brand-cream p-8 text-sm leading-relaxed text-foreground">
-      <h1 className="font-serif text-2xl text-brand-green">
+      <h1 className="font-serif text-2xl text-brand-brown">
         Falta conectar Supabase
       </h1>
       <p>

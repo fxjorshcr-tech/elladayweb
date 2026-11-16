@@ -153,7 +153,7 @@ export function PhotoUploader({
             : "border-border bg-white/60 hover:border-brand-gold"
         }`}
       >
-        <p className="font-serif text-lg text-brand-green">
+        <p className="font-serif text-lg text-brand-brown">
           Toca aquí para elegir fotos
         </p>
         <p className="mt-1 text-xs text-muted-foreground">
@@ -225,7 +225,7 @@ export function PhotoUploader({
                 />
               </div>
               {i === 0 && (
-                <span className="absolute top-2 left-2 rounded-full bg-brand-green px-2 py-0.5 text-[10px] font-semibold tracking-[0.16em] text-brand-cream uppercase">
+                <span className="absolute top-2 left-2 rounded-full bg-brand-brown px-2 py-0.5 text-[10px] font-semibold tracking-[0.16em] text-brand-cream uppercase">
                   Portada
                 </span>
               )}
@@ -286,7 +286,7 @@ function IconBtn({
       disabled={disabled}
       aria-label={label}
       title={label}
-      className="rounded px-2 py-1 text-brand-green hover:bg-muted disabled:opacity-30"
+      className="rounded px-2 py-1 text-brand-brown hover:bg-muted disabled:opacity-30"
     >
       {children}
     </button>

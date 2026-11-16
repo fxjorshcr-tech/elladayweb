@@ -11,7 +11,7 @@ export default async function AdminLoginPage() {
       <p className="text-xs tracking-[0.22em] text-brand-gold uppercase">
         Acceso privado
       </p>
-      <h1 className="mt-3 font-serif text-3xl text-brand-green">
+      <h1 className="mt-3 font-serif text-3xl text-brand-brown">
         Panel de propiedades
       </h1>
       <p className="mt-3 text-sm text-muted-foreground">

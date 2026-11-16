@@ -200,7 +200,7 @@ export function GuideClient() {
                 de: "Der Ablauf",
               })}
             </p>
-            <h2 className="font-display text-fluid-h2 mt-5 text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-5 text-brand-brown">
               {pick({
                 es: "El proceso, paso a paso",
                 en: "The process, step by step",
@@ -212,7 +212,7 @@ export function GuideClient() {
               {steps.map((step, i) => (
                 <div
                   key={step.title}
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]"
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(35,23,17,0.45)]"
                 >
                   <span
                     className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-brand-gold transition-transform duration-700 ease-out group-hover:scale-x-100"
@@ -221,7 +221,7 @@ export function GuideClient() {
                   <p className="font-serif text-4xl text-brand-gold/70 transition-colors duration-500 group-hover:text-brand-gold">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-5 font-serif text-xl text-brand-green">
+                  <h3 className="mt-5 font-serif text-xl text-brand-brown">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -238,7 +238,7 @@ export function GuideClient() {
         <div className="container-narrow">
           <FadeIn>
             <p className="eyebrow">FAQ</p>
-            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-green">
+            <h2 className="font-display text-fluid-h2 mt-4 leading-tight text-balance text-brand-brown">
               {pick({
                 es: "Preguntas frecuentes",
                 en: "Frequently asked questions",
@@ -255,7 +255,7 @@ export function GuideClient() {
 
       <section className="container-narrow py-20 text-center md:py-24">
         <FadeIn>
-          <h2 className="font-display text-fluid-h2 leading-tight text-balance text-brand-green">
+          <h2 className="font-display text-fluid-h2 leading-tight text-balance text-brand-brown">
             {pick({
               es: "¿Tienes otra pregunta?",
               en: "Have another question?",
@@ -283,7 +283,7 @@ export function GuideClient() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-green"
+              className="btn btn-brown"
             >
               WhatsApp · {SITE.whatsappDisplay}
             </a>

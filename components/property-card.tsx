@@ -56,7 +56,7 @@ export function PropertyCard({
       onFocus={() => setPeek(true)}
       className={cn("group block", className)}
     >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-[0_1px_2px_rgba(28,41,33,0.08)] transition-[box-shadow,transform] duration-500 ease-out group-hover:-translate-y-1.5 group-hover:shadow-[0_30px_60px_-30px_rgba(28,41,33,0.55)]">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-[0_1px_2px_rgba(35,23,17,0.08)] transition-[box-shadow,transform] duration-500 ease-out group-hover:-translate-y-1.5 group-hover:shadow-[0_30px_60px_-30px_rgba(35,23,17,0.55)]">
         <Image
           src={property.images[0].src}
           alt={property.images[0].alt}
@@ -89,7 +89,7 @@ export function PropertyCard({
         {property.sold && <div className="absolute inset-0 bg-brand-ink/25" />}
 
         <div className="absolute top-4 left-4 flex items-center gap-1.5">
-          <span className="rounded-full bg-brand-cream/95 px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-green-dark uppercase backdrop-blur">
+          <span className="rounded-full bg-brand-cream/95 px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-brand-brown-dark uppercase backdrop-blur">
             {pick(typeLabels[property.type])}
           </span>
           {property.images.length > 1 && (
@@ -109,7 +109,7 @@ export function PropertyCard({
             {t("common.reducedBadge")}
           </div>
         ) : property.isNew ? (
-          <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-brand-green px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-brand-cream uppercase shadow-md">
+          <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-brand-brown px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-brand-cream uppercase shadow-md">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-gold" />
             {t("common.newBadge")}
           </div>
@@ -147,13 +147,13 @@ export function PropertyCard({
           <PinIcon className="h-3.5 w-3.5 flex-none" />
           <span className="truncate">{pick(property.location)}</span>
         </p>
-        <h3 className="mt-2.5 font-serif text-[1.35rem] leading-snug text-brand-green transition-colors duration-300 group-hover:text-brand-green-dark">
+        <h3 className="mt-2.5 font-serif text-[1.35rem] leading-snug text-brand-brown transition-colors duration-300 group-hover:text-brand-brown-dark">
           <span className="link-draw">{pick(property.title)}</span>
         </h3>
         {(property.bedrooms != null ||
           property.bathrooms != null ||
           sizeLabel) && (
-          <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-brand-green/80">
+          <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-brand-brown/80">
             {property.bedrooms != null && (
               <span className="inline-flex items-center gap-1.5">
                 <BedIcon className="text-brand-gold-dark" />

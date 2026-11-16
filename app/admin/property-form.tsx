@@ -206,11 +206,11 @@ export function PropertyForm({
         <div>
           <Link
             href="/admin"
-            className="text-xs tracking-wide text-muted-foreground hover:text-brand-green"
+            className="text-xs tracking-wide text-muted-foreground hover:text-brand-brown"
           >
             ← Volver a la lista
           </Link>
-          <h1 className="mt-3 font-serif text-3xl text-brand-green md:text-4xl">
+          <h1 className="mt-3 font-serif text-3xl text-brand-brown md:text-4xl">
             {property ? "Editar propiedad" : "Nueva propiedad"}
           </h1>
         </div>
@@ -218,7 +218,7 @@ export function PropertyForm({
           <Link
             href={`/properties/${property.slug}`}
             target="_blank"
-            className="text-sm text-brand-green underline underline-offset-4"
+            className="text-sm text-brand-brown underline underline-offset-4"
           >
             Ver en el sitio ↗
           </Link>
@@ -327,7 +327,7 @@ export function PropertyForm({
               type="checkbox"
               checked={form.priceOnRequest}
               onChange={(e) => set("priceOnRequest", e.target.checked)}
-              className="h-5 w-5 accent-brand-green"
+              className="h-5 w-5 accent-brand-brown"
             />
             Precio a consultar (no se muestra un monto)
           </label>
@@ -371,7 +371,7 @@ export function PropertyForm({
                   type="checkbox"
                   checked={form.negotiable}
                   onChange={(e) => set("negotiable", e.target.checked)}
-                  className="h-5 w-5 accent-brand-green"
+                  className="h-5 w-5 accent-brand-brown"
                 />
                 Precio negociable
               </label>
@@ -484,7 +484,7 @@ export function PropertyForm({
                     <button
                       type="button"
                       onClick={() => setShowTranslations((v) => !v)}
-                      className="rounded-full border border-border px-3 py-1.5 text-xs text-brand-green hover:bg-muted"
+                      className="rounded-full border border-border px-3 py-1.5 text-xs text-brand-brown hover:bg-muted"
                     >
                       {showTranslations ? "Ocultar" : "Ver traducciones"}
                     </button>
@@ -510,7 +510,7 @@ export function PropertyForm({
                       <p className="text-xs tracking-[0.16em] text-brand-gold uppercase">
                         {lang}
                       </p>
-                      <p className="font-medium text-brand-green">
+                      <p className="font-medium text-brand-brown">
                         {form.translations![lang].title}
                       </p>
                       <p className="text-muted-foreground">
@@ -542,7 +542,7 @@ export function PropertyForm({
           </p>
         )}
         {notice && (
-          <p className="rounded-md bg-brand-green/10 px-4 py-3 text-sm text-brand-green">
+          <p className="rounded-md bg-brand-brown/10 px-4 py-3 text-sm text-brand-brown">
             {notice}
           </p>
         )}
@@ -552,14 +552,14 @@ export function PropertyForm({
             type="button"
             disabled={saving !== null}
             onClick={() => void save(false)}
-            className="rounded-full border border-border px-5 py-3.5 text-sm tracking-wide text-brand-green transition-colors hover:bg-muted disabled:opacity-50"
+            className="rounded-full border border-border px-5 py-3.5 text-sm tracking-wide text-brand-brown transition-colors hover:bg-muted disabled:opacity-50"
           >
             {saving === "draft" ? "Guardando…" : "Guardar borrador"}
           </button>
           <button
             type="submit"
             disabled={saving !== null}
-            className="rounded-full bg-brand-green px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-green-dark disabled:opacity-50"
+            className="rounded-full bg-brand-brown px-7 py-3.5 text-sm tracking-wide text-brand-cream transition-colors hover:bg-brand-brown-dark disabled:opacity-50"
           >
             {saving === "publish"
               ? translationEnabled && !form.translations
@@ -577,7 +577,7 @@ export function PropertyForm({
 
 // 16px text: iOS Safari zooms the page on focus for anything smaller.
 const inputClass =
-  "mt-2 w-full rounded-md border border-border bg-white px-3.5 py-3 text-base text-brand-green outline-none transition-colors focus:border-brand-gold"
+  "mt-2 w-full rounded-md border border-border bg-white px-3.5 py-3 text-base text-brand-brown outline-none transition-colors focus:border-brand-gold"
 
 function Section({
   title,
@@ -590,7 +590,7 @@ function Section({
 }) {
   return (
     <section className="rounded-md border border-border bg-brand-cream p-6 md:p-8">
-      <h2 className="font-serif text-2xl text-brand-green">{title}</h2>
+      <h2 className="font-serif text-2xl text-brand-brown">{title}</h2>
       {description && (
         <p className="mt-2 text-sm text-muted-foreground">{description}</p>
       )}

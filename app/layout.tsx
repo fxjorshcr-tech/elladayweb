@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Fraunces, Inter } from "next/font/google"
+import { Cormorant_Garamond, Jost } from "next/font/google"
 
 import "./globals.css"
 import { LanguageProvider } from "@/lib/i18n/provider"
@@ -7,20 +7,20 @@ import { SiteChrome } from "@/components/site-chrome"
 import { cn } from "@/lib/utils"
 import { SITE } from "@/lib/constants"
 
-const fontSerif = Fraunces({
+const fontSerif = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600"],
+  weight: ["500", "600"],
   style: ["normal", "italic"],
 })
 
-const fontSans = Inter({
+const fontSans = Jost({
   subsets: ["latin"],
   variable: "--font-sans",
 })
 
 export const viewport: Viewport = {
-  themeColor: "#eef1e7",
+  themeColor: "#f4eee5",
   viewportFit: "cover",
 }
 

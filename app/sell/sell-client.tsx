@@ -84,7 +84,7 @@ export function SellClient() {
             {benefits.map((b, i) => (
               <div
                 key={b.title}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(28,41,33,0.45)]"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-brand-cream/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/60 hover:bg-brand-cream hover:shadow-[0_24px_50px_-30px_rgba(35,23,17,0.45)]"
               >
                 <span
                   className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-brand-gold transition-transform duration-700 ease-out group-hover:scale-x-100"
@@ -93,7 +93,7 @@ export function SellClient() {
                 <p className="font-serif text-4xl text-brand-gold/70 transition-colors duration-500 group-hover:text-brand-gold">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-5 font-serif text-xl text-brand-green">
+                <h3 className="mt-5 font-serif text-xl text-brand-brown">
                   {b.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -106,7 +106,7 @@ export function SellClient() {
 
         <div className="mt-20 grid gap-12 md:grid-cols-2 md:gap-16">
           <FadeIn>
-            <h2 className="font-serif text-3xl text-brand-green">
+            <h2 className="font-serif text-3xl text-brand-brown">
               {pick({
                 es: "Cuéntanos sobre tu propiedad",
                 en: "Tell us about your property",
@@ -129,7 +129,7 @@ export function SellClient() {
 
           <FadeIn delay={120}>
             <div className="rounded-3xl border border-border bg-brand-cream p-7 md:p-9">
-              <h3 className="font-serif text-2xl text-brand-green">
+              <h3 className="font-serif text-2xl text-brand-brown">
                 {pick({
                   es: "Lo que nos ayuda a vender más rápido",
                   en: "What helps us sell faster",
@@ -337,7 +337,7 @@ function SellForm() {
         />
       </div>
       <div className="pt-4">
-        <button type="submit" className="btn btn-green">
+        <button type="submit" className="btn btn-brown">
           {t("contact.sendWhatsApp")}
         </button>
       </div>

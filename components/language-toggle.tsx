@@ -32,11 +32,11 @@ export function LanguageToggle({
             "rounded-full px-2 py-1 transition-colors duration-300",
             lang === l.code
               ? tone === "light"
-                ? "bg-white text-brand-green-dark"
-                : "bg-brand-green text-brand-cream"
+                ? "bg-white text-brand-brown-dark"
+                : "bg-brand-brown text-brand-cream"
               : tone === "light"
                 ? "text-white/75 hover:text-white"
-                : "text-brand-green/70 hover:text-brand-green"
+                : "text-brand-brown/70 hover:text-brand-brown"
           )}
           aria-pressed={lang === l.code}
         >
